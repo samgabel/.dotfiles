@@ -55,12 +55,12 @@ symbol = " "
 format = "via [$symbol$branch]($style) "
 # truncation_length = 4
 truncation_symbol = "…/"
-style = "bold green"
+style = "202"
 
 # Shows current git status
 [git_status]
 format = '[\($all_status$ahead_behind\)]($style) '
-style = "bold green"
+style = "202"
 conflicted = "🏳"
 up_to_date = " "
 untracked = " "
