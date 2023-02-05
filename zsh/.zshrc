@@ -9,4 +9,3 @@ source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 # Load Starship
 eval "$(starship init zsh)"
-

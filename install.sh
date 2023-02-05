@@ -1,18 +1,29 @@
-# install homebrew package manager
-NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# --------Install homebrew, packages, and stow (create symlinks)---------
 
-# install packages
-brew install \
-  zsh \
-  stow \
-  exa \
-  starship \
-  zsh-autocorrections \
-  zsh-syntac-highliting
+
+# define the packages to be installed
+declare -a packages=("stow" "exa" "starship" "zsh-autosuggestions" "zsh-syntax-highliting")
+
+
+# check if Homebrew is installed
+if ! command -v brew >/dev/null; then
+  echo "Homebrew is not installed. Installing Homebrew..."
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+fi
+
+
+# loop through the packages array
+for package in "${packages[@]}"; do
+  # check if the package is already installed
+  if ! brew ls --versions "$package" >/dev/null; then
+    echo "Installing $package..."
+    brew install "$package"
+  else
+    echo "$package is already installed."
+  fi
+done
+
 
 # stow
 stow zsh
 stow vim
-
-# make zsh default shell
-chsh $(which zsh)

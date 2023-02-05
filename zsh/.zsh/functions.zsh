@@ -1,7 +1,7 @@
 #Turning PROXMOX On
 function proxmox-on(){
 
-  echo qwerty | sudo -S wakeonlan d4:be:d9:8e:4b:7b
+  echo Pearl1Lucky!! | sudo -S wakeonlan d4:be:d9:8e:4b:7b
 
   }
 
