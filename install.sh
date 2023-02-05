@@ -2,7 +2,7 @@
 
 
 # define the packages to be installed
-declare -a packages=("stow" "exa" "starship" "zsh-autosuggestions" "zsh-syntax-highliting")
+declare -a packages=("stow" "exa" "starship" "zsh-autosuggestions" "zsh-syntax-highlighting")
 
 
 # check if Homebrew is installed
@@ -25,5 +25,7 @@ done
 
 
 # stow
+echo "Stowing ZSH Configurations..."
 stow zsh
+echo "Stowing VIM Configurations..."
 stow vim
