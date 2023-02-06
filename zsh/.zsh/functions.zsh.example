@@ -1,7 +1,7 @@
 #Turning PROXMOX On
 function proxmox-on(){
 
-  echo Pearl1Lucky!! | sudo -S wakeonlan d4:be:d9:8e:4b:7b
+  echo <password> | sudo -S wakeonlan <MAC Address for Proxmox Server>
 
   }
 
@@ -9,6 +9,6 @@ function proxmox-on(){
 #Opening PROXMOX Dashboard
 function proxmox-dashboard(){
 
-  open https://10.6.1.2:8006/
+  open https://<IPv4 Address:Port/>
 
   }
