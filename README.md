@@ -3,7 +3,7 @@
 These are my personal dotfiles used for MacOS
 
 
-## Packages (Uses Homebrew to install)
+## Packages
 
 - stow
 - starship
