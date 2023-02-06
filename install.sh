@@ -45,7 +45,7 @@ echo "################################################"
 # Check for a compatible Nerd Font
 if ! command -v gf >/dev/null; then
   echo "\nNerd Font is not installed."
-  echo "\nList of Nerd Fonts: \nhttps://www.nerdfonts.com/font-downloads
+  echo "\nList of Nerd Fonts: \nhttps://www.nerdfonts.com/font-downloads"
   echo "Brew Install instructions: \nhttps://gist.github.com/davidteren/898f2dcccd42d9f8680ec69a3a5d350e"
 else
   echo "\nNerd Font is installed."
