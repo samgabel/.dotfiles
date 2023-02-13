@@ -12,7 +12,7 @@ These are my personal dotfiles used for MacOS
 - zsh-syntax-highlighting
 
 
-## Installation
+## Installation Instructions
 
 1) Clone this git repository to your home directory and then run
 'installation.sh' in the .dotfile-macos directory
