@@ -1,7 +1,8 @@
 # --------Install homebrew, packages, and stow (create symlinks)---------
+# ONLY RUN IF ON MACOS
 
 # Define the packages to be installed
-declare -a packages=("exa" "stow" "starship" "zsh-autosuggestions" "zsh-syntax-highlighting")
+declare -a packages=("exa" "stow" "starship" "zsh-autosuggestions" "zsh-syntax-highlighting" "neofetch")
 
 # check if Homebrew is installed
 if ! command -v brew >/dev/null; then
