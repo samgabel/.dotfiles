@@ -1,8 +1,20 @@
 # find out which distribution we are running on
 LFILE="/etc/os-release"
 MFILE="/System/Library/CoreServices/SystemVersion.plist"
+
+
+# LINUX ------------
 if [[ -f $LFILE ]]; then
   _distro=$(awk '/^NAME=/' /etc/os-release | awk -F'=' '{ print tolower($2) }')
+
+  # on linux use systemd to determine if we are in a virtual environment or not
+  _device=$(systemd-detect-virt)
+  case $_device in
+    *none*)        DEVICE="";;
+    *)             DEVICE="";;
+  esac
+
+#MacOS --------------
 elif [[ -f $MFILE ]]; then
   _distro="macos"
 
@@ -11,9 +23,10 @@ elif [[ -f $MFILE ]]; then
 
   case $_device in
     *MacBook*)     DEVICE="";;
-    *)             DEVICE="";;
+    *)             DEVICE="󰧨";;
   esac
 fi
+
 
 # set an icon based on the distro
 # make sure your font is compatible with https://github.com/lukas-w/font-logos
