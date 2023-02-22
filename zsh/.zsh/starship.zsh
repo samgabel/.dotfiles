@@ -7,6 +7,16 @@ MFILE="/System/Library/CoreServices/SystemVersion.plist"
 if [[ -f $LFILE ]]; then
   _distro=$(awk '/^NAME=/' /etc/os-release | awk -F'=' '{ print tolower($2) }')
 
+   #sorting out debian if it is true debian or raspbian debian
+  if [[ $_distro == *debian* ]]; then
+    VERSION_CODENAME=$(awk -F'=' '/VERSION_CODENAME/ {print $2}' /etc/os-release)
+    if [[ $VERSION_CODENAME == bullseye ]]; then
+      _distro="raspbian"
+    else
+      _distro="debian"
+    fi
+  fi
+
   # on linux use systemd to determine if we are in a virtual environment or not
   _device=$(systemd-detect-virt)
   case $_device in
