@@ -17,7 +17,6 @@
 
 # on login
 echo
-echo 
 neofetch
 
 # Load Starship

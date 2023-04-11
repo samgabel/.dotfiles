@@ -16,9 +16,9 @@ These are my personal dotfiles used for MacOS[intel]
 <br>
 
 **Editor**
-- neovim (devel)
-- ripgrep
-- node
+- neovim (NvChad)
+- npm
+- python
 
 
 ## Installation Instructions
