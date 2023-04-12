@@ -15,9 +15,6 @@
 [[ -d /usr/share/zsh/plugins/zsh-syntax-highlighting ]] && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 
-# on login
-echo
-neofetch
 
 # Load Starship
 eval "$(starship init zsh)"
