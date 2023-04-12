@@ -14,7 +14,7 @@ error_symbol = ""
 # ---
 # Shows whether you are inside a virtual environment
 [env_var.VIRTUAL_ENV]
-format = "[VENV](bold green) "
+format = '[󰇙VENV󰇙](bold blue) '
 disabled = false
 
 # Shows an icon depending on what distro it is running on

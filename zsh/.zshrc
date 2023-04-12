@@ -14,7 +14,9 @@
 [[ -d /usr/share/zsh/plugins/zsh-autosuggestions ]] && source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 [[ -d /usr/share/zsh/plugins/zsh-syntax-highlighting ]] && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-
+#Set Default Editor
+export VISUAL=nvim
+export EDITOR="$VISUAL"
 
 # Load Starship
 eval "$(starship init zsh)"
