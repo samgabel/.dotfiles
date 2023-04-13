@@ -27,7 +27,7 @@ These are my personal dotfiles used for MacOS[intel]
 
 2) Make sure you have **iTerm2** already installed
 
-3) Make sure you have and are using a **compatible NerdFont** on iTerm2, I am using **"3270 Nerd Font"**
+3) Make sure you have and are using a **compatible NerdFont** on iTerm2, I am using a custom font**"Liga SF Mono Nerd Font"**
 - ***⌘+,*** | to enter into iTerm Settings
 - Under ***Profiles => Text => Font***
 
