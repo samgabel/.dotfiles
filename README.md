@@ -13,13 +13,12 @@ These are my personal dotfiles used for MacOS[intel]
 - exa
 - zsh-autosuggestions
 - zsh-syntax-highlighting
-<br>
 
 **Editor**
 - neovim (NvChad)
 - npm
 - python
-
+<br>
 
 ## Installation Instructions
 
@@ -32,6 +31,11 @@ These are my personal dotfiles used for MacOS[intel]
 - ***⌘+,*** | to enter into iTerm Settings
 - Under ***Profiles => Text => Font***
 
+### Debian-based NeoVim Install Script
+
+- Will install everything necessary for NeoVim with NvChad
+- Do `:checkhealth` to see if everything is operating correctly (may need a newer nodejs version for lsp)
+<br>
 
 ## Troubeshooting
 
