@@ -2,7 +2,7 @@
 
 #Install ZSH--------------------------------------------------------------------
 sudo apt install zsh 
-sudo apt install exa stow zsh-autosuggestion zsh-syntax-highlighting neofetch
+sudo apt install exa stow zsh-autosuggestions zsh-syntax-highlighting neofetch
 
 #Install STARSHIP----
 cd ~
@@ -21,8 +21,7 @@ git clone https://github.com/neovim/neovim
 cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo
 git checkout stable
 sudo make install
-cd ~
-rm -rf neovim
+rm -rf ~/neovim
 
 
 #Install NODE----
