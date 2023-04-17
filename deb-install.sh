@@ -1,20 +1,19 @@
 #!/bin/bash
 
 #Install ZSH--------------------------------------------------------------------
-sudo apt install zsh 
-sudo apt install exa stow zsh-autosuggestions zsh-syntax-highlighting neofetch
+sudo apt install -y zsh
+sudo apt install -y exa stow zsh-autosuggestions zsh-syntax-highlighting neofetch
 
 #Install STARSHIP----
 cd ~
 curl -sS https://starship.rs/install.sh | sh
-rm ~/install.sh 
-stow zsh 
+rm ~/install.sh
 
 
 #Install NEOVIM-----------------------------------------------------------------
 
 #prereqs
-sudo apt install ninja-build gettext cmake unzip curl
+sudo apt install -y ninja-build gettext cmake unzip curl
 #make
 cd ~
 git clone https://github.com/neovim/neovim
@@ -25,6 +24,7 @@ rm -rf ~/neovim
 
 
 #Install NODE----
+cd ~
 curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash - &&\
 sudo apt install -y nodejs
 
@@ -37,18 +37,19 @@ rm -rf ~/.config/nvim/lua/custom
 
 
 #Config----
-sudo apt install pip
-sudo apt install python3.10-venv
+sudo apt install -y pip
+sudo apt install -y python3.10-venv
 python3 -m pip install pynvim
 sudo npm install -g neovim
 
 cd ~/.dotfiles-macos
+stow zsh
 stow nvim
 
 echo "################################################"
 
 echo "DONE"
-echo "open vim" 
+echo "open vim"
 echo ":Mason (to download LSPs)"
 echo ":checkhealth (to see if everything is working)"
 
@@ -62,4 +63,3 @@ if [ "$SHELL" != "/bin/zsh" ]; then
 else
   echo "ZSH is already set as the default shell!."
 fi
-
