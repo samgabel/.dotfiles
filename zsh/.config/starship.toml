@@ -79,7 +79,7 @@ deleted = " "
 
 # Shows kubernetes context and namespace
 [kubernetes]
-format = 'via [ﴱ $context\($namespace\)](bold purple) '
+format = 'via [ﴱ $context\($namespace\)](bold #add8e6) '
 disabled = false
 
 # ---
@@ -107,4 +107,6 @@ disabled = true
 disabled = true
 
 [terraform]
-disabled = true
+style = "93"
+format = 'with [󱁢 Terraform]($style) '
+disabled = false

@@ -42,7 +42,7 @@ sudo apt install -y python3.10-venv
 python3 -m pip install pynvim
 sudo npm install -g neovim
 
-cd ~/.dotfiles-macos
+cd ~/.dotfiles
 stow zsh
 stow nvim
 
