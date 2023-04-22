@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e 
 
 
 #Install PACKAGES-------------------------------------------------------------------
@@ -22,6 +23,7 @@ cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo
 git checkout stable
 sudo make install
 sudo rm -rf ~/neovim
+cd ~
 
 #Install NVCHAD----
 rm -rf ~/.config/nvim
