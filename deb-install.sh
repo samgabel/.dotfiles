@@ -2,31 +2,32 @@
 
 #Install ZSH--------------------------------------------------------------------
 sudo apt install -y zsh
-sudo apt install -y exa stow zsh-autosuggestions zsh-syntax-highlighting neofetch
+sudo apt install -y exa stow zsh-autosuggestions zsh-syntax-highlighting neofetch ninja-build gettext cmake unzip curl nodejs pip python3.10-venv
+
 
 #Install STARSHIP----
 cd ~
-curl -sS https://starship.rs/install.sh | sh
+curl -sS https://starship.rs/install.sh | sh -s -- -y
 rm ~/install.sh
 
 
 #Install NEOVIM-----------------------------------------------------------------
 
 #prereqs
-sudo apt install -y ninja-build gettext cmake unzip curl
+# sudo apt install -y ninja-build gettext cmake unzip curl
 #make
 cd ~
 git clone https://github.com/neovim/neovim
 cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo
 git checkout stable
 sudo make install
-rm -rf ~/neovim
+sudo rm -rf ~/neovim
 
 
 #Install NODE----
 cd ~
 curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash - &&\
-sudo apt install -y nodejs
+# sudo apt install -y nodejs
 
 
 #Install NVCHAD----
@@ -37,8 +38,8 @@ rm -rf ~/.config/nvim/lua/custom
 
 
 #Config----
-sudo apt install -y pip
-sudo apt install -y python3.10-venv
+# sudo apt install -y pip
+# sudo apt install -y python3.10-venv
 python3 -m pip install pynvim
 sudo npm install -g neovim
 
