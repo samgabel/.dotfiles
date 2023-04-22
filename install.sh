@@ -72,7 +72,7 @@ echo "################################################"
 if [ "$SHELL" != "/bin/zsh" ]; then
   echo "Setting ZSH as default shell..."
   chsh -s "$(which zsh)"
-  echo "Please retart terminal session to apply chsh settings"
+  exec zsh
 else
   echo "ZSH is already set as the default shell!."
 fi

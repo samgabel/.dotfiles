@@ -2,12 +2,12 @@
 
 #Install ZSH--------------------------------------------------------------------
 sudo apt install -y zsh
-sudo apt install -y exa stow zsh-autosuggestions zsh-syntax-highlighting neofetch ninja-build gettext cmake unzip curl nodejs pip python3.10-venv
+sudo apt install -y exa stow zsh-autosuggestions zsh-syntax-highlighting neofetch ninja-build gettext cmake unzip curl pip python3.10-venv
 
 
 #Install STARSHIP----
 cd ~
-curl -sS https://starship.rs/install.sh | sh -s -- -y
+curl -sS https://starship.rs/install.sh | sudo sh -s -- -y
 rm ~/install.sh
 
 
@@ -27,7 +27,7 @@ sudo rm -rf ~/neovim
 #Install NODE----
 cd ~
 curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash - &&\
-# sudo apt install -y nodejs
+sudo apt install -y nodejs
 
 
 #Install NVCHAD----
@@ -60,7 +60,7 @@ echo "################################################"
 if [ "$SHELL" != "/bin/zsh" ]; then
   echo "Setting ZSH as default shell..."
   chsh -s "$(which zsh)"
-  echo "Please retart terminal session to apply chsh settings"
+  exec zsh
 else
   echo "ZSH is already set as the default shell!."
 fi
