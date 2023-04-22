@@ -9,7 +9,6 @@ sudo apt install -y zsh exa stow zsh-autosuggestions zsh-syntax-highlighting neo
 #Install STARSHIP----
 cd ~
 curl -sS https://starship.rs/install.sh | sudo sh -s -- -y
-rm ~/install.sh
 
 
 #Install NEOVIM---------------------------------------------------------------------
