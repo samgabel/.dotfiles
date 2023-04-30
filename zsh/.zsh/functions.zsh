@@ -9,6 +9,7 @@ function venv-on(){
 function venv-create(){
   python3 -m venv venv
   source ./venv/bin/activate
+  pip install --upgrade pip
   pip install pynvim
 }
 
