@@ -1,10 +1,10 @@
 #!/bin/bash
-set -e 
+set -e
 
 
 #Install PACKAGES-------------------------------------------------------------------
 curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash - &&\
-sudo apt install -y zsh exa stow zsh-autosuggestions zsh-syntax-highlighting neofetch ninja-build gettext cmake unzip curl nodejs pip python3.10-venv
+sudo apt install -y zsh exa stow zsh-autosuggestions zsh-syntax-highlighting neofetch nodejs pip python3.10-venv
 
 #Install STARSHIP----
 cd ~
@@ -13,16 +13,15 @@ curl -sS https://starship.rs/install.sh | sudo sh -s -- -y
 
 #Install NEOVIM---------------------------------------------------------------------
 
-#prereqs
-# sudo apt install -y ninja-build gettext cmake unzip curl
-#make
+#download and link appimage
 cd ~
-git clone https://github.com/neovim/neovim
-cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo
-git checkout stable
-sudo make install
-sudo rm -rf ~/neovim
-cd ~
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+chmod u+x nvim.appimage
+./nvim.appimage --appimage-extract
+sudo rm -rf nvim.appimage
+./squashfs-root/AppRun --version
+sudo mv squashfs-root /
+sudo ln -s /squashfs-root/AppRun /usr/local/bin/nvim
 
 #Install NVCHAD----
 rm -rf ~/.config/nvim
