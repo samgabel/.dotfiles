@@ -53,7 +53,7 @@ echo "################################################"
 # Set ZSH as the default shell
 if [ "$SHELL" != "/bin/zsh" ]; then
   echo "Setting ZSH as default shell..."
-  sudo chsh -s "$(which zsh)"
+  chsh -s "$(which zsh)"
   echo "Reload session or run exec zsh"
 else
   echo "ZSH is already set as the default shell!."
