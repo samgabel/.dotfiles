@@ -51,9 +51,9 @@ echo ":checkhealth (to see if everything is working)"
 echo "################################################"
 
 # Set ZSH as the default shell
-if [ "$SHELL" != "/bin/zsh" ]; then
+if [ "$SHELL" != "$(which zsh)" ]; then
   echo "Setting ZSH as default shell..."
-  chsh -s "$(which zsh)"
+  sudo chsh -s $(which zsh) $USER
   echo "Reload session or run exec zsh"
 else
   echo "ZSH is already set as the default shell!."
