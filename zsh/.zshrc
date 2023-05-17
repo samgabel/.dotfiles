@@ -1,7 +1,7 @@
 [[ -f ~/.zsh/alias.zsh ]] && source ~/.zsh/alias.zsh
 [[ -f ~/.zsh/functions.zsh ]] && source ~/.zsh/functions.zsh
 [[ -f ~/.zsh/starship.zsh ]] && source ~/.zsh/starship.zsh
-[[ -f ~/.zsh/secrets.zsh ]] && source ~/.zsh/secrets.zsh
+[[ -f ~/Secrets/env/secrets.zsh ]] && source ~/Secrets/env/secrets.zsh
 
 #Add-On
 

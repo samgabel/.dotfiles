@@ -19,7 +19,7 @@ rm -f lazygit*
 
 # Install LunarVim--------------
 yes | LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh) --auto-accept
-
+sudo mv /home/$USER/.local/bin/lvim /usr/local/bin
 
 #CONFIG EVERYTHING--------------------------------------------------------------------
 
@@ -29,5 +29,5 @@ sudo npm install -g neovim
 
 # Stow--------------------------
 cd ~/.dotfiles
-stow nvim
+stow lvim
 stow zsh
