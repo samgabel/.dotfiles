@@ -11,7 +11,7 @@ lvim.colorscheme = "catppuccin"
 -- Additional Plugins
 lvim.plugins = {
   {
-  "jackMort/ChatGPT.nvim",
+    "jackMort/ChatGPT.nvim",
     event = "VeryLazy",
     config = function()
       require("chatgpt").setup()

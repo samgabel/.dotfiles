@@ -35,9 +35,13 @@ function venv-create(){
 
 #CF-Terraforming COMMANDS
 function cf-infra-generate(){
-  cf-terraforming generate --resource-type "cloudflare_record" --zone $CLOUDFLARE_ZONE_ID > imported.tf
+  cloudflare_zone_id=$(bws get secret b77cd89f-d97a-4368-b1aa-b006000c314b | jq '.value' | tr -d \'\"\')
+  cloudflare_api_token=$(bws get secret 4f217f17-3f75-40ff-9e9f-b006000c85dd | jq '.value' | tr -d \'\"\')
+  cf-terraforming generate --resource-type "cloudflare_record" --zone $cloudflare_zone_id --token $cloudflare_api_token > imported.tf
 }
 
 function cf-infra-import(){
-  cf-terraforming import --resource-type "cloudflare_record" --zone $CLOUDFLARE_ZONE_ID | while read -r line; do eval $line; done
+  cloudflare_zone_id=$(bws get secret b77cd89f-d97a-4368-b1aa-b006000c314b | jq '.value' | tr -d \'\"\')
+  cloudflare_api_token=$(bws get secret 4f217f17-3f75-40ff-9e9f-b006000c85dd | jq '.value' | tr -d \'\"\')
+  cf-terraforming import --resource-type "cloudflare_record" --zone $cloudflare_zone_id --token $cloudflare_api_token | while read -r line; do eval $line; done
 }
