@@ -50,6 +50,10 @@ function cf-infra-import(){
 
 # APOLLO FUNCTIONS =======================================================================================================================>
 
+#Crowdsec Metrics
+function crowdsec-metrics(){
+  docker exec crowdsec cscli metrics
+}
 #Crowdsec View Decisions List
 function crowdsec-list(){
   docker exec crowdsec cscli decisions list
