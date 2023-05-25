@@ -19,14 +19,16 @@ echo "  \▓▓▓▓▓▓  \▓▓▓▓▓▓▓\▓▓  \▓▓  \▓▓   \
 
 echo "##################################################################################################################"
 echo "INSTALLING PACKAGES!!"
-curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash - &&\
-sudo apt install -y zsh exa stow zsh-autosuggestions zsh-syntax-highlighting neofetch nodejs pip python3.10-venv cargo
+sudo apt install -y zsh exa stow zsh-autosuggestions zsh-syntax-highlighting neofetch pip python3.10-venv cargo
 
 #Install STARSHIP----
 cd ~
 curl -sS https://starship.rs/install.sh | sudo sh -s -- -y
 rm -f install.sh
 
+#Install NVM---------
+curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+nvm install 20
 
 #Install NEOVIM---------------------------------------------------------------------
 
@@ -40,7 +42,6 @@ echo "##########################################################################
 
 echo "DONE"
 echo "open vim"
-echo ":Mason (to download LSPs)"
 echo ":checkhealth (to see if everything is working)"
 
 echo "##################################################################################################################"

@@ -1,12 +1,29 @@
 #!/bin/bash
+set -e
 
-# --------Install homebrew, packages, and stow (create symlinks)---------
-# ONLY RUN IF ON MACOS
+                     # --------Install homebrew, packages, and stow (create symlinks)---------
+                                            # ONLY RUN IF ON MACOS
 
-# Define the packages to be installed
-declare -a packages=("exa" "stow" "starship" "zsh-autosuggestions" "zsh-syntax-highlighting" "neofetch" "neovim" "python3" "node")
 
-# check if Homebrew is installed
+
+echo "  ______                        __               _______             __      ______  __ __                    "
+echo " /      \                      |  \             |       \           |  \    /      \|  \  \                   "
+echo "|  ▓▓▓▓▓▓\ ______  ______ ____ | ▓▓ _______     | ▓▓▓▓▓▓▓\ ______  _| ▓▓_  |  ▓▓▓▓▓▓\\▓▓ ▓▓ ______   _______  "
+echo "| ▓▓___\▓▓|      \|      \    \ \▓ /       \    | ▓▓  | ▓▓/      \|   ▓▓ \ | ▓▓_  \▓▓  \ ▓▓/      \ /       \ "
+echo " \▓▓    \  \▓▓▓▓▓▓\ ▓▓▓▓▓▓\▓▓▓▓\  |  ▓▓▓▓▓▓▓    | ▓▓  | ▓▓  ▓▓▓▓▓▓\\▓▓▓▓▓▓ | ▓▓ \   | ▓▓ ▓▓  ▓▓▓▓▓▓\  ▓▓▓▓▓▓▓ "
+echo " _\▓▓▓▓▓▓\/      ▓▓ ▓▓ | ▓▓ | ▓▓   \▓▓    \     | ▓▓  | ▓▓ ▓▓  | ▓▓ | ▓▓ __| ▓▓▓▓   | ▓▓ ▓▓ ▓▓    ▓▓\▓▓    \  "
+echo "|  \__| ▓▓  ▓▓▓▓▓▓▓ ▓▓ | ▓▓ | ▓▓   _\▓▓▓▓▓▓\    | ▓▓__/ ▓▓ ▓▓__/ ▓▓ | ▓▓|  \ ▓▓     | ▓▓ ▓▓ ▓▓▓▓▓▓▓▓_\▓▓▓▓▓▓\ "
+echo " \▓▓    ▓▓\▓▓    ▓▓ ▓▓ | ▓▓ | ▓▓  |       ▓▓    | ▓▓    ▓▓\▓▓    ▓▓  \▓▓  ▓▓ ▓▓     | ▓▓ ▓▓\▓▓     \       ▓▓ "
+echo "  \▓▓▓▓▓▓  \▓▓▓▓▓▓▓\▓▓  \▓▓  \▓▓   \▓▓▓▓▓▓▓      \▓▓▓▓▓▓▓  \▓▓▓▓▓▓    \▓▓▓▓ \▓▓      \▓▓\▓▓ \▓▓▓▓▓▓▓\▓▓▓▓▓▓▓  "
+
+
+
+#HOMEBREW-----------------------------------------------------------------
+
+echo "##################################################################################################################"
+echo "INSTALLING HOMEBREW!!"
+
+#Install Homebrew-----------------
 if ! command -v brew >/dev/null; then
   echo "Homebrew is not installed. Installing Homebrew..."
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
@@ -14,9 +31,16 @@ else
   echo "Homebrew already installed!"
 fi
 
-echo "################################################"
 
-# check if ZSH is installed
+#PACKAGES-----------------------------------------------------------------
+
+echo "##################################################################################################################"
+echo "INSTALLING PACKAGES!!"
+
+#Define Packages------------------
+declare -a packages=("exa" "stow" "starship" "zsh-autosuggestions" "zsh-syntax-highlighting" "neofetch" "neovim" "python3" "nvm")
+
+#Check ZSH------------------------
 if ! command -v zsh >/dev/null; then
   echo "ZSH is not installed. Installing ZSH..."
   brew install zsh
@@ -24,7 +48,7 @@ else
   echo "ZSH already installed!."
 fi
 
-# loop through the packages array
+#Install Packages-----------------
 for package in "${packages[@]}"; do
   # check if the package is already installed
   if ! brew ls --versions "$package" >/dev/null; then
@@ -35,27 +59,20 @@ for package in "${packages[@]}"; do
   fi
 done
 
-echo "################################################"
 
-#NvChad Installation & remove custom default files
-echo "B-R-U-H (NvChad)"
+#NEOVIM-------------------------------------------------------------------
 
-rm -rf ~/.config/nvim
-rm -rf ~/.local/share/nvim
+echo "##################################################################################################################"
+echo "INSTALLING NEOVIM!!"
 
-git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
+cd ~/.dotfiles/install/editors
+./deb-lvim.sh
 
-rm -rf ~/.config/nvim/lua/custom/
 
-echo "################################################"
+#CONFIG-------------------------------------------------------------------
 
-# stow
-echo "Stowing ZSH Configurations..."
-stow zsh
-echo "Stowing neoVIM Configurations..."
-stow nvim
-
-echo "################################################"
+echo "##################################################################################################################"
+echo "CONFIGURING!!"
 
 # Check for a compatible Nerd Font
 if ! command -v gf >/dev/null; then
@@ -66,7 +83,7 @@ else
   echo "Nerd Font is installed."
 fi
 
-echo "################################################"
+echo "##################################################################################################################"
 
 # Set ZSH as the default shell
 if [ "$SHELL" != "$(which zsh)" ]; then
