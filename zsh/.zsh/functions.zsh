@@ -34,6 +34,35 @@ function venv-create(){
 
 # MBP FUNCTIONS ==========================================================================================================================>
 
+#Directory-Hopping COMMAND
+function d () {
+  [ "$1" = ".dotfiles" ] && cd ~/.dotfiles && ll
+  [ "$1" = ".config" ] && cd ~/.config && ll
+  [ "$1" = ".zsh" ] && cd ~/.zsh && ll
+  [ "$1" = "ansible" ] && cd ~/Projects/Ansible && ll
+  [ "$1" = "devel" ] && cd ~/Projects/Devel && ll
+  [ "$1" = "terraform" ] && cd ~/Projects/Terraform && ll
+  [ "$1" = "important" ] && cd ~/Desktop/important && ll
+  [ "$1" = "secrets" ] && cd ~/Secrets && ll
+}
+
+#GPG-Sign+Encrypt COMMANDS
+function secret () {
+  output=$PWD/"${1}".$(date +%Y-%m-%d).enc
+  echo "Who do you want to send it to?"
+  gpg --list-keys --with-colons | awk -F: '/^uid/{print $10}'
+  echo -n "-> "
+  read recipient
+  gpg --sign --encrypt --armor --output ${output} -r ${recipient} "${1}" && echo "${1} -> ${output}"
+  [ -f ${output} ] && rm -f "${1}"
+}
+
+function reveal () {
+	output=$(echo "${1}" | rev | cut -c16- | rev)
+	gpg --decrypt --output ${output} "${1}" && echo "${1} -> ${output}"
+  [ -f ${output} ] && rm -f "${1}"
+}
+
 #CF-Terraforming COMMANDS
 function cf-infra-generate(){
   cloudflare_zone_id=$(bws get secret b77cd89f-d97a-4368-b1aa-b006000c314b | jq '.value' | tr -d \'\"\')
