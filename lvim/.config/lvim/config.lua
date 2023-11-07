@@ -16,7 +16,7 @@ lvim.builtin.cmp.confirm_opts.select = true
 lvim.leader = "space"
 
 lvim.builtin.nvimtree.setup.view.side = "left"
-lvim.builtin.nvimtree.setup.view.width = 50
+-- lvim.builtin.nvimtree.setup.view.width = 50
 lvim.builtin.treesitter.highlight.enabled = true
 
 
@@ -34,4 +34,3 @@ lvim.plugins = {
   { "Mofiqul/dracula.nvim" },
   { "catppuccin/nvim" }
 }
-
