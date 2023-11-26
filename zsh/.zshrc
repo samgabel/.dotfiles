@@ -5,7 +5,7 @@
 
 #------------------------------------------------------------
 
-#SSH CONFIG
+# SSH CONFIG
 
 #gpg-agent
 export GPG_TTY="$(tty)"
@@ -14,7 +14,7 @@ gpgconf --launch gpg-agent
 
 #------------------------------------------------------------
 
-#ADD-ON
+# ADD-ON
 
 #list highlighting
 zstyle ':completion:*' menu select
@@ -40,7 +40,7 @@ export NVM_DIR="$HOME/.nvm"
 
 #------------------------------------------------------------
 
-#Set Default Editor
+# Set Default Editor
 export VISUAL=lvim
 export EDITOR="$VISUAL"
 
