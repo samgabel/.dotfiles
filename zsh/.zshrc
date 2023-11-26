@@ -3,7 +3,22 @@
 [[ -f ~/.zsh/starship.zsh ]] && source ~/.zsh/starship.zsh
 [[ -f ~/Secrets/env/secrets.zsh ]] && source ~/Secrets/env/secrets.zsh
 
-#Add-On
+#------------------------------------------------------------
+
+#SSH CONFIG
+
+#gpg-agent
+export GPG_TTY="$(tty)"
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+gpgconf --launch gpg-agent
+
+#------------------------------------------------------------
+
+#ADD-ON
+
+#list highlighting
+zstyle ':completion:*' menu select
+setopt menu_complete
 
 #brew
 [[ -f $(which brew) ]] && source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -18,14 +33,12 @@
 [[ -d /usr/share/zsh/plugins/zsh-autosuggestions ]] && source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 [[ -d /usr/share/zsh/plugins/zsh-syntax-highlighting ]] && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-#List Highlighting
-zstyle ':completion:*' menu select
-setopt menu_complete
-
-#NVM
+#node version manager (nvm)
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+#------------------------------------------------------------
 
 #Set Default Editor
 export VISUAL=lvim
