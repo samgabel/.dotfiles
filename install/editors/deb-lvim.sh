@@ -2,7 +2,7 @@
 
 # Install NeoVim----------------
 cd ~
-curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+curl -LO https://github.com/neovim/neovim/releases/0.9.0/download/nvim.appimage
 chmod u+x nvim.appimage
 ./nvim.appimage --appimage-extract
 sudo rm -rf nvim.appimage
@@ -18,7 +18,7 @@ sudo install lazygit /usr/local/bin
 rm -f lazygit*
 
 # Install LunarVim--------------
-yes | LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh) --auto-accept
+yes no | LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh)
 sudo mv /home/$USER/.local/bin/lvim /usr/local/bin
 rm -f /home/$USER/.config/lvim/custom.lua
 
