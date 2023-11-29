@@ -46,6 +46,17 @@ function d () {
   [ "$1" = "secrets" ] && cd ~/Secrets && ll
 }
 
+#Find and Replace COMMAND
+function rename_files () {
+  if [ "$#" -ne 2 ]; then
+      echo "Usage: replace old_text new_text"
+      return 1
+  fi
+  old_text="$1"
+  new_text="$2"
+  find ./ -type "f" -name "*$old_text*" -exec bash -c 'mv "$1" "${1/'"$old_text/$new_text"'}"' _ {} \;
+}
+
 #GPG-Sign+Encrypt COMMANDS
 function secret () {
   output=$PWD/"${1}".$(date +%Y-%m-%d).enc
