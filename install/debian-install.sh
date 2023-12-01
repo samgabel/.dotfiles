@@ -28,6 +28,7 @@ rm -f install.sh
 
 #Install NVM---------
 curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+source $HOME/.nvm/nvm.sh
 nvm install 20
 
 #Install NEOVIM---------------------------------------------------------------------
