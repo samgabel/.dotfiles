@@ -30,5 +30,6 @@ sudo npm install -g neovim
 
 # Stow--------------------------
 cd ~/.dotfiles
+rm $HOME/.config/lvim/config.lua
 stow lvim
 stow zsh
