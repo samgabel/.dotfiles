@@ -26,6 +26,11 @@ function venv-create(){
     source ./venv/bin/activate
     pip install --upgrade pip
     pip install pynvim
+    if [ -f "./ansible.cfg" ]; then
+      pip install ansible argcomplete
+      deactivate
+      venv-on
+    fi
   else
     echo "Virtual environment creation aborted."
   fi

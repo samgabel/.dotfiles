@@ -2,7 +2,7 @@
 
 # Install NeoVim----------------
 cd ~
-curl -LO https://github.com/neovim/neovim/releases/0.9.0/download/nvim.appimage
+curl -LO https://github.com/neovim/neovim/releases/download/v0.9.0/nvim.appimage
 chmod u+x nvim.appimage
 ./nvim.appimage --appimage-extract
 sudo rm -rf nvim.appimage
