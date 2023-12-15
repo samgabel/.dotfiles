@@ -19,7 +19,7 @@ echo "  \▓▓▓▓▓▓  \▓▓▓▓▓▓▓\▓▓  \▓▓  \▓▓   \
 
 echo "##################################################################################################################"
 echo "INSTALLING PACKAGES!!"
-sudo apt install -y zsh exa stow zsh-autosuggestions zsh-syntax-highlighting neofetch pip python3.10-venv cargo
+sudo apt install -y zsh exa stow zsh-autosuggestions zsh-syntax-highlighting neofetch btop pip python3.10-venv cargo
 
 #Install STARSHIP----
 cd ~
