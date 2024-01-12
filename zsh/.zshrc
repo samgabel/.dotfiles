@@ -1,9 +1,10 @@
 # INITIALIZE
 [[ -f ~/.zsh/alias.zsh && \
    -f ~/.zsh/functions.zsh && \
-   -f ~/.zsh/starship.zsh && \
-   -f ~/Secrets/env/secrets.zsh ]] && \
-   source ~/.zsh/alias.zsh && source ~/.zsh/functions.zsh && source ~/.zsh/starship.zsh && source ~/Secrets/env/secrets.zsh
+   -f ~/.zsh/starship.zsh ]] && \
+   source ~/.zsh/alias.zsh && source ~/.zsh/functions.zsh && source ~/.zsh/starship.zsh
+[[ -f ~/Secrets/env/secrets.zsh ]] && \
+   source ~/Secrets/env/secrets.zsh
 #list highlighting
 zstyle ':completion:*' menu select
 setopt menu_complete
