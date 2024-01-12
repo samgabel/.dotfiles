@@ -19,6 +19,7 @@ echo "  \▓▓▓▓▓▓  \▓▓▓▓▓▓▓\▓▓  \▓▓  \▓▓   \
 
 echo "##################################################################################################################"
 echo "INSTALLING PACKAGES!!"
+~/.dotfiles/install/extras/add-repos-debian.sh
 sudo apt install -y zsh eza stow zsh-autosuggestions zsh-syntax-highlighting neofetch btop fzf tldr pip python3.10-venv cargo
 
 #Install STARSHIP----
