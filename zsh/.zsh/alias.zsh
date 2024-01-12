@@ -1,12 +1,10 @@
 # mac OS shortcuts
 alias code="open -a 'Visual Studio Code'"
-
-# ALIAS COMMANDS
-alias ls="exa --icons --group-directories-first"
-alias ll="exa --icons --group-directories-first -l"
-alias grep='grep -n'
-alias vim='lvim'
-
 alias flushhostdns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
 
-
+# ALIAS COMMANDS
+alias ls="eza --icons --group-directories-first"
+alias ll="eza --icons --group-directories-first -l"
+alias grep='grep -n'
+alias vim='lvim'
+alias md='glow'

@@ -38,7 +38,7 @@ echo "##########################################################################
 echo "INSTALLING PACKAGES!!"
 
 #Define Packages------------------
-declare -a packages=("exa" "stow" "starship" "zsh-autosuggestions" "zsh-syntax-highlighting" "neofetch" "neovim" "python3" "nvm" "btop")
+declare -a packages=("eza" "stow" "starship" "zsh-autosuggestions" "zsh-syntax-highlighting" "neofetch" "neovim" "python3" "nvm" "btop" "fzf" "tldr")
 
 #Check ZSH------------------------
 if ! command -v zsh >/dev/null; then
