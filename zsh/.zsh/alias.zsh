@@ -1,6 +1,8 @@
 # mac OS shortcuts
-alias code="open -a 'Visual Studio Code'"
 alias flushhostdns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
+
+# server shortcuts
+alias dps="docker ps --format 'table {{.Names}}\t {{.ID}}\t {{.Image}}\t {{.Status}}\t'"
 
 # ALIAS COMMANDS
 alias ls="eza --icons --group-directories-first"
