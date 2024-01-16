@@ -38,7 +38,7 @@ echo "##########################################################################
 echo "INSTALLING PACKAGES!!"
 
 #Define Packages------------------
-declare -a packages=("eza" "stow" "starship" "zsh-autosuggestions" "zsh-syntax-highlighting" "neofetch" "neovim" "python3" "nvm" "btop" "fzf" "tldr" "tmux")
+declare -a packages=("eza" "stow" "starship" "zsh-autosuggestions" "zsh-syntax-highlighting" "neovim" "python3" "nvm" "tmux")
 
 #Check ZSH------------------------
 if ! command -v zsh >/dev/null; then
@@ -59,6 +59,8 @@ for package in "${packages[@]}"; do
   fi
 done
 
+#Install Additional
+~/.dotfiles/install/extras/add-taps-macos.sh
 
 #NEOVIM-------------------------------------------------------------------
 
@@ -87,14 +89,12 @@ stow lvim
 stow zsh
 stow tmux
 
-# Check for Nerd Font-------------
-if ! command -v gf >/dev/null; then
-  echo "A Nerd Font is required for this to work"
-  echo "List of Nerd Fonts: https://www.nerdfonts.com/font-downloads"
-  echo "Brew Install instructions: https://gist.github.com/davidteren/898f2dcccd42d9f8680ec69a3a5d350e"
-else
-  echo "Nerd Font is installed."
-fi
+# Finishing Touches---------------
+echo "1) Make sure iTerm2 is installed"
+echo "2) Import extras/iterm-profile.json into iTerm Profile Config"
+echo "3) Install apps in extras/manual-install.md"
+echo "4) Load tmux and Install and source plugins (instructions in README.md)"
+
 
 echo "##################################################################################################################"
 
