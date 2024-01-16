@@ -19,6 +19,14 @@ lvim.builtin.nvimtree.setup.view.side = "left"
 -- lvim.builtin.nvimtree.setup.view.width = 50
 lvim.builtin.treesitter.highlight.enabled = true
 
+-- terminal
+lvim.builtin.terminal.active = true
+lvim.builtin.terminal.execs = {
+  -- Change keys to needed
+  { vim.o.shell, "<M-2>", "Horizontal Terminal", "horizontal", 0.3 },
+  { vim.o.shell, "<M-5>", "Vertical Terminal",   "vertical",   0.4 },
+  { vim.o.shell, "<M-3>", "Float Terminal",      "float",      nil },
+}
 
 -- switch buffers
 lvim.keys.normal_mode["<Tab>"] = ":bnext<CR>"
