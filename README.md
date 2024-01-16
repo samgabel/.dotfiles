@@ -6,24 +6,10 @@ These are my personal dotfiles used for MacOS[intel]
 ![MacOS Setup](https://github.com/SamG331/.dotfiles-macos/blob/main/MacOS-Config-IMG.png?raw=true) 
 
 
-### Packages (with brew)
-**Terminal**
-- stow
-- starship
-- exa
-- zsh-autosuggestions
-- zsh-syntax-highlighting
-
-**Editor**
-- neovim (NvChad)
-- npm
-- python
-<br>
-
 ## Installation Instructions
 
 1) **Clone** this git repository to your home directory and then run
-'installation.sh' in the .dotfile-macos directory
+either 'macos-install.sh' or 'debian-install.sh' in the ~/.dotfiles/install directory
 
 2) Make sure you have **iTerm2** already installed
 
@@ -31,11 +17,10 @@ These are my personal dotfiles used for MacOS[intel]
 - ***⌘+,*** | to enter into iTerm Settings
 - Under ***Profiles => Text => Font***
 
-### Debian-based NeoVim Install Script
-
-- Will install everything necessary for NeoVim with NvChad
-- Do `:checkhealth` to see if everything is operating correctly (may need a newer nodejs version for lsp)
-<br>
+4) To load the Tmux config and plugins, first start a new Tmux session then navigate to ~/.config/tmux/tmux.conf and enter in with vim. 
+- press the Tmux leader key (ctrl + b) followed by (shift + i). 
+- exit out of vim and then run `tmux source-file ~/.config/tmux/tmux.conf`
+- press leader key and type `:kill-server` and then start a new tmux session 
 
 ## Troubeshooting
 

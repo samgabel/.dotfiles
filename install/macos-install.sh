@@ -38,7 +38,7 @@ echo "##########################################################################
 echo "INSTALLING PACKAGES!!"
 
 #Define Packages------------------
-declare -a packages=("eza" "stow" "starship" "zsh-autosuggestions" "zsh-syntax-highlighting" "neofetch" "neovim" "python3" "nvm" "btop" "fzf" "tldr")
+declare -a packages=("eza" "stow" "starship" "zsh-autosuggestions" "zsh-syntax-highlighting" "neofetch" "neovim" "python3" "nvm" "btop" "fzf" "tldr" "tmux")
 
 #Check ZSH------------------------
 if ! command -v zsh >/dev/null; then
@@ -65,8 +65,15 @@ done
 echo "##################################################################################################################"
 echo "INSTALLING NEOVIM!!"
 
-cd ~/.dotfiles/install/editors
-./deb-lvim.sh
+~/.dotfiles/install/editors/deb-lvim.sh
+
+
+#TMUX---------------------------------------------------------------------
+
+echo "##################################################################################################################"
+echo "CONFIGURING TMUX!!"
+
+git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 
 
 #CONFIG-------------------------------------------------------------------
@@ -74,7 +81,13 @@ cd ~/.dotfiles/install/editors
 echo "##################################################################################################################"
 echo "CONFIGURING!!"
 
-# Check for a compatible Nerd Font
+# Stow----------------------------
+cd ~/.dotfiles
+stow lvim
+stow zsh
+stow tmux
+
+# Check for Nerd Font-------------
 if ! command -v gf >/dev/null; then
   echo "A Nerd Font is required for this to work"
   echo "List of Nerd Fonts: https://www.nerdfonts.com/font-downloads"
@@ -85,7 +98,7 @@ fi
 
 echo "##################################################################################################################"
 
-# Set ZSH as the default shell
+# Set ZSH as default shell--------
 if [ "$SHELL" != "$(which zsh)" ]; then
   echo "Setting ZSH as default shell..."
   sudo chsh -s $(which zsh) $USER

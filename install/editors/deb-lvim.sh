@@ -28,8 +28,4 @@ rm -f /home/$USER/.config/lvim/custom.lua
 python3 -m pip install pynvim
 sudo npm install -g neovim
 
-# Stow--------------------------
-cd ~/.dotfiles
 rm $HOME/.config/lvim/config.lua
-stow lvim
-stow zsh

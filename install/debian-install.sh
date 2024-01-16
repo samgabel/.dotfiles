@@ -40,8 +40,17 @@ echo "INSTALLING NEOVIM!!"
 
 ~/.dotfiles/install/editors/deb-lvim.sh
 
-echo "##################################################################################################################"
+#CONFIG-------------------------------------------------------------------
 
+echo "##################################################################################################################"
+echo "CONFIGURING!!"
+
+#Stow----------------
+cd ~/.dotfiles
+stow lvim
+stow zsh
+
+#Health--------------
 echo "DONE"
 echo "open vim"
 echo ":checkhealth (to see if everything is working)"
