@@ -51,6 +51,11 @@ function d () {
   [ "$1" = "secrets" ] && cd ~/Secrets && ll
 }
 
+#CD and LS in same command
+function cdl () {
+  cd "$1" && ll -a
+}
+
 #Find and Replace COMMAND
 function rename_files () {
   if [ "$#" -ne 2 ]; then

@@ -59,8 +59,8 @@ for package in "${packages[@]}"; do
   fi
 done
 
-#Install Additional
-~/.dotfiles/install/extras/add-taps-macos.sh
+#Install Additional---------------
+brew bundle install --file=~/.dotfiles/install/extras/Brewfile
 
 #NEOVIM-------------------------------------------------------------------
 
@@ -87,13 +87,12 @@ echo "CONFIGURING!!"
 cd ~/.dotfiles
 stow lvim
 stow zsh
-stow tmux
+stow tmux && ~/.config/tmux/plugins/tpm/bin/install_plugins
 
 # Finishing Touches---------------
-echo "1) Make sure iTerm2 is installed"
-echo "2) Import extras/iterm-profile.json into iTerm Profile Config"
+echo "1) Make sure iTerm2 is installed & ..."
+echo "2) Configure General > Preferences > Path=~/.dotfiles/iterm2/"
 echo "3) Install apps in extras/manual-install.md"
-echo "4) Load tmux and Install and source plugins (instructions in README.md)"
 
 
 echo "##################################################################################################################"

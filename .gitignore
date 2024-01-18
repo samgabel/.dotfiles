@@ -1,3 +1,4 @@
+.DS_Store
 zsh/.zsh/secrets.zsh
 zsh/.config/neofetch
 tmux/.config/tmux/plugins

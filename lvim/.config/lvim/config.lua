@@ -23,8 +23,8 @@ lvim.builtin.treesitter.highlight.enabled = true
 lvim.builtin.terminal.active = true
 lvim.builtin.terminal.execs = {
   -- Change keys to needed
+  { vim.o.shell, "<M-1>", "Vertical Terminal",   "vertical",   0.4 },
   { vim.o.shell, "<M-2>", "Horizontal Terminal", "horizontal", 0.3 },
-  { vim.o.shell, "<M-5>", "Vertical Terminal",   "vertical",   0.4 },
   { vim.o.shell, "<M-3>", "Float Terminal",      "float",      nil },
 }
 

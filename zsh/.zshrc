@@ -1,6 +1,6 @@
-# For Testing
+# For Testing -------
 # zmodload zsh/zprof
-#-----------------
+#--------------------
 
 # INITIALIZE
 [[ -f ~/.zsh/alias.zsh && \
@@ -25,13 +25,12 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   export GPG_TTY="$(tty)"
   export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
   gpgconf --launch gpg-agent
-  #brew
-  if [[ -f $(which brew) ]]; then
-    source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-    source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-    fpath+=/usr/local/share/zsh/site-functions
-    export PASSWORD_STORE_DIR=/Users/samgabel/Secrets/pass
-  fi
+  #zsh-add-ons
+  source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  fpath+=/usr/local/share/zsh/site-functions
+  #pass-store
+  export PASSWORD_STORE_DIR=/Users/samgabel/Secrets/pass
   #nvm
   [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh" --no-use  # This loads nvm
   [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
@@ -57,9 +56,16 @@ fi
 export VISUAL=lvim
 export EDITOR="$VISUAL"
 
+# Prompt Line Spacing
+precmd() {
+  precmd() {
+    echo
+  }
+}
+
 # Load Starship
 eval "$(starship init zsh)"
 
-# For Testing
+# For Testing-------
 # zprof
-#-----------------
+#-------------------

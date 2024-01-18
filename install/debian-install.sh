@@ -49,6 +49,7 @@ echo "CONFIGURING!!"
 cd ~/.dotfiles
 stow lvim
 stow zsh
+stow tmux && ~/.config/tmux/plugins/tpm/bin/install_plugins
 
 #Health--------------
 echo "DONE"
