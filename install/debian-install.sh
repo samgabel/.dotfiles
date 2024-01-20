@@ -33,12 +33,22 @@ curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
 source $HOME/.nvm/nvm.sh
 nvm install 20
 
+
 #Install NEOVIM---------------------------------------------------------------------
 
 echo "##################################################################################################################"
 echo "INSTALLING NEOVIM!!"
 
 ~/.dotfiles/install/editors/deb-lvim.sh
+
+
+#TMUX---------------------------------------------------------------------
+
+echo "##################################################################################################################"
+echo "CONFIGURING TMUX!!"
+
+git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+
 
 #CONFIG-------------------------------------------------------------------
 
