@@ -1,9 +1,6 @@
 #!/bin/bash
 set -e
 
-                     # --------Install homebrew, packages, and stow (create symlinks)---------
-                                            # ONLY RUN IF ON MACOS
-
 
 
 echo "  ______                        __               _______             __      ______  __ __                    "
@@ -18,51 +15,26 @@ echo "  \▓▓▓▓▓▓  \▓▓▓▓▓▓▓\▓▓  \▓▓  \▓▓   \
 
 
 
-#HOMEBREW-----------------------------------------------------------------
-
-echo "##################################################################################################################"
-echo "INSTALLING HOMEBREW!!"
-
-#Install Homebrew-----------------
-if ! command -v brew >/dev/null; then
-  echo "Homebrew is not installed. Installing Homebrew..."
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-else
-  echo "Homebrew already installed!"
-fi
-
-
-#PACKAGES-----------------------------------------------------------------
+#Install PACKAGES-------------------------------------------------------------------
 
 echo "##################################################################################################################"
 echo "INSTALLING PACKAGES!!"
 
-#Define Packages------------------
-declare -a packages=("eza" "stow" "starship" "zsh-autosuggestions" "zsh-syntax-highlighting" "neovim" "python3" "nvm" "tmux")
+~/.dotfiles/install/extras/add-repos-debian.sh
+sudo apt install -y zsh eza stow zsh-autosuggestions zsh-syntax-highlighting neofetch btop fzf tldr pip python3.10-venv cargo
 
-#Check ZSH------------------------
-if ! command -v zsh >/dev/null; then
-  echo "ZSH is not installed. Installing ZSH..."
-  brew install zsh
-else
-  echo "ZSH already installed!."
-fi
+#Install STARSHIP----
+cd ~
+curl -sS https://starship.rs/install.sh | sudo sh -s -- -y
+rm -f install.sh
 
-#Install Packages-----------------
-for package in "${packages[@]}"; do
-  # check if the package is already installed
-  if ! brew ls --versions "$package" >/dev/null; then
-    echo "Installing $package..."
-    brew install "$package"
-  else
-    echo "$package is already installed."
-  fi
-done
+#Install NVM---------
+curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+source "$HOME"/.nvm/nvm.sh
+nvm install 20
 
-#Install Additional---------------
-brew bundle install --file=~/.dotfiles/install/extras/Brewfile
 
-#NEOVIM-------------------------------------------------------------------
+#Install NEOVIM---------------------------------------------------------------------
 
 echo "##################################################################################################################"
 echo "INSTALLING NEOVIM!!"
@@ -83,24 +55,25 @@ git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 echo "##################################################################################################################"
 echo "CONFIGURING!!"
 
-# Stow----------------------------
+#Stow----------------
 cd ~/.dotfiles
 stow lvim
 stow zsh
 stow tmux && ~/.config/tmux/plugins/tpm/bin/install_plugins
 
-# Finishing Touches---------------
-echo "1) Make sure iTerm2 is installed & ..."
-echo "2) Configure General > Preferences > Path=~/.dotfiles/iterm2/"
-echo "3) Install apps in extras/manual-install.md"
-
+#Health--------------
+echo "DONE"
+echo "open vim"
+echo ":checkhealth (to see if everything is working)"
 
 echo "##################################################################################################################"
 
-# Set ZSH as default shell--------
+# Set ZSH as the default shell
 if [ "$SHELL" != "$(which zsh)" ]; then
   echo "Setting ZSH as default shell..."
-  sudo chsh -s $(which zsh) $USER
+  sudo chsh -s "$(which zsh)" "$USER"
+  cd /home/"$USER"/
+  rm -f .bash* .profile
   echo "Reload session or run exec zsh"
 else
   echo "ZSH is already set as the default shell!."
