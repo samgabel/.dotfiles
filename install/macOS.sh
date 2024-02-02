@@ -41,13 +41,8 @@ echo "INSTALLING PACKAGES!!"
 #Install Packages---------------
 brew bundle install --file=~/.dotfiles/install/extras/Brewfile
 
-
-#TMUX---------------------------------------------------------------------
-
-echo "##################################################################################################################"
-echo "CONFIGURING TMUX!!"
-
-git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+#Install Git Repos--------------
+./extras/add-plugins-git.sh
 
 
 #CONFIG-------------------------------------------------------------------
