@@ -15,4 +15,6 @@ sudo ln -s /squashfs-root/AppRun /usr/local/bin/nvim
 
 # Install NeoVim Providers------
 python3 -m pip install pynvim
-sudo npm install -g neovim
+source "$HOME"/.nvm/nvm.sh
+nvm install 20
+npm install -g neovim

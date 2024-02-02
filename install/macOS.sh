@@ -42,7 +42,7 @@ echo "INSTALLING PACKAGES!!"
 brew bundle install --file=~/.dotfiles/install/extras/Brewfile
 
 #Install Git Repos--------------
-./extras/add-plugins-git.sh
+~/.dotfiles/install/extras/add-plugins-git.sh
 
 
 #CONFIG-------------------------------------------------------------------

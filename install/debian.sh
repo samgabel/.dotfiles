@@ -22,6 +22,7 @@ echo "INSTALLING PACKAGES!!"
 
 ~/.dotfiles/install/extras/add-repos-debian.sh
 sudo apt install -y zsh eza stow zsh-autosuggestions zsh-syntax-highlighting neofetch btop fzf tldr pip python3.10-venv cargo
+~/.dotfiles/install/extras/add-plugins-git.sh
 
 #Install STARSHIP----
 cd ~
@@ -30,8 +31,6 @@ rm -f install.sh
 
 #Install NVM---------
 curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
-source "$HOME"/.nvm/nvm.sh
-nvm install 20
 
 
 #Install NEOVIM---------------------------------------------------------------------
@@ -39,15 +38,7 @@ nvm install 20
 echo "##################################################################################################################"
 echo "INSTALLING NEOVIM!!"
 
-~/.dotfiles/install/editors/deb-lvim.sh
-
-
-#TMUX---------------------------------------------------------------------
-
-echo "##################################################################################################################"
-echo "CONFIGURING TMUX!!"
-
-git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+~/.dotfiles/install/editors/deb-nvim.sh
 
 
 #CONFIG-------------------------------------------------------------------
@@ -57,7 +48,7 @@ echo "CONFIGURING!!"
 
 #Stow----------------
 cd ~/.dotfiles
-stow lvim
+stow nvim
 stow zsh
 stow tmux && ~/.config/tmux/plugins/tpm/bin/install_plugins
 
