@@ -26,22 +26,20 @@ export NVM_DIR="$HOME/.nvm"
 autoload -Uz compinit && compinit -C
 
 ## Styling --------------------------------------
-# makes tab completions case-insensitive
+### makes tab completions case-insensitive
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-# disable sort when completing `git checkout`
+### disable sort when completing `git checkout`
 zstyle ':completion:*:git-checkout:*' sort false
-# set descriptions format to enable group support
+### set descriptions format to enable group support
 zstyle ':completion:*:descriptions' format '[%d]'
-# set list-colors to enable filename colorizing
+### set list-colors to enable filename colorizing
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-# preview directory's content with eza when completing with...
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always --icons $realpath'
-zstyle ':fzf-tab:complete:lvim:*' fzf-preview 'eza -1 --color=always --icons $realpath'
-zstyle ':fzf-tab:complete:bat:*' fzf-preview 'eza -1 --color=always --icons $realpath'
-# switch group using `,` and `.`
+### preview directory's content with eza when completing with...
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -a -1 --color=always --icons --group-directories-first $realpath'
+zstyle ':fzf-tab:complete:nvim:*' fzf-preview 'eza -a -1 --color=always --icons --group-directories-first $realpath'
+zstyle ':fzf-tab:complete:bat:*' fzf-preview 'eza -a -1 --color=always --icons --group-directories-first $realpath'
+### switch group using `,` and `.`
 zstyle ':fzf-tab:*' switch-group ',' '.'
-# keybindings for fzf-tab
-zstyle ':fzf-tab:*' fzf-bindings 'tab:accept' 'ctrl-a:toggle-all'
 
 # MAC-OS ------------------------------------------------------------------------------------------
 
@@ -78,7 +76,7 @@ fi
 
 
 ## Set Default Editor ----------------------------
-export VISUAL=lvim
+export VISUAL=nvim
 export EDITOR="$VISUAL"
 
 ## Prompt Line Spacing ---------------------------
