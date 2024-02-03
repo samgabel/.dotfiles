@@ -8,7 +8,7 @@ function M.config()
     a = { "<cmd>Alpha<cr>", "Dashboard" },
     q = { "<cmd>confirm q<CR>", "Quit" },
     d = { "<cmd>NoiceDismiss<CR>" , "DISMISS" },
-    v = { "<cmd>vsplit<CR>", "Split" },
+    v = { "<cmd>vsplit | Alpha<CR>", "Split" },
     b = { name = "Buffers" }, --get rid of imbedded
     f = { name = "Find" },
     g = { name = "Git" },
@@ -19,7 +19,8 @@ function M.config()
       l = { name = "Links" },
     },
     t = { name = "Timer" },
-    y = { name = "FUN" },
+    y = { name = "Fun" },
+    z = { name = "Zen"}
     -- p = { name = "Plugins" },
     -- d = { name = "Debug" },
     -- t = { name = "Test" },

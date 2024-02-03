@@ -28,16 +28,18 @@ spec "plugin.support.indentline"
 spec "plugin.support.navic"
 spec "plugin.support.rainbow-delimiters"
 spec "plugin.support.schemastore"
+spec "plugin.support.twilight"
 
 -- EXTRAS
 spec "plugin.extra.cellular-automaton"
 spec "plugin.extra.comment"
 spec "plugin.extra.harpoon"
 spec "plugin.extra.hop"
-spec "plugin.extra.surround"
-spec "plugin.extra.obsidian"
 spec "plugin.extra.neogit"
 spec "plugin.extra.nomodoro"
+spec "plugin.extra.obsidian"
+spec "plugin.extra.surround"
+spec "plugin.extra.zen-mode"
 
 -- LAZY
 require "init.lazy"
