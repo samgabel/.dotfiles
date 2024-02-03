@@ -8,7 +8,12 @@ tmux_switch_to_session() {
     fi
 }
 
+
 choice=$(sort -rfu <<< "$tmuxsessions" \
-    | fzf-tmux -p \
+    | fzf-tmux -p -w 45 -h 10 -x 150 -y 40 \
     | tr -d '\n')
-tmux_switch_to_session "$choice"
+
+
+if [ -n "$choice" ]; then
+    tmux_switch_to_session "$choice"
+fi
