@@ -5,8 +5,13 @@ alias ls="eza --icons --group-directories-first"
 alias ll="eza --icons --group-directories-first -l"
 
 ## cat
-alias cat='bat --decorations=never --theme=Catppuccin-frappe'
-alias bat='bat --theme=Catppuccin-frappe'
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  alias cat='bat --decorations=never'
+fi
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  alias cat='batcat --decorations=never'
+  alias bat='batcat'
+fi
 
 ## df and du
 alias df="df -hP"

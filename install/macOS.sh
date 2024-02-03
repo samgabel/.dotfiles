@@ -52,7 +52,6 @@ echo "CONFIGURING!!"
 
 # Stow----------------------------
 cd ~/.dotfiles
-stow bat
 stow nvim
 stow zsh
 stow tmux && ~/.config/tmux/plugins/tpm/bin/install_plugins

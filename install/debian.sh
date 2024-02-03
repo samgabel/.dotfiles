@@ -20,28 +20,12 @@ echo "  \▓▓▓▓▓▓  \▓▓▓▓▓▓▓\▓▓  \▓▓  \▓▓   \
 echo "##################################################################################################################"
 echo "INSTALLING PACKAGES!!"
 
-~/.dotfiles/install/extras/add-repos-debian.sh
-sudo apt install -y zsh eza stow zsh-autosuggestions zsh-syntax-highlighting neofetch btop fzf tldr pip python3.10-venv cargo
+#Install Packages------------
+~/.dotfiles/install/extras/Deb-Packages.sh
+
+#Install Git Repos-----------
 ~/.dotfiles/install/extras/add-plugins-git.sh
 
-#Install STARSHIP----
-cd ~
-curl -sS https://starship.rs/install.sh | sudo sh -s -- -y
-rm -f install.sh
-
-#Install NVM---------
-curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
-
-
-#Install NEOVIM---------------------------------------------------------------------
-
-echo "##################################################################################################################"
-echo "INSTALLING NEOVIM!!"
-
-~/.dotfiles/install/editors/deb-nvim.sh
-
-
-#CONFIG-------------------------------------------------------------------
 
 echo "##################################################################################################################"
 echo "CONFIGURING!!"
