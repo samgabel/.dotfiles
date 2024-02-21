@@ -36,7 +36,7 @@ zstyle ':completion:*:descriptions' format '[%d]'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 ### preview directory's content with eza when completing with...
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -a -1 --color=always --icons --group-directories-first $realpath'
-zstyle ':fzf-tab:complete:nvim:*' fzf-preview 'eza -a -1 --color=always --icons --group-directories-first $realpath'
+zstyle ':fzf-tab:complete:vim:*' fzf-preview 'eza -a -1 --color=always --icons --group-directories-first $realpath'
 zstyle ':fzf-tab:complete:bat:*' fzf-preview 'eza -a -1 --color=always --icons --group-directories-first $realpath'
 ### switch group using `,` and `.`
 zstyle ':fzf-tab:*' switch-group ',' '.'

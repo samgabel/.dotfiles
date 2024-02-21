@@ -37,6 +37,9 @@ alias flushhostdns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponde
 ## Recursively delete `.DS_Store` files
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 
+## Plist Buddy
+alias plistbuddy="/usr/libexec/PlistBuddy"
+
 
 # SERVER--------------------------------------------------------------------------------------------
 

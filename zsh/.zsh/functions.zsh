@@ -6,6 +6,32 @@ function vim() {
   nvim $@
 }
 
+## Test Directory ------------------------------------------
+function mktest() {
+  if [ -d "$HOME/TEST" ]; then
+    echo "Test directory already exists"
+    cd "$HOME/TEST"
+  else
+    mkdir "$HOME/TEST"
+    cd "$HOME/TEST"
+    echo "Test directory created"
+  fi
+}
+
+function rmtest() {
+  if [ -d "$HOME/Test" ]; then
+    echo -n "Delete TEST directory? [Y/n] "
+    read answer
+    if [[ $answer =~ ^[Yy]$ || $answer == "" ]]; then
+      rm -rf "$HOME/TEST"
+    else
+      echo "Deletion cancelled"
+    fi
+  else
+    echo "No TEST directory use `mktest` to create one"
+  fi
+}
+
 ## VENV Python COMMANDS ------------------------------------
 function venv-on() {
   if [ -d "./venv" ]; then
@@ -23,17 +49,25 @@ function venv-on() {
 }
 
 function venv-create() {
-  local dir=$(basename $(pwd))
+  local dir=$(basename "$(pwd)")
   echo -n "Create and activate virtual environment at $dir? [Y/n] "
-  read answer
-
+  read -r answer
   if [[ $answer =~ ^[Yy]$ || $answer == "" ]]; then
-    python3 -m venv venv
+    echo -n "Which version of Python would you like to use? [e.g., 3.11, 3.12]: "
+    read -r python_version
+    if [[ "$python_version" =~ ^[0-9]+\.[0-9]+$ ]]; then
+      python_exec="python$python_version"
+      echo "Using Python version $python_version."
+    else
+      echo "Invalid Python version format. Aborting."
+      return 1
+    fi
+    "$python_exec" -m venv venv
     source ./venv/bin/activate
-    pip install --upgrade pip
-    pip install pynvim
+    python -m pip install --upgrade pip
+    python -m pip install pynvim
     if [ -f "./ansible.cfg" ]; then
-      pip install ansible argcomplete
+      python -m pip install ansible argcomplete
       deactivate
       venv-on
     fi
@@ -47,16 +81,16 @@ function venv-create() {
 
 ## Directory-Hopping COMMAND -------------------------------
 function d() {
-  [ "$1" = ".dotfiles" ] && cd ~/.dotfiles && ll
-  [ "$1" = ".config" ] && cd ~/.config && ll
-  [ "$1" = ".zsh" ] && cd ~/.zsh && ll
-  [ "$1" = "nvim" ] && cd ~/.config/nvim && ll
-  [ "$1" = "docs" ] && cd ~/Documents/docs && ll
-  [ "$1" = "devel" ] && cd ~/Projects/Devel && ll
-  [ "$1" = "ansible" ] && cd ~/Projects/Ansible && ll
-  [ "$1" = "terraform" ] && cd ~/Projects/Terraform && ll
-  [ "$1" = "important" ] && cd ~/Documents/important && ll
-  [ "$1" = "secrets" ] && cd ~/Secrets && ll
+  [ "$@" = ".dotfiles" ] && cd ~/.dotfiles && ll
+  [ "$@" = ".config" ] && cd ~/.config && ll
+  [ "$@" = ".zsh" ] && cd ~/.zsh && ll
+  [ "$@" = "nvim" ] && cd ~/.config/nvim && ll
+  [ "$@" = "docs" ] && cd ~/Documents/docs && ll
+  [ "$@" = "devel" ] && cd ~/Projects/Devel && ll
+  [ "$@" = "ansible" ] && cd ~/Projects/Ansible && ll
+  [ "$@" = "terraform" ] && cd ~/Projects/Terraform && ll
+  [ "$@" = "important" ] && cd ~/Documents/important && ll
+  [ "$@" = "secrets" ] && cd ~/Secrets && ll
 }
 
 ## CD and LS in same command -------------------------------
