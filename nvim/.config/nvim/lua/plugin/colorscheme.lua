@@ -9,6 +9,13 @@ function M.config()
   require("catppuccin").setup({
     integrations = {
       noice = true,
+      harpoon = true,
+      cmp = true,
+      mason = true,
+      which_key = true,
+      hop = true,
+      alpha = true,
+      neogit = true,
     },
     transparent_background = true
   })

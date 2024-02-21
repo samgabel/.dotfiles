@@ -77,8 +77,11 @@ function M.config()
     "bashls",
     "jsonls",
     "yamlls",
+    "terraformls"
   }
 
+  -- TODO: replace with trouble.nvim -> "https://github.com/folke/trouble.nvim"  
+  -- TODO: clean up UI in quickfix lists
   local default_diagnostic_config = {
     signs = {
       active = true,

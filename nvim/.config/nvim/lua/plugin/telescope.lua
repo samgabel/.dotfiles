@@ -12,12 +12,14 @@ function M.config()
     ["<leader>ff"] = { "<cmd>Telescope find_files<cr>", "Quick Files" },
     ["<leader>fF"] = { "<cmd>Telescope fd hidden=true<cr>", "Preview Files" },
     ["<leader>ft"] = { "<cmd>Telescope live_grep<cr>", "Text" },
+    ["<leader>fc"] = { "<cmd>Telescope todo-comments initial_mode=normal<cr>", "Todo" },
     ["<leader>fb"] = { "<cmd>Telescope buffers previewer=true<cr>", "Buffer" },
     -- ["<leader>fp"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
     -- ["<leader>fc"] = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
     ["<leader>fh"] = { "<cmd>Telescope help_tags<cr>", "Help" },
+    ["<leader>fe"] = { "<cmd>Telescope noice initial_mode=normal<cr>", "Errors" },
     ["<leader>fl"] = { "<cmd>Telescope resume<cr>", "Last Search" },
-    ["<leader>fr"] = { "<cmd>Telescope oldfiles<cr>", "Recent File" },
+    -- ["<leader>fr"] = { "<cmd>Telescope oldfiles<cr>", "Recent File" },
   }
 
   local icons = require "user.icons"
@@ -43,6 +45,11 @@ function M.config()
         "--smart-case",
         "--hidden",
         "--glob=!.git/",
+      },
+      -- Ignore certain directories in telescope search
+      file_ignore_patterns = {
+        ".git/",
+        "venv/",
       },
 
       mappings = {
