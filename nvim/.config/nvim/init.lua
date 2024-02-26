@@ -1,3 +1,6 @@
+-- TODO: set up after/ to language specific settings (like indent format):
+-- https://www.reddit.com/r/neovim/comments/x3zp6t/usage_of_afterftplugin_directory_for/
+
 -- INIT
 require "init.launch"
 require "init.options"
@@ -42,6 +45,7 @@ spec "plugin.extra.nomodoro"
 spec "plugin.extra.obsidian"
 spec "plugin.extra.surround"
 spec "plugin.extra.todo-comments"
+spec "plugin.extra.trouble"
 spec "plugin.extra.zen-mode"
 
 -- LAZY

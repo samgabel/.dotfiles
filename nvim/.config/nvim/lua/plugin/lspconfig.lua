@@ -52,7 +52,8 @@ function M.config()
         ["<leader>lh"] = { "<cmd>lua require('plugin/lspconfig').toggle_inlay_hints()<cr>", "Hints" },
         ["<leader>lk"] = { "<cmd>lua vim.diagnostic.goto_prev()<cr>", "Prev Diagnostic" },
         ["<leader>ll"] = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-        ["<leader>lq"] = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
+        -- ["<leader>lq"] = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
+        ["<leader>lq"] = { "<cmd>TroubleToggle document_diagnostics<cr>", "Quickfix" },
         ["<leader>lr"] = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
     }
 
@@ -80,8 +81,6 @@ function M.config()
         "terraformls",
     }
 
-    -- TODO: replace with trouble.nvim -> "https://github.com/folke/trouble.nvim"
-    -- TODO: clean up UI in quickfix lists
     local default_diagnostic_config = {
         signs = {
             active = true,

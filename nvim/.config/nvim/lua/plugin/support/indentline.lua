@@ -4,11 +4,11 @@ local M = {
 }
 
 function M.config()
-    require("ibl").setup {
+    require("ibl").setup ({
         indent = {
             char = "║",
         },
-    }
+    })
 end
 
 return M
