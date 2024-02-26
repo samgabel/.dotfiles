@@ -1,16 +1,14 @@
 local M = {
-  "lukas-reineke/indent-blankline.nvim",
-  event = "VeryLazy",
+    "lukas-reineke/indent-blankline.nvim",
+    event = "VeryLazy",
 }
 
 function M.config()
-
-  require("ibl").setup({
-    indent = {
-      char = "║"
+    require("ibl").setup {
+        indent = {
+            char = "║",
+        },
     }
-  })
-
 end
 
 return M

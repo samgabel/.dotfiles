@@ -49,7 +49,6 @@ keymap("n", "<M-k>", "<CMD>cprev<CR>zz", opts)
 -- CHMOD from within vim
 keymap("n", "<leader>x", "<cmd>!chmod +x %<CR>", opts)
 
-
 -- NOTE: NO IDEA WHAT THESE DO >
 
 vim.cmd [[:amenu 10.100 mousemenu.Goto\ Definition <cmd>lua vim.lsp.buf.definition()<CR>]]
@@ -68,5 +67,4 @@ keymap({ "n", "x" }, "j", "gj", opts)
 keymap({ "n", "x" }, "k", "gk", opts)
 keymap("n", "<leader>w", ":lua vim.wo.wrap = not vim.wo.wrap<CR>", opts)
 
-
-vim.api.nvim_set_keymap('t', '<C-;>', '<C-\\><C-n>', opts)
+vim.api.nvim_set_keymap("t", "<C-;>", "<C-\\><C-n>", opts)

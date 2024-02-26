@@ -1,10 +1,10 @@
 local M = {
     "kylechui/nvim-surround",
-    event = "VeryLazy"
+    event = "VeryLazy",
 }
 
 function M.config()
-  require("nvim-surround").setup ({})
+    require("nvim-surround").setup {}
 end
 
 return M
