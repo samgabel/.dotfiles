@@ -5,11 +5,11 @@ vim.opt.completeopt = { "menuone", "noselect" } -- mostly just for cmp
 vim.opt.conceallevel = 0 -- so that `` is visible in markdown files
 -- vim.opt.fileencoding = "utf-8" -- the encoding written to a file
 vim.opt.hlsearch = false -- highlight all matches on previous search pattern
-vim.opt.incsearch = true
+vim.opt.incsearch = true -- smarter search we can do things like: " vim.* = "
 vim.opt.ignorecase = true -- ignore case in search patterns
 vim.opt.mouse = "a" -- allow the mouse to be used in neovim
 vim.opt.pumheight = 10 -- pop up menu height
-vim.opt.pumblend = 10
+vim.opt.pumblend = 0 -- transparency for popups (like cmp) -> higher is more transparency
 vim.opt.showmode = false -- we don't need to see things like -- INSERT -- anymore
 vim.opt.showtabline = 1 -- always show tabs
 vim.opt.smartcase = true -- smart case
@@ -22,9 +22,13 @@ vim.opt.timeoutlen = 1000 -- time to wait for a mapped sequence to complete (in 
 vim.opt.undofile = true -- enable persistent undo
 vim.opt.updatetime = 50 -- faster completion (4000ms default)
 vim.opt.writebackup = false -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
+-- INDENTATION
 vim.opt.expandtab = true -- convert tabs to spaces
-vim.opt.shiftwidth = 2 -- the number of spaces inserted for each indentation
-vim.opt.tabstop = 2 -- insert 2 spaces for a tab
+vim.opt.shiftwidth = 4 -- the number of spaces inserted for each indentation
+vim.opt.tabstop = 4 -- insert 2 spaces for a tab
+vim.cmd("set invlist") -- sets the tab literal character visibility on
+vim.cmd("set listchars=tab:║->,trail:") -- formats the trailing dot when typing and the literal tab character
+-- vim.opt.listchars
 vim.opt.cursorline = true -- highlight the current line
 vim.opt.number = true -- set numbered lines
 vim.opt.laststatus = 3
@@ -42,23 +46,23 @@ vim.opt.title = false
 -- colorcolumn = "120",
 vim.opt.fillchars = vim.opt.fillchars + "eob: "
 vim.opt.fillchars:append {
-  stl = " ",
+    stl = " ",
 }
 
-vim.opt.shortmess:append "c"
-
+vim.opt.shortmess:append "c" -- cleaner UI for quickfix lists
 vim.opt.conceallevel = 1 -- conceals things like code block (```), bold (**), and full path links in .md notes
 
-vim.cmd "set whichwrap+=<,>,[,],h,l"
-vim.cmd [[set iskeyword+=-]]
+vim.opt.whichwrap:append "h,l" -- use vim motions in Normal to go to next line when at the end of the current line and vice-versa
+vim.opt.iskeyword:append "-" -- selects a word with "-" in-between as a full word, before it would treat the word as 2 words
 
 -- TODO: figure out how to replace netrw
 vim.g.netrw = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_mouse = 2
 
+-- vim.opt.autoindent = true -- (idk if this works) indents line automatically when pressing <CR> in Insert mode or "o" in Normal mode
+vim.opt.linebreak = true -- will stop wrapping lines in the middle of the word
 vim.opt.breakindent = true -- respects indentation when soft wrapping lines
-vim.opt.breakindentopt = "shift:2"
 
-vim.api.nvim_command([[autocmd VimEnter * silent !tmux set status off]])
-vim.api.nvim_command([[autocmd VimLeave * silent !tmux set status on]])
+vim.api.nvim_command [[autocmd VimEnter * silent !tmux set status off]]
+vim.api.nvim_command [[autocmd VimLeave * silent !tmux set status on]]

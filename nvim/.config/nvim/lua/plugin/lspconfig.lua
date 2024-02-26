@@ -81,6 +81,9 @@ function M.config()
         "terraformls",
     }
 
+    -- (CUSTOMIZE) ICONS & VIRTUAL TEXT & DIAGNOSTIC FLOAT ----------------------------------------------
+
+    -- [CONFIG] ----------------
     local default_diagnostic_config = {
         signs = {
             active = true,
@@ -91,7 +94,7 @@ function M.config()
                 { name = "DiagnosticSignInfo", text = icons.diagnostics.Information },
             },
         },
-        virtual_text = false,
+        virtual_text = false, -- causes lag when scrolling if "true"
         update_in_insert = false,
         underline = true,
         severity_sort = true,
@@ -105,6 +108,7 @@ function M.config()
         },
     }
 
+    -- [SETUP] ----------------
     vim.diagnostic.config(default_diagnostic_config)
 
     for _, sign in ipairs(vim.tbl_get(vim.diagnostic.config(), "signs", "values") or {}) do
