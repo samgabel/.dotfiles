@@ -27,19 +27,17 @@ function M.config()
 
   dashboard.section.buttons.val = {
     button("n", icons.ui.NewFile .. " New file", ":ene <BAR> startinsert <CR>"),
-    -- button("f", icons.ui.Files .. " Find file", ":FzfLua files <CR>"),
     button("f", icons.ui.Files .. " Find file", ":Telescope find_files <CR>"),
     -- button("p", icons.git.Repo .. " Find project", ":lua require('telescope').extensions.projects.projects()<CR>"),
     -- button("r", icons.ui.History .. " Recent files", ":Telescope oldfiles <CR>"),
     button("t", icons.ui.Text .. " Find text", ":Telescope live_grep <CR>"),
-    -- button("t", icons.ui.Text .. " Find text", ":FzfLua live_grep <CR>"),
     button("e", icons.ui.FolderSymlink .. " Filesystem", ":Neotree current <CR>"),
     button("g", icons.git.Octoface .. " Git", ":Neogit<CR>"),
     button("c", icons.ui.Gear .. " Config", ":e ~/.config/nvim/init.lua <CR>"),
     button("q", icons.ui.SignOut .. " Quit", ":qa<CR>"),
   }
   local function footer()
-    return "chrisatmachine.com"
+    return "samgabel.com"
   end
 
   dashboard.section.footer.val = footer()

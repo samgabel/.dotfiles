@@ -6,10 +6,11 @@ local M = {
 function M.config()
   local mappings = {
     a = { "<cmd>Alpha<cr>", "Dashboard" },
-    q = { "<cmd>confirm q<CR>", "Quit" },
     d = { "<cmd>NoiceDismiss<CR>" , "DISMISS" },
+    q = { "<cmd>confirm q<CR>", "Quit" },
     v = { "<cmd>vsplit | Alpha<CR>", "Split" },
     b = { name = "Buffers" }, --get rid of imbedded
+  -- expandable --
     f = { name = "Find" },
     g = { name = "Git" },
     h = { name = "Hop", mode = {"n", "v"} },
@@ -17,6 +18,11 @@ function M.config()
     o = {
       name = "Obsidian",
       l = { name = "Links" },
+    },
+    p = {
+      name = "Path",
+      a = { ":lua PasteFilePathInline()<CR>" , "Absolute" },
+      r = { ":lua PasteRelativePathInline()<CR>" , "Relative" }
     },
     t = { name = "Timer" },
     y = { name = "Fun" },

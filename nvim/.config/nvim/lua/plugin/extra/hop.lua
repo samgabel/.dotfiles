@@ -1,7 +1,8 @@
 local M = {
   'smoka7/hop.nvim',
   version = "*",
-  keys = { { "<leader>h" } },
+  -- keys = { { "<leader>h" } },
+  event = "VeryLazy",
   opts = {},
 }
 

@@ -1,3 +1,5 @@
+---@diagnostic disable: missing-fields
+
 local M = {
   "epwalsh/obsidian.nvim",
   version = "*",
@@ -31,13 +33,22 @@ function M.config()
       },
     },
 
+    -- where notes are first created using <leader>on
     notes_subdir = "ZETTELKASTEN/300-Fleeting",
+    new_notes_location = "notes_subdir",
 
-    completion = {
-      new_notes_location = "notes_subdir",
-      prepend_note_id = false,
-      prepend_note_path = true,
-    },
+    -- prepends the note path instead of the note id
+    wiki_link_func = function(opts)
+      if opts.label ~= opts.path then
+        return string.format("[[%s|%s]]", opts.path, opts.label)
+      else
+        return string.format("[[%s]]", opts.path)
+      end
+    end,
+    -- completion = {
+    --   prepend_note_id = false,
+    --   prepend_note_path = true,
+    -- },
 
     -- disable automatic "Properties" section
     disable_frontmatter = true,

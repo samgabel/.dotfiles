@@ -3,6 +3,7 @@ require "init.launch"
 require "init.options"
 require "init.keymaps"
 require "init.autocmds"
+require "init.functions"
 
 -- PLUGIN
 spec "plugin.alpha"
@@ -23,7 +24,7 @@ spec "plugin.whichkey"
 
 -- SUPPORT
 spec "plugin.support.autopairs"
-spec "plugin.support.illuminate"
+-- spec "plugin.support.illuminate"
 spec "plugin.support.indentline"
 spec "plugin.support.navic"
 spec "plugin.support.rainbow-delimiters"
