@@ -14,8 +14,14 @@ local M = {
 function M.config()
     require("noice").setup {
         cmdline = {
+            view = "cmdline",
             format = {
-                search_down = { icon = "" },
+                cmdline = { icon = " "},
+                search_up = { icon = " " },
+                search_down = { icon = " " },
+                filter = { icon = " "},
+                help = { icon = " "},
+                lua = { icon = " "},
             },
         },
         messages = {
