@@ -11,6 +11,7 @@ function M.config()
 
     local formatting = null_ls.builtins.formatting
     local diagnostics = null_ls.builtins.diagnostics
+    local code_actions = null_ls.builtins.code_actions
 
     -- TODO: formatting on <leader>le
     null_ls.setup {
@@ -18,15 +19,23 @@ function M.config()
         sources = {
             formatting.stylua,
             formatting.prettier,
-            formatting.black,
-
             formatting.prettier.with {
                 extra_filetypes = { "toml", "yaml" },
                 -- extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
             },
 
+        -- SHELL --
+            -- formatting (lspconfig) -> bashls
+            -- diagnostics (lspconfig) -> bashls
+
+        -- PYTHON --
+            formatting.black,
+            -- diagnostics (lspconfig) -> pyright
+            -- code_actions (lspconfig) -> pyright
+
+        -- JAVASCRIPT --
             -- formatting.eslint,
-            -- diagnostics.flake8,
+
 
             -- null_ls.builtins.completion.spell,
         },

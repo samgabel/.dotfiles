@@ -131,8 +131,14 @@ function M.config()
             opts = vim.tbl_deep_extend("force", settings, opts)
         end
 
+        -- LUA-LS --
         if server == "lua_ls" then
             require("neodev").setup {}
+        end
+
+        -- BASH-LS --
+        if server == "bashls" then
+            opts.filetypes = { "sh", "bash", "zsh" }
         end
 
         lspconfig[server].setup(opts)

@@ -7,7 +7,10 @@ local M = {
 }
 
 function M.config()
-    -- Declare LSP tooling
+
+    -- DECLARE PACKAGES --------------------------------------------------------------
+
+    -- SERVER list --
     local servers = {
         "bashls",
         "cssls",
@@ -19,18 +22,16 @@ function M.config()
         "tsserver",
         "yamlls",
     }
+    -- LINTER list --
     local linters = {
-        "shellcheck",
+        "shellcheck",   -- shell
     }
+    -- FORMATTER list --
     local formatters = {
-        "black",
-        "stylua",
-        "prettier",
+        "black",        -- python
+        "stylua",       -- lua
+        "prettier",     -- combo
     }
-
-    -- Concatenate lists
-    local registry = require "mason-registry"
-    local tools = vim.tbl_flatten { linters, formatters }
 
 
     -- MASON General Config
@@ -40,12 +41,19 @@ function M.config()
         },
     }
 
-    -- MASON LSP Config
+
+    -- INSTALLING PACKAGES ----------------------------------------------------------
+
+    -- MASON LSP Config [install]
     require("mason-lspconfig").setup {
         ensure_installed = servers
     }
 
-    -- MASON Tooling
+    -- Concatenate tooling lists
+    local registry = require "mason-registry"
+    local tools = vim.tbl_flatten { linters, formatters }
+
+    -- MASON Tooling [install]
     registry.refresh(function ()
         for _, tool in ipairs(tools) do
             local pkg = registry.get_package(tool)
