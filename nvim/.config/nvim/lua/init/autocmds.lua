@@ -77,7 +77,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 
 -- Start Lualine when neo-tree is open
 vim.api.nvim_create_autocmd({ "FileType" }, {
-    pattern = { "neo-tree" },
+    pattern = { "neo-tree", "NeogitStatus" },
     callback = function()
         -- wrapping enabled
         require("lualine")
