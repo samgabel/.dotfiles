@@ -72,6 +72,9 @@ function M.config()
     vim.api.nvim_set_hl(0, "CmpItemKindSnippet", { fg = "#D8BFD8" })
     vim.api.nvim_set_hl(0, "CmpItemKindEmoji", { fg = "#FDE030" })
 
+
+    -- [SETUP] ----------------------------------------------------------------------------------------------
+
     local check_backspace = function()
         local col = vim.fn.col "." - 1
         return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
@@ -86,7 +89,7 @@ function M.config()
             end,
         },
 
-        -- [MAPPING] ----------------------------------------------------------------------------
+        -- [MAPPING] ---------------------------------
         mapping = cmp.mapping.preset.insert {
             ["<C-k>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
             ["<C-j>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
@@ -134,7 +137,7 @@ function M.config()
                 }),
         },
 
-        -- [FORMATTING] ----------------------------------------------------------------------------
+        -- [FORMATTING] --------------------------------
         ---@diagnostic disable-next-line: missing-fields
         formatting = {
             fields = { "kind", "abbr", "menu" },
@@ -167,6 +170,7 @@ function M.config()
                 return vim_item
             end,
         },
+        -- CMP inmport sources --
         sources = {
             { name = "copilot" },
             { name = "nvim_lsp" },
@@ -182,6 +186,7 @@ function M.config()
             behavior = cmp.ConfirmBehavior.Replace,
             select = false,
         },
+        -- CMP window settings --
         window = {
             completion = {
                 border = "rounded",
@@ -195,13 +200,15 @@ function M.config()
                 winhighlight = "FloatBorder:Function",
             },
         },
+        -- CMP ghost text --
         experimental = {
             ghost_text = true,
         },
     }
 
+    -- [DEPENDECY SOURCES] ----------------------------------------------------------------------------------
 
-    -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+    -- Use buffer *source* for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
     cmp.setup.cmdline({ '/', '?' }, {
         mapping = cmp.mapping.preset.cmdline(),
         sources = {
@@ -209,7 +216,7 @@ function M.config()
         }
     })
 
-    -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+    -- Use cmdline & path *source* for ':' (if you enabled `native_menu`, this won't work anymore).
     cmp.setup.cmdline(':', {
         mapping = cmp.mapping.preset.cmdline(),
         sources = cmp.config.sources({

@@ -2,8 +2,11 @@ local M = {
     "neogitorg/neogit",
     event = "VeryLazy",
     dependencies = {
-        "sindrets/diffview.nvim", -- optional - Diff integration
-        -- "ibhagwan/fzf-lua",              -- optional
+        {
+            "sindrets/diffview.nvim", -- optional - Diff integration
+            event = "VeryLazy"
+        },
+        -- "ibhagwan/fzf-lua",        -- optional
     },
 }
 
@@ -22,6 +25,7 @@ function M.config()
         kind = "tab",
         -- Change the default way of opening popups
         popup = {
+            ---@diagnostic disable-next-line: assign-type-mismatch
             kind = "floating",
         },
         -- Change the default way of opening the commit popup

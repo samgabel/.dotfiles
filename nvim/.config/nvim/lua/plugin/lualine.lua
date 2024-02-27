@@ -3,7 +3,10 @@ local M = {
     event = "VeryLazy",
     -- lazy = false,
     dependencies = {
-        "AndreM222/copilot-lualine",
+        {
+            "AndreM222/copilot-lualine",
+            event = "VeryLazy"
+        },
     },
 }
 

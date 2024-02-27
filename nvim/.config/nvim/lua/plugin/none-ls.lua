@@ -12,7 +12,7 @@ function M.config()
     local formatting = null_ls.builtins.formatting
     local diagnostics = null_ls.builtins.diagnostics
 
-    -- TODO: formatting on write
+    -- TODO: formatting on <leader>le
     null_ls.setup {
         debug = false,
         sources = {
@@ -21,8 +21,8 @@ function M.config()
             formatting.black,
 
             formatting.prettier.with {
-              extra_filetypes = { "toml", "yaml" },
-              -- extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
+                extra_filetypes = { "toml", "yaml" },
+                -- extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
             },
 
             -- formatting.eslint,

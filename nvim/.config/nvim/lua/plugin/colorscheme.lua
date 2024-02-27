@@ -15,6 +15,12 @@ function M.config()
             hop = true,
             alpha = true,
             neogit = true,
+            -- lsp_trouble = true,
+            -- TODO: figure this out for colorscheme AFTER you figure out indent blankline weirdness
+            indent_blankline = {
+                enabled = true,
+                colored_indent_levels = true,
+            },
         },
         transparent_background = true,
     }
