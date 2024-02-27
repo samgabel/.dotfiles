@@ -1,7 +1,7 @@
 local M = {
     "nvim-lualine/lualine.nvim",
-    event = "VeryLazy",
     -- lazy = false,
+    event = "BufRead",
     dependencies = {
         {
             "AndreM222/copilot-lualine",
@@ -10,15 +10,19 @@ local M = {
     },
 }
 
+
 -- Initial update of tmux session info
 UpdateTmuxSessionInfo()
--- Periodically update tmux session info (every 10 seconds) avoid stuttering when scrolling
-vim.loop.new_timer():start(30000, 30000, vim.schedule_wrap(UpdateTmuxSessionInfo))
+-- UpdateTmuxSessionInfo() when <C-s> is pressed (in terminal <C-s> will freeze until <C-q)
+-- in tmux.conf the "z" keybind will also send <C-s> to vim in additon to toggling zoom
+vim.api.nvim_set_keymap('', '<C-s>', ':lua UpdateTmuxSessionInfo()<CR>', { noremap = true, silent = true })
+
 
 function M.config()
     ---@diagnostic disable: undefined-field, need-check-nil
     require("lualine").setup {
         options = {
+            disabled_filetypes = { "neo-tree" },
             component_separators = { left = "", right = "" },
             section_separators = { left = "", right = "" },
             ignore_focus = { "NvimTree" },
