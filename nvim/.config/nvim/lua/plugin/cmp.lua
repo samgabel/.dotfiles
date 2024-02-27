@@ -140,9 +140,9 @@ function M.config()
         -- [FORMATTING] --------------------------------
         ---@diagnostic disable-next-line: missing-fields
         formatting = {
-            fields = { "kind", "abbr", "menu" },
+            -- fields = { "abbr", "menu", "kind" },
             format = function(entry, vim_item)
-                vim_item.kind = icons.kind[vim_item.kind]
+                vim_item.kind = string.format('%s %s', icons.kind[vim_item.kind], vim_item.kind) -- these are the cmp window items
                 vim_item.menu = ({
                     nvim_lsp = "",
                     nvim_lua = "",
@@ -150,21 +150,28 @@ function M.config()
                     buffer = "",
                     path = "",
                     emoji = "",
+                    cmdline = "",
                 })[entry.source.name]
 
-                if entry.source.name == "emoji" then
-                    vim_item.kind = icons.misc.Smiley
-                    vim_item.kind_hl_group = "CmpItemKindEmoji"
-                end
-
+                -- custom icons & highlight groups --
                 if entry.source.name == "luasnip" then
                     vim_item.kind = icons.kind.Event
                     vim_item.kind_hl_group = "CmpItemKindSnippet"
                 end
 
+                if entry.source.name == "cmdline" then
+                    vim_item.kind = ""
+                    vim_item.kind_hl_group = "CmpItemKindText"
+                end
+
                 if entry.source.name == "cmp_tabnine" then
                     vim_item.kind = icons.misc.Robot
                     vim_item.kind_hl_group = "CmpItemKindTabnine"
+                end
+
+                if entry.source.name == "emoji" then
+                    vim_item.kind = icons.misc.Smiley
+                    vim_item.kind_hl_group = "CmpItemKindEmoji"
                 end
 
                 return vim_item

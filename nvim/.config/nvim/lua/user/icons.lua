@@ -35,6 +35,7 @@ return {
         Unit = " ",
         Value = " ",
         Variable = " ",
+        Vim = " ",
     },
     git = {
         LineAdded = " ",
@@ -155,5 +156,6 @@ return {
         Package = " ",
         CircuitBoard = " ",
         Time = "羽",
+        Vim = " "
     },
 }
