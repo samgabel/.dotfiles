@@ -22,10 +22,9 @@ function M.config()
     ---@diagnostic disable: undefined-field, need-check-nil
     require("lualine").setup {
         options = {
-            disabled_filetypes = { "neo-tree" },
             component_separators = { left = "", right = "" },
             section_separators = { left = "", right = "" },
-            ignore_focus = { "NvimTree" },
+            globalstatus = true,
         },
         sections = {
             lualine_a = {},

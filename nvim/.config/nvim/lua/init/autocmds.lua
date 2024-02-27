@@ -75,6 +75,15 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     end,
 })
 
+-- Start Lualine when neo-tree is open
+vim.api.nvim_create_autocmd({ "FileType" }, {
+    pattern = { "neo-tree" },
+    callback = function()
+        -- wrapping enabled
+        require("lualine")
+    end,
+})
+
 -- Cursor hold event (for LUASNIP)
 vim.api.nvim_create_autocmd({ "CursorHold" }, {
     callback = function()
