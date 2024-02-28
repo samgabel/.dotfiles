@@ -8,13 +8,17 @@ local M = {
         "nvim-tree/nvim-web-devicons",
         "MunifTanjim/nui.nvim",
         -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+
+        -- TODO: add this for changing file and cleanup
+        -- https://github.com/nvim-neo-tree/neo-tree.nvim/wiki/Recipes#handle-rename-or-move-file-event
     },
 }
 
 function M.config()
     local wk = require "which-key"
     wk.register {
-        ["<leader>e"] = { "<CMD>Neotree focus left<CR>", "Filesystem" }, -- toggle neotree directories
+        ["<M-e>"] = { "<CMD>Neotree reveal left<CR>", "Filesystem" }, -- toggle neotree directories
+        ["<leader>e"] = { "<CMD>Neotree focus current reveal_force_cwd<CR>", "Filesystem" }, -- toggle neotree directories
     }
 
     require("neo-tree").setup {
@@ -27,12 +31,15 @@ function M.config()
                 ["S"] = "none",
                 ["<c-x>"] = "open_split",
                 ["<c-v>"] = "open_vsplit",
+                ["f"] = "open",
             },
         },
+
         filesystem = {
             window = {
                 position = "current", -- sets neo-tree as netrw window  --since neo-tree is lazy-loaded right now it won't work
                 mappings = {
+                    ["f"] = "open",
                     ["h"] = "navigate_up",
                     ["l"] = "set_root",
 
@@ -45,8 +52,8 @@ function M.config()
                     ["A"] = "none",
                     ["C"] = "none",
                     ["P"] = "none",
-                    ["f"] = "none",
-                    ["e"] = "none",
+                    -- ["f"] = "none",
+                    -- ["e"] = "none",
                     ["t"] = "none",
                     ["w"] = "none",
                     ["[g"] = "none",
@@ -64,7 +71,55 @@ function M.config()
                     ["<C-k>"] = "move_cursor_up",
                 },
             },
+            components = {
+                harpoon_index = function(config, node, _)
+                    local Marked = require("harpoon.mark")
+                    local path = node:get_id()
+                    local success, index = pcall(Marked.get_index_of, path)
+                    if success and index and index > 0 then
+                        return {
+                            text = string.format("  %d", index), -- <-- Add your favorite harpoon like arrow here
+                            highlight = config.highlight or "NeoTreeDirectoryIcon",
+                        }
+                    else
+                        return {
+                            text = " "
+                        }
+                    end
+                end,
+            },
+            renderers = {
+                file = {
+                    { "indent" },
+                    { "harpoon_index" }, --> This is what actually adds the component in where you want it
+                    { "icon" },
+                    {
+                        "container",
+                        content = {
+                            {
+                                "name",
+                                zindex = 10
+                            },
+                            {
+                                "symlink_target",
+                                zindex = 10,
+                                highlight = "NeoTreeSymbolicLinkTarget",
+                            },
+                            { "clipboard", zindex = 10 },
+                            { "bufnr", zindex = 10 },
+                            { "modified", zindex = 20, align = "right" },
+                            { "diagnostics",  zindex = 20, align = "right" },
+                            { "git_status", zindex = 10, align = "right" },
+                            { "file_size", zindex = 10, align = "right" },
+                            { "type", zindex = 10, align = "right" },
+                            { "last_modified", zindex = 10, align = "right" },
+                            { "created", zindex = 10, align = "right" },
+                        },
+                    },
+                },
+            },
         },
+
     }
 end
 
@@ -78,3 +133,7 @@ end
 --  end
 
 return M
+
+
+
+

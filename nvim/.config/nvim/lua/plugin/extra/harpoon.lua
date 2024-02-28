@@ -7,6 +7,7 @@ local M = {
 }
 
 function M.config()
+
     local keymap = vim.keymap.set
     local opts = { noremap = true, silent = true }
 
@@ -17,11 +18,19 @@ function M.config()
     keymap("n", "<leader>2", "<cmd>lua require('harpoon.ui').nav_file(2)<cr>", opts)
     keymap("n", "<leader>3", "<cmd>lua require('harpoon.ui').nav_file(3)<cr>", opts)
     keymap("n", "<leader>4", "<cmd>lua require('harpoon.ui').nav_file(4)<cr>", opts)
+
+
+    require("harpoon").setup({
+        global_settings = {
+            excluded_filetypes = { "neo-tree" },
+        }
+    })
+
 end
 
 function M.mark_file()
     require("harpoon.mark").add_file()
-    vim.notify "󱡅  marked file"
+    vim.notify "  marked file"
 end
 
 return M
