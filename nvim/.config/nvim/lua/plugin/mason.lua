@@ -24,7 +24,7 @@ function M.config()
     }
     -- LINTER list --
     local linters = {
-        "shellcheck",   -- shell
+        -- "shellcheck",  <-- issue continually stacking `shellcheck` processes when entering .sh file
     }
     -- FORMATTER list --
     local formatters = {
