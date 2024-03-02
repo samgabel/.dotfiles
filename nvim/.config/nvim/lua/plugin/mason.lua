@@ -12,12 +12,14 @@ function M.config()
 
     -- SERVER list --
     local servers = {
+        "ansiblels",
         "bashls",
         "cssls",
         "html",
         "jsonls",
         "lua_ls",
         "pyright",
+        "gopls",
         "terraformls",
         "tsserver",
         "yamlls",
@@ -25,6 +27,7 @@ function M.config()
     -- LINTER list --
     local linters = {
         -- "shellcheck",  <-- issue continually stacking `shellcheck` processes when entering .sh file
+        -- "ansible-lint",  <-- currently a piece of doodoo
     }
     -- FORMATTER list --
     local formatters = {

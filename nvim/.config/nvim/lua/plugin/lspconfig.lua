@@ -68,6 +68,7 @@ function M.config()
     local icons = require "user.icons"
 
     local servers = {
+        "ansiblels",
         "lua_ls",
         "cssls",
         "html",
@@ -75,6 +76,7 @@ function M.config()
         "eslint",
         "tsserver",
         "pyright",
+        "gopls",
         "bashls",
         "jsonls",
         "yamlls",
@@ -130,6 +132,9 @@ function M.config()
         if require_ok then
             opts = vim.tbl_deep_extend("force", settings, opts)
         end
+
+
+        -- Server Specific Setups --
 
         -- LUA-LS --
         if server == "lua_ls" then

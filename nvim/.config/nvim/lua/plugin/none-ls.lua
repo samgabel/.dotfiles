@@ -11,7 +11,6 @@ function M.config()
 
     local formatting = null_ls.builtins.formatting
     local diagnostics = null_ls.builtins.diagnostics
-    local code_actions = null_ls.builtins.code_actions
 
     -- TODO: formatting on <leader>le
     null_ls.setup {
@@ -24,18 +23,23 @@ function M.config()
                 -- extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
             },
 
-        -- SHELL --
-            -- formatting (lspconfig) -> bashls
-            -- diagnostics (lspconfig) -> bashls
-
         -- PYTHON --
             formatting.black,
             -- diagnostics (lspconfig) -> pyright
-            -- code_actions (lspconfig) -> pyright
 
         -- JAVASCRIPT --
             -- formatting.eslint,
 
+        -- GO --
+
+
+        -- SHELL --
+            -- formatting (lspconfig) -> bashls
+            -- diagnostics (lspconfig) -> bashls
+
+        -- ANSIBLE --
+            -- formatting (lspconfig) -> ansiblels (not using ansible-line bc it's wack)
+            -- diagnostics (lspconfig) -> ansiblels (not using ansible-line bc it's wack)
 
             -- null_ls.builtins.completion.spell,
         },
