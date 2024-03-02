@@ -45,6 +45,7 @@ brew "ykman"
 brew "ykpers"
 brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
+cask "1password"
 cask "cf-terraforming"
 cask "discord"
 cask "font-3270-nerd-font"
@@ -54,9 +55,11 @@ cask "netspot"
 cask "obsidian"
 cask "powershell"
 cask "sf-symbols"
+cask "todoist"
 cask "wireshark"
 mas "Bitwarden", id: 1352778147
 mas "Boop", id: 1518425043
+mas "Hidden Bar", id: 1452453066
 mas "Microsoft Remote Desktop", id: 1295203466
 mas "Notion Web Clipper", id: 1559269364
 mas "WireGuard", id: 1451685025

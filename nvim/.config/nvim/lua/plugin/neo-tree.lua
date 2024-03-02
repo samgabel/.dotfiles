@@ -42,6 +42,7 @@ function M.config()
                     ["f"] = "open",
                     ["h"] = "navigate_up",
                     ["l"] = "set_root",
+                    ["Z"] = "expand_all_nodes",
 
                     -- remove default keymaps
                     ["."] = "none",

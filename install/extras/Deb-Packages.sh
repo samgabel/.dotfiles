@@ -18,7 +18,7 @@ sudo apt update
 
 # INSTALL Packages -------------------------------------------------------
 
-sudo apt install -y zsh eza stow zsh-autosuggestions zsh-syntax-highlighting neofetch btop fzf tldr pip python3.10-venv cargo bat
+sudo apt install -y zsh eza stow zsh-autosuggestions zsh-syntax-highlighting neofetch btop fzf tldr pip python3.10-venv cargo bat zip
 
 ## Install STARSHIP
 curl -sS https://starship.rs/install.sh | sudo sh -s -- -y
