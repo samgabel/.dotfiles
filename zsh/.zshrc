@@ -44,10 +44,14 @@ zstyle ':fzf-tab:*' switch-group ',' '.'
 # MAC-OS ------------------------------------------------------------------------------------------
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  ### gpg-agent
-  export GPG_TTY="$(tty)"
-  export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-  gpgconf --launch gpg-agent
+  ### (a) gpg-agent
+  # export GPG_TTY="$(tty)"
+  # export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+  # gpgconf --launch gpg-agent
+  ##### no longer in use^, reinstate if back to using YubiKey for git signing
+  ### (b) 1password agent
+  # export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+  ##### no need for above^ we specified the agent in the .ssh/config which is used by .gitconfig for signing
   ### zsh-add-ons
   source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
   source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
