@@ -50,6 +50,7 @@ function M.config()
             file_ignore_patterns = {
                 ".git/",
                 "venv/",
+                "__pycache__/",
             },
 
             mappings = {

@@ -6,9 +6,9 @@ local M = {
 function M.config()
     local wk = require "which-key"
     wk.register {
-        ["<leader>ta"] = { "<cmd>NomoWork<cr>", "Work" },
-        ["<leader>ts"] = { "<cmd>NomoStop<cr>", "Stop" },
-        ["<leader>tb"] = { "<cmd>NomoBreak<cr>", "Break" },
+        ["<leader>na"] = { "<cmd>NomoWork<cr>", "Work" },
+        ["<leader>ns"] = { "<cmd>NomoStop<cr>", "Stop" },
+        ["<leader>nb"] = { "<cmd>NomoBreak<cr>", "Break" },
     }
 
     local icons = require "user.icons"

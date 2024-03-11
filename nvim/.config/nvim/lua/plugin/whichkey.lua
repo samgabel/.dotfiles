@@ -9,12 +9,14 @@ function M.config()
         d = { "<cmd>NoiceDismiss<CR>", "DISMISS" },
         q = { "<cmd>confirm q<CR>", "Quit" },
         v = { "<cmd>vsplit | Alpha<CR>", "Split" },
+        x = { "<cmd>!chmod +x %<CR>", "Chmod +x" },
         b = { name = "Buffers" }, --get rid of imbedded
         -- expandable --
         f = { name = "Find" },
         g = { name = "Git" },
         h = { name = "Hop", mode = { "n", "v" } },
         l = { name = "Lsp" },
+        n = { name = "Nomodoro" },
         o = {
             name = "Obsidian",
             l = { name = "Links" },
@@ -24,7 +26,7 @@ function M.config()
             a = { ":lua PasteFilePathInline()<CR>", "Absolute" },
             r = { ":lua PasteRelativePathInline()<CR>", "Relative" },
         },
-        t = { name = "Timer" },
+        t = { name = "Test" },
         y = { name = "Fun" },
         z = { name = "Zen" },
         -- p = { name = "Plugins" },

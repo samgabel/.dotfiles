@@ -1,7 +1,10 @@
 local M = {
     "nvim-neotest/neotest",
+    event = "VeryLazy",
     dependencies = {
+        "antoinemadec/FixCursorHold.nvim",
         "nvim-treesitter/nvim-treesitter",
+        -- "mfussenegger/nvim-dap", -- need to implement for <leader>td to work
         -- general tests
         "vim-test/vim-test",
         "nvim-neotest/neotest-vim-test",
@@ -18,11 +21,13 @@ local M = {
 function M.config()
     local wk = require "which-key"
     wk.register {
+        ["<leader>ta"] = { "<cmd>lua require'neotest'.summary.toggle()<cr>", "Summary" },
+        ["<leader>to"] = { "<cmd>lua require'neotest'.output_panel.toggle()<cr>", "Output" },
         ["<leader>tt"] = { "<cmd>lua require'neotest'.run.run()<cr>", "Test Nearest" },
         ["<leader>tf"] = { "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<cr>", "Test File" },
         ["<leader>td"] = { "<cmd>lua require('neotest').run.run({strategy = 'dap'})<cr>", "Debug Test" },
-        ["<leader>ts"] = { "<cmd>lua require('neotest').run.stop()<cr>", "Test Stop" },
-        ["<leader>ta"] = { "<cmd>lua require('neotest').run.attach()<cr>", "Attach Test" },
+        -- ["<leader>ta"] = { "<cmd>lua require('neotest').run.attach()<cr>", "Attach Test" },
+        -- ["<leader>ts"] = { "<cmd>lua require('neotest').run.stop()<cr>", "Test Stop" },
     }
 
     ---@diagnostic disable: missing-fields
@@ -30,6 +35,7 @@ function M.config()
         adapters = {
             require "neotest-python" {
                 dap = { justMyCode = false },
+                python = "venv/bin/python",
             },
             require "neotest-vitest",
             require "neotest-zig",
