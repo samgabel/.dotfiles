@@ -46,9 +46,6 @@ keymap("n", "J", "mzJ`z", opts)
 keymap("n", "<M-j>", "<CMD>cnext<CR>zz", opts)
 keymap("n", "<M-k>", "<CMD>cprev<CR>zz", opts)
 
--- CHMOD from within vim
-keymap("n", "<leader>x", "<cmd>!chmod +x %<CR>", opts)
-
 -- NOTE: NO IDEA WHAT THESE DO >
 
 vim.cmd [[:amenu 10.100 mousemenu.Goto\ Definition <cmd>lua vim.lsp.buf.definition()<CR>]]
