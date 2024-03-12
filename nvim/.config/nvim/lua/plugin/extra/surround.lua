@@ -4,6 +4,7 @@ local M = {
 }
 
 function M.config()
+    ---@diagnostic disable-next-line: missing-fields
     require("nvim-surround").setup {}
 end
 

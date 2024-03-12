@@ -15,7 +15,7 @@ function M.config()
         f = { name = "Find" },
         g = { name = "Git" },
         h = { name = "Hop", mode = { "n", "v" } },
-        l = { name = "Lsp" },
+        l = { name = "Lsp", mode = { "n", "v" } },
         n = { name = "Nomodoro" },
         o = {
             name = "Obsidian",
