@@ -36,6 +36,12 @@ function M.config()
         },
 
         filesystem = {
+            filtered_items = {
+                -- manually hide certain files/directories
+                hide_by_name = {
+                    "venv",
+                },
+            },
             window = {
                 position = "current", -- sets neo-tree as netrw window  --since neo-tree is lazy-loaded right now it won't work
                 mappings = {
