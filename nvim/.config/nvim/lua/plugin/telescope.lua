@@ -13,12 +13,12 @@ function M.config()
         ["<leader>fF"] = { "<cmd>Telescope fd hidden=true<cr>", "Preview Files" },
         ["<leader>ft"] = { "<cmd>Telescope live_grep<cr>", "Text" },
         ["<leader>fc"] = { "<cmd>Telescope todo-comments initial_mode=normal<cr>", "Todo" },
-        ["<leader>fb"] = { "<cmd>Telescope buffers previewer=true<cr>", "Buffer" },
+        ["<leader><leader>"] = { "<cmd>Telescope buffers previewer=true<cr>", "Buffers" },
         -- ["<leader>fp"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
         -- ["<leader>fc"] = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
         ["<leader>fh"] = { "<cmd>Telescope help_tags<cr>", "Help" },
         ["<leader>fe"] = { "<cmd>Telescope noice initial_mode=normal<cr>", "Errors" },
-        ["<leader>fl"] = { "<cmd>Telescope resume<cr>", "Last Search" },
+        ["<leader>fl"] = { "<cmd>Telescope resume initial_mode=normal<cr>", "Last Search" },
         -- ["<leader>fr"] = { "<cmd>Telescope oldfiles<cr>", "Recent File" },
     }
 
@@ -64,6 +64,8 @@ function M.config()
                     ["<C-t>"] = trouble.open_with_trouble,
                 },
                 n = {
+                    ["f"] = actions.select_default,
+
                     ["q"] = actions.close,
                     ["<esc>"] = actions.close,
                     ["<C-j>"] = actions.move_selection_next,

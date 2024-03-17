@@ -53,8 +53,9 @@ function M.config()
         pattern = "LazyVimStarted",
         callback = function()
             local stats = require("lazy").stats()
-            local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-            dashboard.section.footer.val = "Loaded " .. stats.count .. " plugins in " .. ms .. "ms"
+            -- local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
+            -- dashboard.section.footer.val = "Loaded " .. stats.count .. " plugins in " .. ms .. "ms"
+            dashboard.section.footer.val = "Loaded " .. stats.count .. " plugins "
             pcall(vim.cmd.AlphaRedraw)
         end,
     })
@@ -63,8 +64,8 @@ function M.config()
         pattern = { "AlphaReady" },
         callback = function()
             vim.cmd [[
-      set laststatus=0 | autocmd BufUnload <buffer> set laststatus=3
-    ]]
+              set laststatus=0 | autocmd BufUnload <buffer> set laststatus=3
+            ]]
         end,
     })
 end
