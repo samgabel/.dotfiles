@@ -13,6 +13,7 @@ spec "plugin.alpha"
 spec "plugin.breadcrumbs"
 spec "plugin.cmp"
 spec "plugin.colorscheme"
+spec "plugin.dap"
 spec "plugin.gitsigns"
 spec "plugin.lspconfig"
 spec "plugin.lualine"
@@ -27,8 +28,9 @@ spec "plugin.whichkey"
 
 -- SUPPORT
 spec "plugin.support.autopairs"
--- spec "plugin.support.illuminate"
-spec "plugin.support.indentline"
+spec "plugin.support.dap-ui"
+spec "plugin.support.illuminate"
+-- spec "plugin.support.indentline"
 spec "plugin.support.navic"
 spec "plugin.support.rainbow-delimiters"
 spec "plugin.support.schemastore"
@@ -49,6 +51,9 @@ spec "plugin.extra.surround"
 spec "plugin.extra.todo-comments"
 spec "plugin.extra.trouble"
 spec "plugin.extra.zen-mode"
+
+-- Daps
+spec "plugin.dapsettings.dap-python"
 
 -- LAZY
 require "init.lazy"

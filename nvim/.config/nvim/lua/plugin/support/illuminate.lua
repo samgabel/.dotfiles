@@ -30,6 +30,10 @@ function M.config()
             "DressingSelect",
             "TelescopePrompt",
             "neo-tree",
+            "dapui_scopes",
+            "dapui_breakpoints",
+            "dapui_stacks",
+            "dapui_watches",
         },
     }
 end

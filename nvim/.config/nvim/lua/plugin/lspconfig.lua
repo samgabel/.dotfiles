@@ -95,7 +95,7 @@ function M.config()
                 { name = "DiagnosticSignInfo", text = icons.diagnostics.Information },
             },
         },
-        virtual_text = false, -- causes lag when scrolling if "true"
+        virtual_text = true,
         update_in_insert = false,
         underline = true,
         severity_sort = true,
@@ -134,6 +134,10 @@ function M.config()
 
 
         -- Server Specific Setups --
+
+        -- PYRIGHT --
+        -- if server == "pyright" then
+        -- end
 
         -- LUA-LS --
         if server == "lua_ls" then

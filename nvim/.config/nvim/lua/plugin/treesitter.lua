@@ -5,11 +5,15 @@ local M = {
 }
 
 function M.config()
+
+    require('nvim-dap-repl-highlights').setup()
+
     ---@diagnostic disable-next-line: missing-fields
     require("nvim-treesitter.configs").setup {
         ensure_installed = {
             "markdown",
             "markdown_inline",
+            "dap_repl",
             -- WEB
             "html",
             "css",
@@ -30,7 +34,17 @@ function M.config()
         },
         highlight = { enable = true },
         indent = { enable = true },
+        incremental_selection = {
+            enable = true,
+            keymaps = {
+                init_selection = "<C-n>",
+                node_incremental = "<C-n>",
+                scope_incremental = "<C-s>",
+                node_decremental = "<C-p>",
+            }
+        }
     }
+
 end
 
 return M

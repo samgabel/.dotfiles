@@ -65,7 +65,7 @@ function venv-create() {
     "$python_exec" -m venv venv
     source ./venv/bin/activate
     python -m pip install --upgrade pip
-    python -m pip install pynvim
+    python -m pip install pynvim pytest
     if [ -f "./ansible.cfg" ]; then
       python -m pip install ansible argcomplete
       deactivate

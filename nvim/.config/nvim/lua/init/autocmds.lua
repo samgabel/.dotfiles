@@ -7,6 +7,21 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 })
 
 -- With certain files (pattern)
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = {
+        "dapui-repl",
+        "dapui_watches",
+        "dapui_stacks",
+        "dapui_breakpoints",
+        "dapui_scopes",
+    },
+    callback = function()
+        vim.cmd("setlocal nocursorline")
+        -- local dapui = require("dapui")
+    end,
+})
+
+-- With certain files (pattern)
 vim.api.nvim_create_autocmd({ "FileType" }, {
     pattern = {
         "netrw",
@@ -22,6 +37,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
         "DressingSelect",
         "tsplayground",
         "neotest-output-panel",
+        "neotest-output",
         "",
     },
     callback = function()

@@ -6,11 +6,11 @@ local M = {
 function M.config()
     local mappings = {
         a = { "<cmd>Alpha<cr>", "Dashboard" },
-        d = { "<cmd>NoiceDismiss<CR>", "DISMISS" },
+        b = { "<cmd>NoiceDismiss<CR>", "Dismiss" },
         q = { "<cmd>confirm q<CR>", "Quit" },
         v = { "<cmd>vsplit | Alpha<CR>", "Split" },
         x = { "<cmd>!chmod +x %<CR>", "Chmod +x" },
-        b = { name = "Buffers" }, --get rid of imbedded
+        -- b = { name = "Buffers" }, --get rid of imbedded
         -- expandable --
         f = { name = "Find" },
         g = { name = "Git" },
@@ -29,8 +29,13 @@ function M.config()
         t = { name = "Test" },
         y = { name = "Fun" },
         z = { name = "Zen" },
+        d = {
+            name = "Debug",
+            p = { name = "Python" }
+        },
+        r = { name = "Repl" },
+
         -- p = { name = "Plugins" },
-        -- d = { name = "Debug" },
         -- t = { name = "Test" },
     }
 

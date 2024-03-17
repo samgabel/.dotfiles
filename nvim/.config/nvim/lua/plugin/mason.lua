@@ -24,6 +24,10 @@ function M.config()
         "tsserver",
         "yamlls",
     }
+    -- DAP list --
+    local daps = {
+        "debugpy",
+    }
     -- LINTER list --
     local linters = {
         -- "shellcheck",  <-- issue continually stacking `shellcheck` processes when entering .sh file
@@ -54,7 +58,7 @@ function M.config()
 
     -- Concatenate tooling lists
     local registry = require "mason-registry"
-    local tools = vim.tbl_flatten { linters, formatters }
+    local tools = vim.tbl_flatten { linters, formatters, daps }
 
     -- MASON Tooling [install]
     registry.refresh(function ()
