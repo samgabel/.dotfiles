@@ -1,9 +1,9 @@
 --------------------------------------- FIXX --------------------------------------
 -- on linux seems to throw error on "VimLeave", this fixes the error --
 vim.api.nvim_create_autocmd({ "VimLeave" }, {
-  callback = function()
-    vim.fn.jobstart('notify-send "hello"', {detach=true})
-  end,
+    callback = function()
+        vim.fn.jobstart('notify-send "hello"', {detach=true})
+    end,
 })
 
 --------------------------------------- PATH --------------------------------------

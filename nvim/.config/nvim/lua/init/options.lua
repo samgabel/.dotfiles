@@ -28,7 +28,7 @@ vim.opt.expandtab = true -- convert tabs to spaces
 vim.opt.shiftwidth = 4 -- the number of spaces inserted for each indentation
 vim.opt.tabstop = 4 -- insert 4 spaces for a tab
 vim.cmd("set invlist") -- sets the tab literal character visibility on
-vim.cmd("set listchars=tab:║->,trail:") -- formats the trailing dot when typing and the literal tab character
+vim.opt.listchars = { tab = "⠀", trail = ""} -- formats the trailing dot when typing and the literal tab character
 vim.opt.cursorline = true -- highlight the current line
 vim.opt.cursorlineopt = "number"
 vim.opt.number = true -- set numbered lines

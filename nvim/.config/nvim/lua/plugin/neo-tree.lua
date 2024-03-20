@@ -40,7 +40,8 @@ function M.config()
                 -- manually hide certain files/directories
                 hide_by_name = {
                     "venv",
-                    "__pycache__"
+                    "__pycache__",
+                    "pyproject.toml"
                 },
             },
             window = {

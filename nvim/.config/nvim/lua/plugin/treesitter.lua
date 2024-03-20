@@ -6,7 +6,7 @@ local M = {
 
 function M.config()
 
-    require('nvim-dap-repl-highlights').setup()
+    require("nvim-dap-repl-highlights").setup()
 
     ---@diagnostic disable-next-line: missing-fields
     require("nvim-treesitter.configs").setup {
