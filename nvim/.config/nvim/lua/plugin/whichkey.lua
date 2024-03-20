@@ -33,7 +33,7 @@ function M.config()
             name = "Debug",
             p = { name = "Python" }
         },
-        r = { name = "Repl" },
+        r = { name = "Repl", mode = { "n", "v" } },
 
         -- p = { name = "Plugins" },
         -- t = { name = "Test" },
