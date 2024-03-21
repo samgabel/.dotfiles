@@ -48,14 +48,14 @@ disabled = false
 truncation_length = 3
 truncation_symbol = "…/"
 style = "bold green"
-home_symbol = " ~"
+home_symbol = " ~"
 read_only_style = "197"
 read_only = "  "
 format = "at [$path]($style)[$read_only]($read_only_style) "
 
 # Shows current git branch
 [git_branch]
-symbol = " "
+symbol = "󰊢 "
 format = "via [$symbol$branch]($style) "
 # truncation_length = 4
 truncation_symbol = "…/"
@@ -79,7 +79,7 @@ deleted = " "
 
 # Shows kubernetes context and namespace
 [kubernetes]
-format = 'via [ﴱ $context\($namespace\)](bold #add8e6) '
+format = 'via [󱃾 $context\($namespace\)](bold #add8e6) '
 disabled = false
 
 # ---
@@ -105,7 +105,8 @@ symbol = ' '
 disabled = false
 
 [package]
-disabled = true
+disabled = false
+symbol = '󰏖 '
 
 [ruby]
 disabled = true
