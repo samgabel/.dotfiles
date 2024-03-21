@@ -1,5 +1,6 @@
 vim.opt.backup = false -- creates a backup file
 vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
+vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:blinkon1,r-cr-o:hor20" -- cursor is set to block for all modes except replace modes
 vim.opt.cmdheight = 1 -- more space in the neovim command line for displaying messages
 vim.opt.completeopt = { "menuone", "noselect" } -- mostly just for cmp
 vim.opt.conceallevel = 1 -- conceals things like code block (```), bold (**), and full path links in .md notes
