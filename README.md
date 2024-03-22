@@ -25,7 +25,7 @@ open preferences and under General -> Preferences and change the path to ~/.dotf
 - [Brewfile](https://gist.github.com/ChristopherA/a579274536aab36ea9966f301ff14f3f):
     ```sh
     # Installing Brewfile
-    brew bundle --file=~/.dotfiles/install/extras/Brewfile 
+    brew bundle --file=~/.dotfiles/install/extras/Brewfile
 
     # Creating/Updating Brewfile
     brew bundle dump --file=~/.dotfiles/install/extras/Brewfile
