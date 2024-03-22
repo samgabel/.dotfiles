@@ -100,6 +100,7 @@ function M.config()
             renderers = {
                 file = {
                     { "indent" },
+                    { "harpoon_index" }, --> This is what actually adds the harpoon component in where you want it
                     { "icon" },
                     {
                         "container",
@@ -115,7 +116,6 @@ function M.config()
                             },
                             { "clipboard", zindex = 10 },
                             { "bufnr", zindex = 10 },
-                            { "harpoon_index", zindex = 20, align = "right" }, --> This is what actually adds the harpoon component in where you want it
                             { "modified", zindex = 20, align = "right" },
                             { "diagnostics",  zindex = 20, align = "right" },
                             { "git_status", zindex = 10, align = "right" },

@@ -31,12 +31,11 @@ function M.config()
         z = { name = "Zen" },
         d = {
             name = "Debug",
-            p = { name = "Python" }
+        --     p = { name = "Python" }
         },
         r = { name = "Repl", mode = { "n", "v" } },
 
         -- p = { name = "Plugins" },
-        -- t = { name = "Test" },
     }
 
     local which_key = require "which-key"
