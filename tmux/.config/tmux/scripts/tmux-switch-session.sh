@@ -10,7 +10,7 @@ tmux_switch_to_session() {
 
 
 choice=$(sort -rfu <<< "$tmuxsessions" \
-    | fzf-tmux -p -w 45 -h 10 -x 150 -y 40 \
+    | fzf-tmux -p -w 45 -h 10 -x 150 -y 41 \
     | tr -d '\n')
 
 
