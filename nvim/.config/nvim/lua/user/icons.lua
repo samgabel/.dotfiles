@@ -155,7 +155,7 @@ return {
         Smiley = " ",
         Package = " ",
         CircuitBoard = " ",
-        Time = "羽",
+        Time = "󰔟 ",
         Vim = " "
     },
 }
