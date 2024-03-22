@@ -77,12 +77,39 @@ staged = '[++\($count\)](green)'
 renamed = "襁 "
 deleted = " "
 
+# Battery
+[battery]
+full_symbol = "󱈏 "
+charging_symbol = "󰂄 "
+discharging_symbol = "󰂃 "
+unknown_symbol = "󰁻 "
+empty_symbol = "󰂎 "
+
 # Shows kubernetes context and namespace
 [kubernetes]
 format = 'via [󱃾 $context\($namespace\)](bold #add8e6) '
-disabled = false
 
-# ---
+# Languages
+[package]
+symbol = '󰏖 '
+
+[python]
+symbol = ' '
+
+[nodejs]
+disabled = false
+symbol = '󰎙 '
+
+[golang]
+symbol = '󰟓 '
+
+[lua]
+symbol = '󰢱 '
+
+[terraform]
+style = "93"
+format = 'with [󱁢 Terraform]($style) '
+disabled = false
 
 # Disable some modules that aren't needed anymore
 [username]
@@ -97,21 +124,5 @@ disabled = true
 [helm]
 disabled = true
 
-[python]
-disabled = false
-symbol = ' '
-
-[nodejs]
-disabled = false
-
-[package]
-disabled = false
-symbol = '󰏖 '
-
 [ruby]
 disabled = true
-
-[terraform]
-style = "93"
-format = 'with [󱁢 Terraform]($style) '
-disabled = false
