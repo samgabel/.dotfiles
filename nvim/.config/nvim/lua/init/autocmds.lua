@@ -6,19 +6,18 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
     end,
 })
 
--- With certain files (pattern)
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = {
-        "dapui-repl",
-        "dapui_watches",
-        "dapui_stacks",
-        "dapui_breakpoints",
-        "dapui_scopes",
-    },
+-- Neo-Tree lazily highjack netrw
+vim.api.nvim_create_autocmd('BufEnter', {
+    -- make a group to be able to delete it later
+    group = vim.api.nvim_create_augroup('NeoTreeInit', {clear = true}),
     callback = function()
-        vim.cmd("setlocal nocursorline")
-        -- local dapui = require("dapui")
-    end,
+        local f = vim.fn.expand('%:p')
+        if vim.fn.isdirectory(f) ~= 0 then
+            vim.cmd('Neotree current dir=' .. f)
+            -- neo-tree is loaded now, delete the init autocmd
+            vim.api.nvim_clear_autocmds{group = 'NeoTreeInit'}
+        end
+    end
 })
 
 -- With certain files (pattern)

@@ -57,9 +57,8 @@ vim.opt.whichwrap:append "h,l" -- use vim motions in Normal to go to next line w
 vim.opt.iskeyword:append "-" -- selects a word with "-" in-between as a full word, before it would treat the word as 2 words
 
 -- TODO: figure out how to replace netrw
-vim.g.netrw = 0
-vim.g.netrw_banner = 0
-vim.g.netrw_mouse = 2
+vim.g.loaded_netrwPlugin = 1
+vim.g.loaded_netrw = 1
 
 -- vim.opt.autoindent = true -- (idk if this works) indents line automatically when pressing <CR> in Insert mode or "o" in Normal mode
 vim.opt.linebreak = true -- will stop wrapping lines in the middle of the word

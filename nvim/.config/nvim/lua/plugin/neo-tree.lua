@@ -2,6 +2,7 @@ local M = {
     -- DIRECOTRY TREE
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
+    cmd = "Neotree",
     event = "VeryLazy",
     dependencies = {
         "nvim-lua/plenary.nvim",
@@ -36,6 +37,7 @@ function M.config()
         },
 
         filesystem = {
+            highjack_netrw_behavior = "open_current", -- see in autocmds for highjacking function
             filtered_items = {
                 -- manually hide certain files/directories
                 hide_by_name = {
@@ -45,7 +47,7 @@ function M.config()
                 },
             },
             window = {
-                position = "current", -- sets neo-tree as netrw window  --since neo-tree is lazy-loaded right now it won't work
+                position = "current",
                 mappings = {
                     ["f"] = "open",
                     ["h"] = "navigate_up",
