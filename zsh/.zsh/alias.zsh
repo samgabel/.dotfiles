@@ -40,6 +40,8 @@ alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 ## Plist Buddy
 alias plistbuddy="/usr/libexec/PlistBuddy"
 
+## Hexyl (hex viewer)
+alias hex="hexyl --terminal-width 150"
 
 # SERVER--------------------------------------------------------------------------------------------
 

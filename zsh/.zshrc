@@ -4,17 +4,24 @@
 
 # INITIALIZE --------------------------------------------------------------------------------------
 
+### compinit initialize
+autoload -Uz compinit && compinit -C
+
 ### source zsh configs
-[[ -f ~/.zsh/alias.zsh && \
-   -f ~/.zsh/functions.zsh && \
-   -f ~/.zsh/starship.zsh ]] && \
-   source ~/.zsh/alias.zsh && source ~/.zsh/functions.zsh && source ~/.zsh/starship.zsh
-### source secrets configs
-[[ -f ~/Secrets/env/secrets.zsh ]] && \
-   source ~/Secrets/env/secrets.zsh
-### source fzf-tab plugin
-[[ -f ~/.config/fzf-tab/fzf-tab.plugin.zsh ]] && \
-   source ~/.config/fzf-tab/fzf-tab.plugin.zsh
+files_to_source=(
+    # ZSH
+    ~/.zsh/alias.zsh
+    ~/.zsh/functions.zsh
+    ~/.zsh/starship.zsh
+    # SECRETS
+    ~/Secrets/env/secrets.zsh
+    # FZF-TAB
+    ~/.zsh/fzf-tab-functions.zsh
+)
+for file in "${files_to_source[@]}"; do
+    [[ -f "$file" ]] && source "$file"
+done
+
 
 ## ENV exports ----------------------------------
 export NVM_DIR="$HOME/.nvm"
@@ -22,10 +29,7 @@ export NVM_DIR="$HOME/.nvm"
 
 # ZSH STYLING -------------------------------------------------------------------------------------
 
-### compinit initialize
-autoload -Uz compinit && compinit -C
-
-## Styling --------------------------------------
+## FZF-tab --------------------------------------
 ### makes tab completions case-insensitive
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 ### disable sort when completing `git checkout`
@@ -34,12 +38,30 @@ zstyle ':completion:*:git-checkout:*' sort false
 zstyle ':completion:*:descriptions' format '[%d]'
 ### set list-colors to enable filename colorizing
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-### preview directory's content with eza when completing with...
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -a -1 --color=always --icons --group-directories-first $realpath'
-zstyle ':fzf-tab:complete:vim:*' fzf-preview 'eza -a -1 --color=always --icons --group-directories-first $realpath'
-zstyle ':fzf-tab:complete:bat:*' fzf-preview 'eza -a -1 --color=always --icons --group-directories-first $realpath'
+### set preview-box size
+zstyle ':fzf-tab:complete:vim:*' fzf-min-height '50'
+zstyle ':fzf-tab:complete:*:*' fzf-pad '50'
 ### switch group using `,` and `.`
 zstyle ':fzf-tab:*' switch-group ',' '.'
+### preview directory's content with eza when completing with...
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -a -1 --color=always --icons --group-directories-first $realpath'
+zstyle ':fzf-tab:complete:bat:*' fzf-preview 'eza -a -1 --color=always --icons --group-directories-first $realpath'
+zstyle ':fzf-tab:complete:vim:*' fzf-preview \
+    'mime=$(file -bL --mime-type "$realpath")
+    category=${mime%%/*}
+    kind=${mime##*/}
+    if [[ -d $realpath ]]; then
+        eza -a -1 --color=always --icons --group-directories-first $realpath
+    elif [[ "$category" = image ]]; then
+        chafa $realpath
+    elif [[ "$category" = binary ]]; then
+        hex $realpath
+    elif [ "$category" = text ]; then
+        bat --decorations=never --color=always $realpath
+    else
+        bat --decorations=never --color=always $realpath
+    fi'
+
 
 # MAC-OS ------------------------------------------------------------------------------------------
 
