@@ -19,7 +19,7 @@ function mktest() {
 }
 
 function rmtest() {
-  if [ -d "$HOME/Test" ]; then
+  if [ -d "$HOME/TEST" ]; then
     echo -n "Delete TEST directory? [Y/n] "
     read answer
     if [[ $answer =~ ^[Yy]$ || $answer == "" ]]; then
