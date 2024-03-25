@@ -16,7 +16,7 @@ files_to_source=(
     # SECRETS
     ~/Secrets/env/secrets.zsh
     # FZF-TAB
-    ~/.zsh/fzf-tab-functions.zsh
+    ~/.config/fzf/fzf-tab/fzf-tab.plugin.zsh
 )
 for file in "${files_to_source[@]}"; do
     [[ -f "$file" ]] && source "$file"
