@@ -3,7 +3,7 @@
 These are my personal dotfiles used for MacOS[intel]
 
 
-![MacOS Setup](https://github.com/SamG331/.dotfiles/blob/main/MacOS-Config-IMG.png?raw=true) 
+![MacOS Setup](https://github.com/samgabel/.dotfiles/blob/main/MacOS-Config-IMG.png?raw=true)
 
 
 ## Installation Instructions
