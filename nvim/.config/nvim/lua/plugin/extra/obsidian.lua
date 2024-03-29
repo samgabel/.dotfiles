@@ -15,8 +15,10 @@ function M.config()
     local wk = require "which-key"
     wk.register {
         ["<leader>on"] = { "<cmd>ObsidianNew<cr>", "New File" },
-        ["<leader>of"] = { "<cmd>ObsidianQuickSwitch<cr>", "Find File" },
         ["<leader>oo"] = { "<cmd>ObsidianOpen<cr>", "Open" },
+        ["<leader>of"] = { "<cmd>ObsidianQuickSwitch<cr>", "Find File" },
+        ["<leader>os"] = { "<cmd>ObsidianSearch<cr>", "Search Text" },
+        ["<leader>ot"] = { "<cmd>ObsidianTemplate<cr>", "Insert Template" },
         ["<leader>op"] = { "<cmd>ObsidianPasteImg<cr>", "Paste Img" },
         ["<leader>olf"] = { "<cmd>ObsidianFollowLink<cr>", "To Link" },
         ["<leader>olb"] = { "<cmd>ObsidianBacklinks<cr>", "Back Link" },

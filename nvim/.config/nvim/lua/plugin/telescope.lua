@@ -11,7 +11,7 @@ function M.config()
     wk.register {
         ["<leader>ff"] = { "<cmd>Telescope find_files<cr>", "Quick Files" },
         ["<leader>fF"] = { "<cmd>Telescope fd hidden=true<cr>", "Preview Files" },
-        ["<leader>ft"] = { "<cmd>Telescope live_grep<cr>", "Text" },
+        ["<leader>fs"] = { "<cmd>Telescope live_grep<cr>", "Text" },
         ["<leader>fc"] = { "<cmd>Telescope todo-comments initial_mode=normal<cr>", "Todo" },
         ["<leader><leader>"] = { "<cmd>Telescope buffers previewer=true<cr>", "Buffers" },
         -- ["<leader>fp"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },

@@ -12,16 +12,15 @@ function M.config()
     local formatting = null_ls.builtins.formatting
     local diagnostics = null_ls.builtins.diagnostics
 
-    -- TODO: formatting on <leader>le
     null_ls.setup {
         debug = false,
         sources = {
             formatting.stylua,
-            formatting.prettier,
-            formatting.prettier.with {
-                extra_filetypes = { "toml", "yaml" },
-                -- extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
-            },
+            -- formatting.prettier,
+            -- formatting.prettier.with {
+            --     extra_filetypes = { "toml", "yaml" },
+            --     extra_args = { "--tab-width 2", "--no-semi", "--single-quote", "--jsx-single-quote" },
+            -- },
 
         -- PYTHON --
             formatting.black,

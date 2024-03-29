@@ -8,8 +8,9 @@ function M.config()
         a = { "<cmd>Alpha<cr>", "Dashboard" },
         b = { "<cmd>NoiceDismiss<CR>", "Dismiss" },
         q = { "<cmd>confirm q<CR>", "Quit" },
-        v = { "<cmd>vsplit | Alpha<CR>", "Split" },
+        w = { ":lua vim.wo.wrap = not vim.wo.wrap<CR>", "Wrap" },
         x = { "<cmd>!chmod +x %<CR>", "Chmod +x" },
+        -- v = { "<cmd>vsplit | Alpha<CR>", "Split" },
         -- b = { name = "Buffers" }, --get rid of imbedded
         -- expandable --
         f = { name = "Find" },
@@ -29,10 +30,7 @@ function M.config()
         t = { name = "Test" },
         y = { name = "Fun" },
         z = { name = "Zen" },
-        d = {
-            name = "Debug",
-        --     p = { name = "Python" }
-        },
+        d = { name = "Debug" },
         r = { name = "Repl", mode = { "n", "v" } },
 
         -- p = { name = "Plugins" },

@@ -12,17 +12,17 @@ function M.config()
 
     -- SERVER list --
     local servers = {
-        "ansiblels",
-        "bashls",
-        "cssls",
-        "html",
-        "jsonls",
         "lua_ls",
         "pyright",
-        "gopls",
-        "terraformls",
         "tsserver",
+        "gopls",
+        "html",
+        "cssls",
+        "bashls",
         "yamlls",
+        "jsonls",
+        "ansiblels",
+        "terraformls",
     }
     -- DAP list --
     local daps = {
