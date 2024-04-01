@@ -1,5 +1,8 @@
 -- https://luals.github.io/wiki/settings/
 return {
+    setup = {
+        require("neodev").setup({})
+    },
     settings = {
         Lua = {
             format = {

@@ -126,26 +126,13 @@ function M.config()
             capabilities = M.common_capabilities(),
         }
 
+        -- Server Specific Setups --
+        -- see `plugin/lspsettings` for individual language server options
+        -- make sure we are not calling "setup" again in the lspsetting config files
+
         local require_ok, settings = pcall(require, "plugin/lspsettings." .. server)
         if require_ok then
             opts = vim.tbl_deep_extend("force", settings, opts)
-        end
-
-
-        -- Server Specific Setups --
-
-        -- PYRIGHT --
-        -- if server == "pyright" then
-        -- end
-
-        -- LUA-LS --
-        if server == "lua_ls" then
-            require("neodev").setup {}
-        end
-
-        -- BASH-LS --
-        if server == "bashls" then
-            opts.filetypes = { "sh", "bash", "zsh" }
         end
 
         lspconfig[server].setup(opts)
