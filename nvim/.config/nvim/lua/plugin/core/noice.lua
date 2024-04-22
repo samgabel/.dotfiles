@@ -5,9 +5,9 @@ local M = {
         -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
         "MunifTanjim/nui.nvim",
         -- OPTIONAL:
-        --   `nvim-notify` is only needed, if you want to use the notification view.
+        -- `nvim-notify` is only needed, if you want to use the notification view.
         --   If not available, we use `mini` as the fallback
-        -- "rcarriga/nvim-notify",
+        "rcarriga/nvim-notify",
     },
 }
 
@@ -16,12 +16,12 @@ function M.config()
         cmdline = {
             view = "cmdline",
             format = {
-                cmdline = { icon = " "},
+                cmdline = { icon = " " },
                 search_up = { icon = " " },
                 search_down = { icon = " " },
-                filter = { icon = " "},
-                help = { icon = " "},
-                lua = { icon = " "},
+                filter = { icon = " " },
+                help = { icon = " " },
+                lua = { icon = " " },
             },
         },
         messages = {
@@ -48,12 +48,24 @@ function M.config()
             inc_rename = false, -- enables an input dialog for inc-rename.nvim
             lsp_doc_border = true, -- add a border to hover docs and signature help
         },
+        routes = {
+            {
+                filter = {
+                    event = "msg_show",
+                    kind = "",
+                    find = "written",
+                },
+                opts = { skip = true },
+            }
+        }
     }
 
     -- needed if notify is used for transparent background
-    -- require("notify").setup({
-    --   background_colour = "#000000"
-    -- })
+    ---@diagnostic disable-next-line: missing-fields
+    require("notify").setup {
+        background_colour = "#000000",
+        stages = "no_animation"
+    }
 end
 
 return M
