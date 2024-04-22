@@ -1,0 +1,31 @@
+gui:
+  nerdFontsVersion: "3"
+  theme:
+    activeBorderColor:
+      - '#fab387'
+      - bold
+    inactiveBorderColor:
+      - '#89b4fa'
+      - bold
+    optionsTextColor:
+      - '#89b4fa'
+    selectedLineBgColor:
+      - '#313244'
+    cherryPickedCommitBgColor:
+      - '#45475a'
+    cherryPickedCommitFgColor:
+      - '#fab387'
+    unstagedChangesColor:
+      - '#f38ba8'
+    defaultFgColor:
+      - '#cdd6f4'
+    searchingActiveBorderColor:
+      - '#f9e2af'
+  authorColors:
+    'Sam Gabel': '#fab387'
+    '*': '#b4befe'
+  showFileTree: false
+
+git:
+  commit:
+    signOff: true

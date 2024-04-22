@@ -42,17 +42,20 @@ spec "plugin.extra.comment"
 spec "plugin.extra.harpoon"
 spec "plugin.extra.hop"
 spec "plugin.extra.markdown-preview"
-spec "plugin.extra.neogit"
+spec "plugin.extra.lazygit"
 spec "plugin.extra.neotest"
 spec "plugin.extra.nomodoro"
 spec "plugin.extra.quick-code-runner"
-spec "plugin.extra.obsidian"
 spec "plugin.extra.silicon"
 spec "plugin.extra.surround"
 spec "plugin.extra.symbol-usage"
 spec "plugin.extra.todo-comments"
 spec "plugin.extra.trouble"
 spec "plugin.extra.zen-mode"
+
+-- MacOS
+spec "plugin.extra.obsidian"
+spec "plugin.extra.leetcode"
 
 -- Daps
 spec "plugin.dapsettings.dap-python"
