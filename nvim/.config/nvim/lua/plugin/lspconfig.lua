@@ -131,7 +131,7 @@ function M.config()
         -- see `plugin/lspsettings` for individual language server options
         -- make sure we are not calling "setup" again in the lspsetting config files
 
-        local require_ok, settings = pcall(require, "plugin/lspsettings." .. server)
+        local require_ok, settings = pcall(require, "plugin/support/lspsettings." .. server)
         if require_ok then
             opts = vim.tbl_deep_extend("force", settings, opts)
         end

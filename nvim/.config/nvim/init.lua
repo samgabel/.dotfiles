@@ -1,14 +1,14 @@
 -- TODO: set up after/ to language specific settings (like indent format):
 -- https://www.reddit.com/r/neovim/comments/x3zp6t/usage_of_afterftplugin_directory_for/
 
--- INIT
+-- INIT --
 require "init.launch"
 require "init.options"
 require "init.keymaps"
 require "init.autocmds"
 require "init.functions"
 
--- PLUGIN
+-- PLUGIN --
 spec "plugin.alpha"
 spec "plugin.breadcrumbs"
 spec "plugin.cmp"
@@ -26,17 +26,18 @@ spec "plugin.toggleterm"
 spec "plugin.treesitter"
 spec "plugin.whichkey"
 
--- SUPPORT
+-- SUPPORT --
 spec "plugin.support.autopairs"
 spec "plugin.support.dap-ui"
 spec "plugin.support.illuminate"
--- spec "plugin.support.indentline"
 spec "plugin.support.navic"
 spec "plugin.support.rainbow-delimiters"
 spec "plugin.support.schemastore"
 spec "plugin.support.twilight"
+-- daps
+spec "plugin.support.dapsettings.dap-python"
 
--- EXTRAS
+-- EXTRAS --
 spec "plugin.extra.cellular-automaton"
 spec "plugin.extra.comment"
 spec "plugin.extra.harpoon"
@@ -53,12 +54,9 @@ spec "plugin.extra.todo-comments"
 spec "plugin.extra.trouble"
 spec "plugin.extra.zen-mode"
 
--- MacOS
+-- MacOS --
 spec "plugin.extra.obsidian"
 spec "plugin.extra.leetcode"
-
--- Daps
-spec "plugin.dapsettings.dap-python"
 
 -- LAZY
 require "init.lazy"
