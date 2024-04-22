@@ -24,7 +24,7 @@ vim.opt.timeoutlen = 1000 -- time to wait for a mapped sequence to complete (in 
 vim.opt.undofile = true -- enable persistent undo
 vim.opt.updatetime = 50 -- faster completion (4000ms default)
 vim.opt.writebackup = false -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
--- INDENTATION
+-- GLOBAL INDENTATION --
 vim.opt.expandtab = true -- convert tabs to spaces
 vim.opt.shiftwidth = 4 -- the number of spaces inserted for each indentation
 vim.opt.tabstop = 4 -- insert 4 spaces for a tab
@@ -56,7 +56,7 @@ vim.opt.shortmess:append "c" -- cleaner UI for quickfix lists
 vim.opt.whichwrap:append "h,l" -- use vim motions in Normal to go to next line when at the end of the current line and vice-versa
 vim.opt.iskeyword:append "-" -- selects a word with "-" in-between as a full word, before it would treat the word as 2 words
 
--- TODO: figure out how to replace netrw
+-- NETRW OVERRIDE --
 vim.g.loaded_netrwPlugin = 1
 vim.g.loaded_netrw = 1
 

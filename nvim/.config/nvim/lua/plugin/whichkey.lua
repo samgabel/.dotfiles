@@ -4,6 +4,11 @@ local M = {
 }
 
 function M.config()
+
+    -- modifies the time between a key press and the whichkey popup
+    vim.o.timeout = true
+    vim.o.timeoutlen = 300
+
     local mappings = {
         a = { "<cmd>Alpha<cr>", "Dashboard" },
         b = { "<cmd>NoiceDismiss<CR>", "Dismiss" },

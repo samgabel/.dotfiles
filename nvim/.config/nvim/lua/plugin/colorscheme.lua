@@ -5,8 +5,10 @@ local M = {
 }
 
 function M.config()
+
     require("catppuccin").setup {
         integrations = {
+            navic = true,
             noice = true,
             harpoon = true,
             cmp = true,
@@ -16,16 +18,12 @@ function M.config()
             alpha = true,
             neogit = true,
             -- lsp_trouble = true,
-            -- TODO: figure this out for colorscheme AFTER you figure out indent blankline weirdness
-            indent_blankline = {
-                enabled = true,
-                colored_indent_levels = true,
-            },
         },
         transparent_background = true,
     }
 
     vim.cmd.colorscheme "catppuccin"
+
 end
 
 return M

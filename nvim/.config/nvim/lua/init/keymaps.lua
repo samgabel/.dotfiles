@@ -59,7 +59,7 @@ vim.keymap.set("n", "<Tab>", "<cmd>:popup mousemenu<CR>")
 keymap({ "n", "o", "x" }, "<s-h>", "^", opts)
 keymap({ "n", "o", "x" }, "<s-l>", "g_", opts)
 
--- No idea what this is = "tailwind bearable to work with"
+-- Able to scroll "jk" onto wrapped lines instead of skipping over them
 keymap({ "n", "x" }, "j", "gj", opts)
 keymap({ "n", "x" }, "k", "gk", opts)
 keymap("n", "<leader>w", ":lua vim.wo.wrap = not vim.wo.wrap<CR>", opts)
