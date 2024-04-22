@@ -43,6 +43,9 @@ alias plistbuddy="/usr/libexec/PlistBuddy"
 ## Hexyl (hex viewer)
 alias hex="hexyl --terminal-width 150"
 
+## LeetCode (leetcode.nvim)
+alias leetcode="nvim leetcode.nvim"
+
 # SERVER--------------------------------------------------------------------------------------------
 
 ## Docker alias
