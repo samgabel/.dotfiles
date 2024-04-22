@@ -43,8 +43,8 @@ keymap("x", "p", [["_dP]], opts)
 keymap("n", "J", "mzJ`z", opts)
 
 -- Quickfix Lists: display next item
-keymap("n", "<M-j>", "<CMD>cnext<CR>zz", opts)
-keymap("n", "<M-k>", "<CMD>cprev<CR>zz", opts)
+keymap("n", "<M-j>", "<CMD>lua require('trouble').next({skip_groups = true, jump = true})<CR>zz", opts)
+keymap("n", "<M-k>", "<CMD>lua require('trouble').previous({skip_groups = true, jump = true})<CR>zz", opts)
 
 -- NOTE: NO IDEA WHAT THESE DO >
 

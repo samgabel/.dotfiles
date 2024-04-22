@@ -48,6 +48,47 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     end,
 })
 
+-- Highjack quickfix list with trouble
+-- https://github.com/folke/trouble.nvim/issues/70#issuecomment-1848347986
+vim.api.nvim_create_autocmd({ "FileType" }, {
+    pattern = {
+        "qf",
+    },
+    callback = function()
+        local status_ok, trouble = pcall(require, "trouble")
+        if status_ok then
+            -- Check whether we deal with a quickfix or location list buffer, close the window and open the
+            -- corresponding Trouble window instead.
+            if vim.fn.getloclist(0, { filewinid = 1 }).filewinid ~= 0 then
+                vim.defer_fn(function()
+                    vim.cmd.lclose()
+                    trouble.open("loclist")
+                end, 0)
+            else
+                vim.defer_fn(function()
+                    vim.cmd.cclose()
+                    trouble.open("quickfix")
+                end, 0)
+            end
+        end
+        -- inserts cursorline into trouble list
+        vim.cmd [[
+      setlocal cursorlineopt=line
+    ]]
+    end,
+})
+
+-- Set highlight line in trouble
+vim.api.nvim_create_autocmd({ "FileType" }, {
+    pattern = {
+        "Trouble",
+    },
+    callback = function()
+        -- inserts cursorline into trouble list
+        vim.cmd [[ setlocal cursorlineopt=line ]]
+    end,
+})
+
 -- Command window is entered
 vim.api.nvim_create_autocmd({ "CmdWinEnter" }, {
     callback = function()
