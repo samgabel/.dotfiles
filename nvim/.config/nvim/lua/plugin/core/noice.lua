@@ -11,6 +11,9 @@ local M = {
     },
 }
 
+
+vim.opt.shortmess:append 's' -- removes the "search hit BOTTOM continuing at TOP" message for search
+
 function M.config()
     require("noice").setup {
         cmdline = {
@@ -31,7 +34,7 @@ function M.config()
             enabled = true,
         },
         notify = {
-            enabled = true,
+            enabled = false, -- noice still uses nvim-notify for it's own messages
         },
         smart_move = {
             enabled = false,
@@ -49,14 +52,22 @@ function M.config()
             lsp_doc_border = true, -- add a border to hover docs and signature help
         },
         routes = {
+            -- Remove notification for writing, deletion, and undo/redo operations
             {
                 filter = {
                     event = "msg_show",
-                    kind = "",
-                    find = "written",
+                    -- kind will remove all empty message kinds
+                    -- kind = ""
+                    any = {
+                        { find = "written" },
+                        { find = "; after #%d+" },
+                        { find = "; before #%d+" },
+                        { find = "%d fewer lines" },
+                        { find = "%d more lines" },
+                    }
                 },
                 opts = { skip = true },
-            }
+            },
         }
     }
 
