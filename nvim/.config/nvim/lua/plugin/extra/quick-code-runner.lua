@@ -10,7 +10,7 @@ local M = {
 function M.config()
 
     require("which-key").register({
-        ["<leader>rr"] = { "ggVG:QuickCodeRunner<CR>:setlocal wrap<CR>", "Run file" },
+        ["<leader>rr"] = { "ggVG<ESC>:%QuickCodeRunner<CR>:setlocal wrap<CR>", "Run file" },
         ["<leader>rl"] = { "V:QuickCodeRunner<CR>:setlocal wrap<CR>", "Run line" },
         ["<leader>rs"] = { ":QuickCodeRunner<CR>:setlocal wrap<CR>", "Run selection", mode = { "v" } },
         ["<leader>re"] = { "<CMD>QuickCodePad<CR>", "View pad", mode = { "n" } },

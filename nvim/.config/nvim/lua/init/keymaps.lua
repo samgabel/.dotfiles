@@ -6,8 +6,10 @@ keymap("n", "<Space>", "", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Tab key alternative
-keymap("n", "<C-i>", "<C-i>", opts)
+-- Jump-Motion alternative
+-- <C-o> -> goes to previous cursor position
+-- <C-p> -> goes to forward cursor position
+keymap("n", "<C-p>", "<C-i>", opts)
 
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)

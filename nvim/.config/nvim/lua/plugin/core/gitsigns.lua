@@ -16,14 +16,8 @@ M.config = function()
         ["<leader>gl"] = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
         ["<leader>gR"] = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
         ["<leader>gs"] = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
-        ["<leader>gu"] = {
-            "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
-            "Undo Stage Hunk",
-        },
-        ["<leader>gd"] = {
-            "<cmd>Gitsigns diffthis HEAD<cr>",
-            "Git Diff",
-        },
+        ["<leader>gu"] = { "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>", "Undo Stage Hunk", },
+        ["<leader>gd"] = { "<cmd>belowright Gitsigns diffthis HEAD<cr>", "Git Diff", },
     }
 
     require("gitsigns").setup {
@@ -36,7 +30,7 @@ M.config = function()
             },
             change = {
                 hl = "GitSignsChange",
-                text = icons.ui.BoldLineDashedMiddle,
+                text = icons.ui.BoldLineMiddle,
                 numhl = "GitSignsChangeNr",
                 linehl = "GitSignsChangeLn",
             },
@@ -54,7 +48,7 @@ M.config = function()
             },
             changedelete = {
                 hl = "GitSignsChange",
-                text = icons.ui.BoldLineMiddle,
+                text = icons.ui.BoldLineDashedMiddle,
                 numhl = "GitSignsChangeNr",
                 linehl = "GitSignsChangeLn",
             },

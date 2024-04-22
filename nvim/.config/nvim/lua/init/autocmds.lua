@@ -71,10 +71,6 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
                 end, 0)
             end
         end
-        -- inserts cursorline into trouble list
-        vim.cmd [[
-      setlocal cursorlineopt=line
-    ]]
     end,
 })
 
@@ -113,11 +109,11 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
     end,
 })
 
--- Immedietly after a Yank
+-- YANK highlight and duration --
 vim.api.nvim_create_autocmd({ "TextYankPost" }, {
     callback = function()
         -- makes it visually clear which text has been copied recently
-        vim.highlight.on_yank { higroup = "Visual", timeout = 40 }
+        vim.highlight.on_yank { higroup = "lualine_a_visual", timeout = 150 }
     end,
 })
 

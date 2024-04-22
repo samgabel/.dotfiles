@@ -1,6 +1,7 @@
 vim.opt.backup = false -- creates a backup file
 vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
-vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:blinkon1,r-cr-o:hor20" -- cursor is set to block for all modes except replace modes
+-- vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:blinkon1,r-cr-o:hor20" -- cursor is set to block for all modes except replace modes
+vim.opt.guicursor = "n-v-c-sm:block,i-ci:ver30-iCursor-blinkwait300-blinkon200-blinkoff150,r-cr-o:hor20" -- cursor styles default
 vim.opt.cmdheight = 1 -- more space in the neovim command line for displaying messages
 vim.opt.completeopt = { "menuone", "noselect" } -- mostly just for cmp
 vim.opt.conceallevel = 1 -- conceals things like code block (```), bold (**), and full path links in .md notes
@@ -55,10 +56,6 @@ vim.opt.shortmess:append "c" -- cleaner UI for quickfix lists
 
 vim.opt.whichwrap:append "h,l" -- use vim motions in Normal to go to next line when at the end of the current line and vice-versa
 vim.opt.iskeyword:append "-" -- selects a word with "-" in-between as a full word, before it would treat the word as 2 words
-
--- NETRW OVERRIDE --
-vim.g.loaded_netrwPlugin = 1
-vim.g.loaded_netrw = 1
 
 -- vim.opt.autoindent = true -- (idk if this works) indents line automatically when pressing <CR> in Insert mode or "o" in Normal mode
 vim.opt.linebreak = true -- will stop wrapping lines in the middle of the word

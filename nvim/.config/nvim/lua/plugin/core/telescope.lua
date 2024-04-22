@@ -13,7 +13,7 @@ function M.config()
         ["<leader>fF"] = { "<cmd>Telescope fd hidden=true<cr>", "Preview Files" },
         ["<leader>fs"] = { "<cmd>Telescope live_grep<cr>", "Text" },
         ["<leader>fc"] = { "<cmd>Telescope todo-comments initial_mode=normal<cr>", "Todo" },
-        ["<leader><leader>"] = { "<cmd>Telescope buffers previewer=true<cr>", "Buffers" },
+        ["<leader><leader>"] = { "<cmd>Telescope buffers<cr>", "Buffers" },
         -- ["<leader>fp"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
         -- ["<leader>fc"] = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
         ["<leader>fh"] = { "<cmd>Telescope help_tags<cr>", "Help" },
@@ -92,7 +92,7 @@ function M.config()
 
             buffers = {
                 theme = "dropdown",
-                previewer = false,
+                previewer = true,
                 initial_mode = "normal",
                 mappings = {
                     i = {
