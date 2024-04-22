@@ -77,6 +77,15 @@ function venv-create() {
   fi
 }
 
+function comp() {
+    g++ -std=c++11 "$@" && ./a.out
+    rm a.out
+}
+
+function lldbcomp() {
+    g++ -g -std=c++11 "$@" && lldb a.out
+    rm a.out && rm -rf a.out.dSYM
+}
 
 # MBP FUNCTIONS ==========================================================================================================================>
 

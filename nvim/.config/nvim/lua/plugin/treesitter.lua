@@ -28,6 +28,7 @@ function M.config()
             "lua",
             "python",
             "go",
+            "cpp",
             "javascript",
             "typescript",
             "rust",

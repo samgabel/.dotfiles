@@ -71,6 +71,7 @@ function M.config()
         "pyright",
         "tsserver",
         "gopls",
+        "clangd",
         "html",
         "cssls",
         "bashls",

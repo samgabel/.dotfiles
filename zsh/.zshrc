@@ -5,6 +5,8 @@
 # INITIALIZE --------------------------------------------------------------------------------------
 
 ### compinit initialize
+### says that this should be loaded after FPATH, but for the sake of fzf-tab this is the best location
+### if there are any problems (completions not loading) then run `rm -f ~/.zcompdump; compinit`
 autoload -Uz compinit && compinit -C
 
 ### source zsh configs
@@ -74,15 +76,19 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   ### (b) 1password agent
   # export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
   ##### no need for above^ we specified the agent in the .ssh/config which is used by .gitconfig for signing
+  export XDG_CONFIG_HOME="$HOME/.config"
   ### zsh-add-ons
   source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
   source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-  fpath+=/usr/local/share/zsh/site-functions
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
   ### pass-store
   export PASSWORD_STORE_DIR=/Users/samgabel/Secrets/pass
-  ### nvm
+  ### nvm -> node-version-manager
   [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh" --no-use  # This loads nvm
   [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+  ### frum -> ruby-version-manager
+  # TODO: find a way to handle this better
+  # eval "$(frum init)"
 fi
 
 

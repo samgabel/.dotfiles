@@ -93,11 +93,15 @@ format = 'via [󱃾 $context\($namespace\)](bold #add8e6) '
 [package]
 symbol = '󰏖 '
 
+[c]
+symbol = ' '
+detect_extensions = ['c', 'h', 'cpp']
+format = 'via [$symbol($version )]($style)'
+
 [python]
 symbol = ' '
 
 [nodejs]
-disabled = false
 symbol = '󰎙 '
 
 [golang]
@@ -125,4 +129,5 @@ disabled = true
 disabled = true
 
 [ruby]
-disabled = true
+# disabled = true
+symbol = " "
