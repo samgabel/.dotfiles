@@ -34,7 +34,7 @@ function M.config()
             enabled = true,
         },
         notify = {
-            enabled = false, -- noice still uses nvim-notify for it's own messages
+            enabled = true, -- noice still uses nvim-notify for it's own messages
         },
         smart_move = {
             enabled = false,
@@ -52,18 +52,40 @@ function M.config()
             lsp_doc_border = true, -- add a border to hover docs and signature help
         },
         routes = {
+            -- Note: %d -> for numbers | %a -> for alphanumeric | (.) -> for any except newline
+            -- Note: adding `+` will extend this for one or more characters, ie: %a+%d+ | (.+)
+
             -- Remove notification for writing, deletion, and undo/redo operations
+
             {
                 filter = {
                     event = "msg_show",
-                    -- kind will remove all empty message kinds
+                    -- kind will remove all empty message kinds (doesn't work with nvim-dap when notify is enabled)
                     -- kind = ""
                     any = {
-                        { find = "written" },
-                        { find = "; after #%d+" },
-                        { find = "; before #%d+" },
-                        { find = "%d fewer lines" },
-                        { find = "%d more lines" },
+                        { find = "%d lines yanked" },           -- yanking
+                        { find = "^/[^/]+" },                   -- searching
+                        { find = "\"(.+)\" (.+) written" },     -- writing
+                        { find = "; after #%d+" },              -- redo
+                        { find = "; before #%d+" },             -- undo
+                        { find = "%d fewer lines" },            -- deletion
+                        { find = "%d more lines" },             -- paste
+                    }
+                },
+                opts = { skip = true },
+            },
+            -- nvim-notify message filtering
+            {
+                filter = {
+                    event = "notify",
+                    any = {
+                        -- Neotree
+                        { find = "Toggling hidden files:" },
+                        { find = "Cut (.+) to clipboard" },
+                        { find = "Copied (.+) to clipboard" },
+                        { find = "Renamed (.+) successfully" },
+                        -- LSPConfig
+                        { find = "No information available" },
                     }
                 },
                 opts = { skip = true },
