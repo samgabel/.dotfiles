@@ -34,7 +34,6 @@ function M.config()
                     cond = require("noice").api.status.mode.has,
                     color = { fg = "#ff9e64" },
                 },
-                require("nomodoro").status,
             },
             lualine_c = { "branch", "diff" },
             lualine_x = { "diagnostics", "copilot", "filetype" },
