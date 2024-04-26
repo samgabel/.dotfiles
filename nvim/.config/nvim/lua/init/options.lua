@@ -14,7 +14,7 @@ vim.opt.mouse = "a" -- allow the mouse to be used in neovim
 vim.opt.pumheight = 10 -- pop up menu height
 vim.opt.pumblend = 0 -- transparency for popups (like cmp) -> higher is more transparency
 vim.opt.showmode = false -- we don't need to see things like -- INSERT -- anymore
-vim.opt.showtabline = 1 -- always show tabs
+vim.opt.showtabline = 0 -- don't show tabs in tabline anymore
 vim.opt.smartcase = true -- smart case
 vim.opt.smartindent = true -- make indenting smarter again
 vim.opt.splitbelow = true -- force all horizontal splits to go below current window
@@ -30,7 +30,7 @@ vim.opt.expandtab = true -- convert tabs to spaces
 vim.opt.shiftwidth = 4 -- the number of spaces inserted for each indentation
 vim.opt.tabstop = 4 -- insert 4 spaces for a tab
 vim.cmd("set invlist") -- sets the tab literal character visibility on
-vim.opt.listchars = { tab = "⠀", trail = ""} -- formats the trailing dot when typing and the literal tab character
+vim.opt.listchars = { tab = "»⠀", trail = ""} -- formats the trailing dot when typing and the literal tab character
 vim.opt.cursorline = true -- highlight the current line
 vim.opt.cursorlineopt = "number"
 vim.opt.number = true -- set numbered lines

@@ -63,13 +63,18 @@ function M.config()
                     -- kind will remove all empty message kinds (doesn't work with nvim-dap when notify is enabled)
                     -- kind = ""
                     any = {
+                        { find = ":!(.+)" },                -- command messages
                         { find = "%d lines yanked" },           -- yanking
-                        { find = "^/[^/]+" },                   -- searching
+                        { find = "%d lines moved" },            -- moved
+                        { find = "%d lines indented" },         -- indented
+                        -- { find = "^/[^/]+" },                   -- searching (impossible to hide failed msg without blocking succesfull msg)
+                        { find = "%d+L, %d+B" },                -- file update
                         { find = "\"(.+)\" (.+) written" },     -- writing
                         { find = "; after #%d+" },              -- redo
                         { find = "; before #%d+" },             -- undo
                         { find = "%d fewer lines" },            -- deletion
                         { find = "%d more lines" },             -- paste
+                        { find = "%d lines (.*)ed %d time" },   -- indenting & outdenting
                     }
                 },
                 opts = { skip = true },
@@ -86,6 +91,10 @@ function M.config()
                         { find = "Renamed (.+) successfully" },
                         -- LSPConfig
                         { find = "No information available" },
+                        -- Neotest
+                        { find = "Starting watcher for (.+)" },
+                        { find = "Watcher running for (.+)" },
+                        { find = "Stopping watch for (.+)" },
                     }
                 },
                 opts = { skip = true },

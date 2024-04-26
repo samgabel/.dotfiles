@@ -14,7 +14,7 @@ function M.config()
         b = { "<cmd>NoiceDismiss<CR>", "Dismiss" },
         q = { "<cmd>confirm q<CR>", "Quit" },
         w = { ":lua vim.wo.wrap = not vim.wo.wrap<CR>", "Wrap" },
-        x = { "<cmd>!chmod +x %<CR>", "Chmod +x" },
+        x = { "<cmd>!chmod +x %<CR><cmd>lua vim.notify 'File Permissions: +x'<CR>", "Chmod +x" },
         -- v = { "<cmd>vsplit | Alpha<CR>", "Split" },
         -- b = { name = "Buffers" }, --get rid of imbedded
         -- expandable --
@@ -32,6 +32,7 @@ function M.config()
             a = { ":lua PasteFilePathInline()<CR>", "Absolute" },
             r = { ":lua PasteRelativePathInline()<CR>", "Relative" },
         },
+        s = { name = "Side" },
         t = { name = "Test" },
         y = { name = "Fun" },
         z = { name = "Zen" },

@@ -3,6 +3,8 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
     callback = function()
         -- removes comment auto-add, wrapping, and insert on "o"
         vim.cmd "set formatoptions-=cro"
+        -- need to run breadcrumbs on buf enter if not lazy loading with lazy.nvim
+        -- require("plugin.core.breadcrumbs.init").setup()
     end,
 })
 
@@ -35,6 +37,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
         "lir",
         "DressingSelect",
         "tsplayground",
+        "neotest-summary",
         "neotest-output-panel",
         "neotest-output",
         "",
@@ -135,7 +138,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 
 -- Start Lualine when neo-tree is open
 vim.api.nvim_create_autocmd({ "FileType" }, {
-    pattern = { "neo-tree", "NeogitStatus" },
+    pattern = { "neo-tree", "NeogitStatus", "leetcode.nvim" },
     callback = function()
         -- wrapping enabled
         require("lualine")

@@ -18,7 +18,7 @@ local M = {
 function M.config()
     local wk = require "which-key"
     wk.register {
-        ["<M-e>"] = { "<CMD>Neotree reveal left<CR>", "Filesystem" }, -- toggle neotree directories
+        ["<leader>se"] = { "<CMD>Neotree toggle left<CR>", "Filesystem" }, -- toggle neotree directories
         ["<leader>e"] = { "<CMD>Neotree focus current reveal_force_cwd<CR>", "Filesystem" }, -- toggle neotree directories
     }
 
