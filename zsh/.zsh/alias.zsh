@@ -25,7 +25,7 @@ alias lld="eza --icons -lD"
 alias md='glow'
 
 ## Tmux default session name
-alias t="tmux new -s 'ZSHELL'"
+alias t="tmux new -s ' '"
 alias ta="tmux a"
 
 
