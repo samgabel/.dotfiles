@@ -3,29 +3,36 @@ local M = {
     event = "VeryLazy",
     dependencies = {
         { "nvim-telescope/telescope-fzf-native.nvim", build = "make", lazy = true },
+        { "nvim-telescope/telescope-ui-select.nvim" },
+        { "ANGkeith/telescope-terraform-doc.nvim" },
+        { "debugloop/telescope-undo.nvim" },
     },
 }
 
 function M.config()
     local wk = require "which-key"
     wk.register {
-        ["<leader>ff"] = { "<cmd>Telescope find_files<cr>", "Quick Files" },
-        ["<leader>fF"] = { "<cmd>Telescope fd hidden=true<cr>", "Preview Files" },
-        ["<leader>fs"] = { "<cmd>Telescope live_grep<cr>", "Text" },
-        ["<leader>fc"] = { "<cmd>Telescope todo-comments initial_mode=normal<cr>", "Todo" },
-        ["<leader><leader>"] = { "<cmd>Telescope buffers<cr>", "Buffers" },
+        -- layout_config={width=0.94} seems to be the sweet spot for this current window size of iTerm(162 x 42) -> for side_by_side view
+        ["<leader>ff"] = { "<cmd>Telescope find_files layout_config={width=100}<cr>", "Quick Files" },
+        ["<leader>fF"] = { "<cmd>Telescope fd hidden=true layout_config={width=0.94}<cr>", "Preview Files" },
+        ["<leader>fs"] = { "<cmd>Telescope live_grep layout_config={width=100}<cr>", "Text" },
+        ["<leader>fc"] = { "<cmd>Telescope todo-comments initial_mode=normal layout_config={width=100}<cr>", "Todo" },
+        ["<leader><leader>"] = { "<cmd>Telescope buffers layout_config={width=100}<cr>", "Buffers" },
         -- ["<leader>fp"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
         -- ["<leader>fc"] = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
-        ["<leader>fh"] = { "<cmd>Telescope help_tags<cr>", "Help" },
-        ["<leader>fe"] = { "<cmd>Telescope noice initial_mode=normal<cr>", "Errors" },
+        ["<leader>fh"] = { "<cmd>Telescope help_tags layout_config={width=0.94}<cr>", "Help" },
+        ["<leader>fe"] = { "<cmd>Telescope noice initial_mode=normal layout_config={width=0.94}<cr>", "Errors" },
         ["<leader>fl"] = { "<cmd>Telescope resume initial_mode=normal<cr>", "Last Search" },
         -- ["<leader>fr"] = { "<cmd>Telescope oldfiles<cr>", "Recent File" },
+        ["<leader>fu"] = { "<cmd>Telescope undo initial_mode=normal layout_strategy=vertical entry_format='$TIME'<cr>", "Undo Tree" },
+        ["<leader>ft"] = { "<cmd>Telescope terraform_doc<cr>", "Terraform Doc" },
     }
 
-    local icons = require "user.icons"
-    local actions = require "telescope.actions"
+    local icons = require("user.icons")
+    local actions = require("telescope.actions")
     local trouble = require("trouble.providers.telescope")
 
+    -- SETUP --
     require("telescope").setup {
         defaults = {
             prompt_prefix = icons.ui.Telescope .. " ",
@@ -140,8 +147,17 @@ function M.config()
                 override_file_sorter = true, -- override the file sorter
                 case_mode = "smart_case", -- or "ignore_case" or "respect_case"
             },
+            ["ui-select"] = {
+                require("telescope.themes").get_dropdown()
+            }
         },
     }
+
+    -- EXTENSION LOADING --
+    require("telescope").load_extension("ui-select")
+    require("telescope").load_extension("terraform_doc")
+    require("telescope").load_extension("undo")
+
 end
 
 return M
