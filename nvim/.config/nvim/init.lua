@@ -41,6 +41,7 @@ spec "plugin.support.dapsettings.dap-python"
 -- EXTRAS --
 spec "plugin.extra.cellular-automaton"
 spec "plugin.extra.comment"
+spec "plugin.extra.flash"
 spec "plugin.extra.harpoon"
 spec "plugin.extra.markdown-preview"
 spec "plugin.extra.lazygit"
