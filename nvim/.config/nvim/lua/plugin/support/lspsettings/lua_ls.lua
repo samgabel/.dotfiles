@@ -25,7 +25,8 @@ return {
                 },
             },
             hint = {
-                enable = false,
+                -- enable for inlayHints
+                enable = true,
                 arrayIndex = "Disable", -- "Enable" | "Auto" | "Disable"
                 await = true,
                 paramName = "Disable", -- "All" | "Literal" | "Disable"

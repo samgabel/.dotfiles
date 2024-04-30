@@ -26,6 +26,11 @@ function M.config()
 
     require("Comment").setup {
         pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+        -- removes all custom mappings (ie 'gcc', 'gco', etc)
+        mappings = {
+            basic = false,
+            extra = false
+        }
     }
 end
 

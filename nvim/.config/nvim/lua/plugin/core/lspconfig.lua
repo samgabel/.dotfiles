@@ -18,8 +18,12 @@ local function lsp_keymaps(bufnr)
     keymap(bufnr, "n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
     keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
     keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+    keymap(bufnr, "n", "gci", "<cmd>lua vim.lsp.buf.incoming_calls()<CR>", opts)
+    keymap(bufnr, "n", "gco", "<cmd>lua vim.lsp.buf.outgoing_calls()<CR>", opts)
 end
 
+-- NOTE: lsp textDocument/inlayHint
+-- it should be noted that inlayHint is only available for nvim --version v0.10.0-dev-e85e7fc and after
 M.on_attach = function(client, bufnr)
     lsp_keymaps(bufnr)
 
@@ -56,9 +60,16 @@ function M.config()
     wk.register {
         ["g"] = {
             name = "LSP [G]o",
+            D = { "Declaration" },
             d = { "Definition" },
             r = { "References" },
             l = { "Diagnostics" },
+            I = { "Implementations" },
+            ["c"] = {
+                name = "Calls",
+                i = { "Incoming" },
+                o = { "Outgoing" }
+            }
         },
         ["K"] = { "LSP document" },
     }
