@@ -48,7 +48,7 @@ disabled = false
 truncation_length = 3
 truncation_symbol = "…/"
 style = "bold green"
-home_symbol = " ~"
+home_symbol = "󰋜 ~"
 read_only_style = "197"
 read_only = "  "
 format = "at [$path]($style)[$read_only]($read_only_style) "
@@ -95,7 +95,7 @@ symbol = '󰏖 '
 
 [c]
 symbol = ' '
-detect_extensions = ['c', 'h', 'cpp']
+detect_extensions = ['c', 'h', 'cpp', 'cc']
 format = 'via [$symbol($version )]($style)'
 
 [python]
