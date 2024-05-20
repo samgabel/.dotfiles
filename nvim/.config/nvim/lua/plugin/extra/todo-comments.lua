@@ -17,6 +17,7 @@ function M.config()
                 "--column",
                 "--glob=!public",
                 "--glob=!venv",
+                "--hidden"
             },
             -- regex that will be used to match keywords.
             -- don't replace the (KEYWORDS) placeholder

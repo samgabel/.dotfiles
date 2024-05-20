@@ -4574,7 +4574,7 @@
 	<key>TerminalVMargin</key>
 	<integer>3</integer>
 	<key>ThreeFingerEmulates</key>
-	<true/>
+	<false/>
 	<key>TimeBetweenTips</key>
 	<real>604800</real>
 	<key>TraditionalVisualBell</key>

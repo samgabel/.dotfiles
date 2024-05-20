@@ -20,7 +20,7 @@ function M.config()
                 enabled = false
             },
             char = {
-                highlight = { backdrop = true },
+                highlight = { backdrop = false },
                 char_actions = function(motion)
                     return {
                         [";"] = "right", -- set to `right` to always go right
