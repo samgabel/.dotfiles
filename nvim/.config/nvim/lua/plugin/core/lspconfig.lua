@@ -5,6 +5,7 @@ local M = {
         {
             "folke/neodev.nvim",
             "williamboman/mason-lspconfig.nvim",
+            "danymat/neogen"
         },
     },
 }
