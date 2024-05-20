@@ -32,11 +32,13 @@ spec "plugin.support.dap-ui"
 spec "plugin.support.illuminate"
 spec "plugin.support.lsp-progress"
 spec "plugin.support.navic"
+spec "plugin.support.neogen"
 spec "plugin.support.rainbow-delimiters"
 spec "plugin.support.schemastore"
 spec "plugin.support.twilight"
 -- daps
 spec "plugin.support.dapsettings.dap-python"
+spec "plugin.support.dapsettings.dap-js"
 
 -- EXTRAS --
 spec "plugin.extra.cellular-automaton"

@@ -28,6 +28,7 @@ function M.config()
     -- DAP list --
     local daps = {
         "debugpy",
+        -- javascript uses the "microsoft/vscode-js-debug" in support/dapsettings/dap-js.lua
     }
     -- LINTER list --
     local linters = {
