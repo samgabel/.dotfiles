@@ -61,5 +61,7 @@ vim.opt.iskeyword:append "-" -- selects a word with "-" in-between as a full wor
 vim.opt.linebreak = true -- will stop wrapping lines in the middle of the word
 vim.opt.breakindent = true -- respects indentation when soft wrapping lines
 
-vim.api.nvim_command [[autocmd VimEnter * silent !tmux set status off]]
-vim.api.nvim_command [[autocmd VimLeave * silent !tmux set status on]]
+if os.getenv("TMUX") then
+    vim.api.nvim_command [[autocmd VimEnter * silent !tmux set status off]]
+    vim.api.nvim_command [[autocmd VimLeave * silent !tmux set status on]]
+end

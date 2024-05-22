@@ -8,11 +8,13 @@ local M = {
 }
 
 
--- Initial update of tmux session info
-UpdateTmuxSessionInfo()
--- UpdateTmuxSessionInfo() when <C-s> is pressed (in terminal <C-s> will freeze until <C-q)
--- in tmux.conf the "z" keybind will also send <C-s> to vim in additon to toggling zoom
-vim.api.nvim_set_keymap('', '<C-s>', ':lua UpdateTmuxSessionInfo()<CR>', { noremap = true, silent = true })
+if os.getenv("TMUX") then
+    -- Initial update of tmux session info
+    UpdateTmuxSessionInfo()
+    -- UpdateTmuxSessionInfo() when <C-s> is pressed (in terminal <C-s> will freeze until <C-q)
+    -- in tmux.conf the "z" keybind will also send <C-s> to vim in additon to toggling zoom
+    vim.api.nvim_set_keymap('', '<C-s>', ':lua UpdateTmuxSessionInfo()<CR>', { noremap = true, silent = true })
+end
 
 -- Change diff source because of neovim update problem and faster update time
 local function diff_source()
