@@ -25,10 +25,6 @@ for file in "${files_to_source[@]}"; do
 done
 
 
-## ENV exports ----------------------------------
-export NVM_DIR="$HOME/.nvm"
-
-
 # ZSH STYLING -------------------------------------------------------------------------------------
 
 ## FZF-tab --------------------------------------
@@ -83,12 +79,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
   ### pass-store
   export PASSWORD_STORE_DIR=/Users/samgabel/Secrets/pass
-  ### nvm -> node-version-manager
-  [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh" --no-use  # This loads nvm
-  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-  ### frum -> ruby-version-manager
-  # TODO: find a way to handle this better
-  # eval "$(frum init)"
 fi
 
 
@@ -101,9 +91,8 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   ### pacman
   [[ -d /usr/share/zsh/plugins/zsh-autosuggestions ]] && source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
   [[ -d /usr/share/zsh/plugins/zsh-syntax-highlighting ]] && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-  ### nvm
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use  # This loads nvm
-  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+  ### mise
+  eval "$(mise completion --usage zsh)"
 fi
 
 
@@ -117,6 +106,9 @@ precmd() {
     echo
   }
 }
+
+## Load Mise
+eval "$(mise activate zsh)"
 
 ## Load Starship
 eval "$(starship init zsh)"

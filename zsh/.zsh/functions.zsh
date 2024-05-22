@@ -1,11 +1,5 @@
 # GLOBAL FUNCTIONS =======================================================================================================================>
 
-## Workaround for NVM sourcing -----------------------------
-function vim() {
-  [[ ! -e "$(which node)" ]] && nvm use default > /dev/null 2>&1
-  nvim $@
-}
-
 ## Test Directory ------------------------------------------
 function mktest() {
   if [ -d "$HOME/TEST" ]; then
