@@ -56,10 +56,15 @@ stow nvim
 stow zsh
 stow tmux && ~/.config/tmux/plugins/tpm/bin/install_plugins
 
+# Mise----------------------------
+mise use --global usage
+mise use --global node@lts
+mise use --global go
+mise exec -- npm install -g neovim
+
 # Finishing Touches---------------
 echo "1) Make sure iTerm2 is installed & ..."
-echo "2) Configure General > Preferences > Path=~/.dotfiles/iterm2/"
-echo "3) Install apps in extras/manual-install.md"
+echo "2) Configure General » Preferences » Path=~/.dotfiles/iterm2/"
 
 
 echo "##################################################################################################################"

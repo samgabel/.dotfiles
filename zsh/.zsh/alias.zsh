@@ -8,7 +8,7 @@ alias ls="eza --icons --group-directories-first"
 alias ll="eza --icons --group-directories-first -l"
 
 ## cat
-alias cat='bat --decorations=never'
+alias cat="bat --decorations=never"
 
 ## df and du
 alias df="df -hP"
@@ -19,7 +19,7 @@ alias lsd="eza --icons -D"
 alias lld="eza --icons -lD"
 
 ## Programs Remapped
-alias md='glow'
+alias md="glow"
 
 ## Tmux default session name
 alias t="tmux new -s '󱂶 HOME'"
@@ -27,6 +27,7 @@ alias ta="tmux a"
 
 ## PATH
 alias path='echo $path | tr " " "\n" | bat --file-name PATH'
+alias env="env | bat --file-name ENV"
 
 # MAC OS--------------------------------------------------------------------------------------------
 if [[ "$OSTYPE" == "darwin"* ]]; then

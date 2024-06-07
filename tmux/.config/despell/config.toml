@@ -1,0 +1,7 @@
+[default]
+nerdfont = ""
+color = "green"
+
+[icons.nvim]
+nerdfont = ""
+color = "cyan"

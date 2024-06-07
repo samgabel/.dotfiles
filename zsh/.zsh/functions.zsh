@@ -61,6 +61,7 @@ function venv-create() {
     python -m pip install --upgrade pip
     python -m pip install pynvim pytest
     touch ./pyproject.toml
+    echo "import sys\nfrom pathlib import Path\n\nbase_dir = Path(__file__).parent\nsrc_path = f'{base_dir}/src'\n\nif src_path not in sys.path:\n    sys.path.append(src_path)" >> conftest.py
     if [ -f "./ansible.cfg" ]; then
       python -m pip install ansible argcomplete
       deactivate
@@ -79,6 +80,10 @@ function comp() {
 function lldbcomp() {
     g++ -g -std=c++11 "$@" && lldb a.out
     rm a.out && rm -rf a.out.dSYM
+}
+
+function gotestboot() {
+    go test "$@"/main.go "$@"/main_test.go -test.v
 }
 
 # MBP FUNCTIONS ==========================================================================================================================>

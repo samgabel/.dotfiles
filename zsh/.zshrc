@@ -24,6 +24,9 @@ for file in "${files_to_source[@]}"; do
     [[ -f "$file" ]] && source "$file"
 done
 
+## Exports --------------------------------------
+export GOPATH=~/.go
+
 
 # ZSH STYLING -------------------------------------------------------------------------------------
 
@@ -37,14 +40,14 @@ zstyle ':completion:*:descriptions' format '[%d]'
 ### set list-colors to enable filename colorizing
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 ### set preview-box size
-zstyle ':fzf-tab:complete:vim:*' fzf-min-height '50'
+zstyle ':fzf-tab:complete:nvim:*' fzf-min-height '50'
 zstyle ':fzf-tab:complete:*:*' fzf-pad '50'
 ### switch group using `,` and `.`
 zstyle ':fzf-tab:*' switch-group ',' '.'
 ### preview directory's content with eza when completing with...
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -a -1 --color=always --icons --group-directories-first $realpath'
 zstyle ':fzf-tab:complete:bat:*' fzf-preview 'eza -a -1 --color=always --icons --group-directories-first $realpath'
-zstyle ':fzf-tab:complete:vim:*' fzf-preview \
+zstyle ':fzf-tab:complete:nvim:*' fzf-preview \
     'mime=$(file -bL --mime-type "$realpath")
     category=${mime%%/*}
     kind=${mime##*/}
