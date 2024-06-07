@@ -24,7 +24,7 @@ function M.config()
         ["<leader>fe"] = { "<cmd>Telescope noice initial_mode=normal layout_config={width=0.94}<cr>", "Errors" },
         ["<leader>fl"] = { "<cmd>Telescope resume initial_mode=normal<cr>", "Last Search" },
         -- ["<leader>fr"] = { "<cmd>Telescope oldfiles<cr>", "Recent File" },
-        ["<leader>fu"] = { "<cmd>Telescope undo initial_mode=normal layout_strategy=vertical entry_format='$TIME'<cr>", "Undo Tree" },
+        ["<leader>fu"] = { "<cmd>Telescope undo initial_mode=normal layout_config={width=0.94} entry_format='$TIME'<cr>", "Undo Tree" },
         ["<leader>ft"] = { "<cmd>Telescope terraform_doc<cr>", "Terraform Doc" },
     }
 

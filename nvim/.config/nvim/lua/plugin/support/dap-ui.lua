@@ -43,7 +43,7 @@ function M.config()
     --     dapui.open()
     -- end
     dap.listeners.before.launch.dapui_config = function()
-        -- neotest.summary.close()
+        neotest.summary.close()
         dapui.open()
     end
     dap.listeners.before.event_terminated.dapui_config = function()
