@@ -81,10 +81,11 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 vim.api.nvim_create_autocmd({ "FileType" }, {
     pattern = {
         "Trouble",
+        "Outline"
     },
     callback = function()
         -- inserts cursorline into trouble list
-        vim.cmd [[ setlocal cursorlineopt=line ]]
+        vim.cmd [[ set cursorlineopt=line ]]
     end,
 })
 
