@@ -29,6 +29,7 @@ spec "plugin.core.whichkey"
 -- SUPPORT --
 spec "plugin.support.autopairs"
 spec "plugin.support.dap-ui"
+spec "plugin.support.devicons"
 spec "plugin.support.illuminate"
 spec "plugin.support.lsp-progress"
 spec "plugin.support.navic"
