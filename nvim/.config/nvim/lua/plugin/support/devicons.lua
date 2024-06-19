@@ -17,9 +17,14 @@ function M.config()
                 name = "make"
             },
             ["mod"] = {
-                icon = "󱧕",
-                color = "#519aba",
+                icon = "",
+                color = "#FF0090",
                 name = "gomod"
+            },
+            ["sum"] = {
+                icon = "",
+                color = "#FF0090",
+                name = "gosum"
             },
             ["asm"] = {
                 icon = "",
