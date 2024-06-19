@@ -22,7 +22,7 @@ alias lld="eza --icons -lD"
 alias md="glow"
 
 ## Tmux default session name
-alias t="tmux new -s '󱂶 HOME'"
+alias t="tmux new-session -s '󱂶⠀HOME' \; new-session -ds '󰞹⠀TEST' -c ~/TEST"
 alias ta="tmux a"
 
 ## PATH
