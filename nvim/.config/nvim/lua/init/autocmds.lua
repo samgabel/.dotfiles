@@ -8,6 +8,25 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
     end,
 })
 
+-- Make Session.vim a dotfile & Silence pesky intermediary screen when opening Session.vim with `vim -S`
+-- See lua/plugin/core/alpha.lua for implemtation of vim Sessions
+vim.api.nvim_create_autocmd("VimLeavePre", {
+    callback = function()
+        local session_file = vim.fn.expand('Session.vim')
+        local new_session_file = vim.fn.expand('.Session.vim')
+        if vim.fn.filereadable(session_file) == 1 then
+            local lines = vim.fn.readfile(session_file)
+            for i, line in ipairs(lines) do
+                if string.match(line, "^edit ") then
+                    lines[i] = "silent! " .. line
+                end
+            end
+            vim.fn.writefile(lines, new_session_file)
+            vim.fn.delete(session_file)
+        end
+    end,
+})
+
 -- Neo-Tree lazily highjack netrw
 vim.api.nvim_create_autocmd('BufEnter', {
     -- make a group to be able to delete it later

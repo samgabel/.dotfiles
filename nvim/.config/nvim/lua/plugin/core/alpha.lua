@@ -37,6 +37,15 @@ function M.config()
         button("c", icons.ui.Gear .. " Config", ":e ~/.config/nvim/init.lua <CR>"),
         button("q", icons.ui.SignOut .. " Quit", ":qa<CR>"),
     }
+    -- For Restoring a vim Session if a `.Session.vim` file exists (see vim Session autocmd in lua/init/autocmds.lua)
+    if vim.fn.filereadable(vim.fn.expand('.Session.vim')) == 1 then
+        local buttons = dashboard.section.buttons.val
+        for i = #buttons, 1, -1 do
+            buttons[i + 1] = buttons[i]
+        end
+        buttons[1] = button("S", icons.ui.BookMark .. "  Restore Session", ":source .Session.vim<CR>")
+    end
+
     local function footer()
         return "samgabel.com"
     end
