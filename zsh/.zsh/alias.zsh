@@ -13,6 +13,10 @@ alias cat="bat --decorations=never"
 ## df and du
 alias df="df -hP"
 alias du="du -hs"
+alias dua="du -sh */ | sort -h && echo "------------------------------------" && du -sh ."
+
+## loc in a git project
+alias loc="git ls-files | xargs wc -l"
 
 ## List only directories
 alias lsd="eza --icons -D"
@@ -22,7 +26,7 @@ alias lld="eza --icons -lD"
 alias md="glow"
 
 ## Tmux default session name
-alias t="tmux new-session -s '󱂶⠀HOME' \; new-session -ds '󰞹⠀TEST' -c ~/TEST"
+alias t="tmux new-session -s '󱂶⠀HOME' \; new-session -ds '󰞹 TEST' -c ~/TEST"
 alias ta="tmux a"
 
 ## PATH
