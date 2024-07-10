@@ -12,6 +12,7 @@ function M.config()
     local mappings = {
         a = { "<cmd>Alpha<cr>", "Dashboard" },
         b = { "<cmd>NoiceDismiss<CR>", "Dismiss" },
+        c = { "<cmd>DeleteListedBuffers<CR>", "Delete Buffers" },
         q = { "<cmd>confirm q<CR>", "Quit" },
         w = { ":lua vim.wo.wrap = not vim.wo.wrap<CR>", "Wrap" },
         x = { "<cmd>!chmod +x %<CR><cmd>lua vim.notify 'File Permissions: +x'<CR>", "Chmod +x" },

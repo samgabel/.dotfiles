@@ -59,3 +59,28 @@ function UpdateTmuxSessionInfo()
     -- if there is a "Z" in the list then the pane is zoomed
     tmux_zoomed = zoom_info:find "Z" ~= nil
 end
+
+-- Function to delete all buffers listed in the `:buffers` vim command (not all the buffers listed in `:buffers!`)
+-- TODO: change all functions to this format
+-- vim.api.nvim_create_user_command() format instead of global function see "https://github.com/nanotee/nvim-lua-guide?tab=readme-ov-file#defining-user-commands"
+vim.api.nvim_create_user_command('DeleteListedBuffers', function()
+    local current_buf = vim.api.nvim_get_current_buf()
+    local buffers = vim.fn.getbufinfo({buflisted = 1})
+    local success = true
+    local count = 0
+    for _, buf in ipairs(buffers) do
+        if buf.bufnr ~= current_buf then
+            local modified = vim.api.nvim_buf_get_option(buf.bufnr, 'modified')
+            if modified then
+                print("Buffer " .. buf.bufnr .. " has unsaved changes. Not deleting.")
+                success = false
+            else
+                vim.api.nvim_buf_delete(buf.bufnr, {})
+                count = count + 1
+            end
+        end
+    end
+    if success == true and count > 0 then
+        print("Successfully deleted " .. count .. " hanging buffers")
+    end
+end, {})
