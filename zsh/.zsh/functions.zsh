@@ -86,6 +86,30 @@ function gotestboot() {
     go test "$@"/main.go "$@"/main_test.go -test.v
 }
 
+function httpp() {
+    http --pretty=all --style=lightbulb --verbose "$@" | less -R
+}
+
+function httpsp() {
+    https --pretty=all --style=lightbulb --verbose "$@" | less -R
+}
+
+function gostruct() {
+    if [[ $1 == "" ]]; then
+        echo "Need to supply 'http(s) and url'\n e.g.: gostruct http localhost:8080/api\n e.g.: gostruct https pokeapi.co/api/v2/pokemon"
+        return
+    fi
+    json2struct -s $("$1" "$2") | pbcopy
+}
+
+function jsonview() {
+    if [[ $1 == "" ]]; then
+        echo "Need to supply 'http(s) and url'\n e.g.: jsonview http localhost:8080/api\n e.g.: jsonview https pokeapi.co/api/v2/pokemon"
+        return
+    fi
+    "$1" "$2" | jq | nvim -c 'set filetype=json'
+}
+
 # MBP FUNCTIONS ==========================================================================================================================>
 
 ## Directory-Hopping COMMAND -------------------------------
