@@ -1,7 +1,7 @@
 local M = {
     "nvim-lualine/lualine.nvim",
     -- lazy = false,
-    event = { "BufRead", "BufNewFile" },
+    event = { "BufRead", "BufNewFile", "StdinReadPre" },
     dependencies = {
         "linrongbin16/lsp-progress.nvim",
     },
