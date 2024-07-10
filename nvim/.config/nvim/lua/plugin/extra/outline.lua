@@ -18,8 +18,8 @@ function M.config()
             auto_jump = true
         },
         outline_items = {
-            show_symbol_details = false,
-            show_symbol_lineno = true
+            -- show_symbol_details = false,
+            -- show_symbol_lineno = true
         },
         symbols = {
             icon_fetcher = function(icon) return require("user.icons").kind[icon] end
