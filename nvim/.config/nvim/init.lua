@@ -40,6 +40,7 @@ spec "plugin.support.twilight"
 -- daps
 spec "plugin.support.dapsettings.dap-python"
 spec "plugin.support.dapsettings.dap-js"
+spec "plugin.support.dapsettings.dap-go"
 
 -- EXTRAS --
 spec "plugin.extra.cellular-automaton"

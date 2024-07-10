@@ -23,6 +23,9 @@ function M.config()
             "toml",
             "terraform",
             "make",
+            "gomod",
+            "gosum",
+            "gowork",
             -- PROGRAMMING
             "bash",
             "lua",
