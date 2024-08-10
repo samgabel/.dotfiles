@@ -1,10 +1,13 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+fzf_tmux_script=$(echo $HOME)/.config/tmux/scripts/fzf-tmux
+
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
     selected=$(find -L ~/Projects ~/Projects/Devel ~/Projects/Boot.Dev ~/Documents ~/.config -mindepth 1 -maxdepth 1 -type d ! -name '.git' \
         | sed "s|^$HOME|~|" \
-        | fzf-tmux -p -w 70 -h 15 -x 150 -y 41 --border --border-label="$(printf "\033[1;37;4mCreate Session\033[0m")")
+        | $fzf_tmux_script -p -w 70 -h 15 -x 150 -y 41 --border --border-label="$(printf "\033[1;37;4mCreate Session\033[0m")")
     # convert back into absolute path for `tmux new-session -c` command
     selected=$(echo $selected | sed "s|^~|$HOME|")
 fi
