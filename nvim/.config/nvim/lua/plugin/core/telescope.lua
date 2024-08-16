@@ -14,7 +14,7 @@ function M.config()
     wk.register {
         -- layout_config={width=0.94} seems to be the sweet spot for this current window size of iTerm(162 x 42) -> for side_by_side view
         ["<leader>ff"] = { "<cmd>Telescope find_files layout_config={width=100}<cr>", "Quick Files" },
-        ["<leader>fF"] = { "<cmd>Telescope fd hidden=true layout_config={width=0.94}<cr>", "Preview Files" },
+        ["<leader>fF"] = { "<cmd>Telescope fd find_command=rg,--no-ignore,--files hidden=true layout_config={width=0.94}<cr>", "Preview Files" },
         ["<leader>fs"] = { "<cmd>Telescope live_grep layout_config={width=100}<cr>", "Text" },
         ["<leader>fc"] = { "<cmd>Telescope todo-comments initial_mode=normal layout_config={width=100}<cr>", "Todo" },
         ["<leader><leader>"] = { "<cmd>Telescope buffers layout_config={width=100}<cr>", "Buffers" },
