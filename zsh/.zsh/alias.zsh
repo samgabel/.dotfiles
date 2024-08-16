@@ -6,6 +6,7 @@ alias vim="nvim"
 ## Replaces `ls` command with `eza`
 alias ls="eza --icons --group-directories-first"
 alias ll="eza --icons --group-directories-first -l"
+alias lg="eza --icons --group-directories-first -l --git"
 
 ## cat
 alias cat="bat --decorations=never"
