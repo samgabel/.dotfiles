@@ -4,18 +4,37 @@ add_newline = false  # Inserts a blank line between shell prompts
 command_timeout = 1000  # Change command timeout from 500 to 1000 ms
 
 # Add custom formatting before other stuff
-format = """$env_var $all[󰁕](49) """
+format = """
+$env_var \
+$hostname\
+$directory\
 
-# Drop ugly default prompt characters
+$fill\
+$git_branch\
+$git_status\
+$kubernetes\
+$package\
+$c\
+$python\
+$golang\
+$nodejs\
+$lua\
+$ruby\
+$terraform\
+
+$line_break \
+$battery\
+$character
+"""
+
 [character]
-success_symbol = ""
-error_symbol = ""
+success_symbol = '[󰁕](49)'
+error_symbol = '[󰁕](bold red)'
+vimcmd_symbol = '[󰁕](#d699ff)'
+# vimcmd_symbol = '[](#99F6F6)'
 
-# ---
-# Shows whether you are inside a virtual environment
-# [env_var.VIRTUAL_ENV]
-# format = '[󰇙VENV󰇙](bold #FF007F) '
-# disabled = false
+[fill]
+symbol = ' '
 
 # Shows an icon depending on what distro it is running on
 [env_var.STARSHIP_DISTRO]
@@ -55,8 +74,8 @@ format = "at [$path]($style)[$read_only]($read_only_style) "
 
 # Shows current git branch
 [git_branch]
-symbol = "󰊢 "
-format = "on [$symbol$branch]($style) "
+symbol = " "
+format = "[$symbol$branch]($style) "
 # truncation_length = 4
 truncation_symbol = "…/"
 style = "202"
@@ -87,47 +106,47 @@ empty_symbol = "󰂎 "
 
 # Shows kubernetes context and namespace
 [kubernetes]
-format = 'via [󱃾 $context\($namespace\)](bold #add8e6) '
+format = '[󱃾 $context\($namespace\)](bold #add8e6) '
 
 # Languages
 [package]
 symbol = '󰏖 '
+version_format = '${raw}'
+format = '[$symbol$version]($style) '
 
 [c]
 symbol = ' '
 detect_extensions = ['c', 'h', 'cpp', 'cc']
-format = 'via [$symbol($version )]($style)'
+version_format = '${raw}'
+format = '[$symbol($version )]($style) '
 
 [python]
 symbol = ' '
-
-[nodejs]
-symbol = '󰎙 '
+version_format = '${raw}'
+format = '[$symbol($version )]($style) '
 
 [golang]
 symbol = '󰟓 '
+version_format = '${raw}'
+format = '[$symbol($version )]($style) '
+
+[nodejs]
+symbol = '󰎙 '
+version_format = '${raw}'
+format = '[$symbol($version )]($style) '
 
 [lua]
 symbol = '󰢱 '
+version_format = '${raw}'
+format = '[$symbol($version )]($style) '
+
+[ruby]
+symbol = " "
+version_format = '${raw}'
+format = '[$symbol($version )]($style) '
 
 [terraform]
 style = "93"
-format = 'with [󱁢 Terraform]($style) '
-disabled = false
-
-# Disable some modules that aren't needed anymore
-[username]
-disabled = true
-
-[vagrant]
-disabled = true
-
-[docker_context]
-disabled = true
-
-[helm]
-disabled = true
-
-[ruby]
-# disabled = true
-symbol = " "
+symbol='󱁢 '
+version_format = '${raw}'
+format = '[$symbol($workspace )]($style) '
