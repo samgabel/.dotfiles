@@ -48,6 +48,8 @@ function M.config()
     local wk = require "which-key"
     wk.register {
         ["<leader>la"] = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action", mode = { "n", "v" } },
+        ["<leader>ld"] = { function() vim.lsp.stop_client(vim.lsp.get_active_clients()) require("null-ls").disable({}) end, "Disable" },
+        ["<leader>le"] = { function() vim.cmd("LspStart") require("null-ls").enable({}) end, "Enable" },
         ["<leader>lf"] = { "<cmd>lua vim.lsp.buf.format({async = true, filter = function(client) return client.name ~= 'typescript-tools' end})<cr>", "Format", },
         ["<leader>li"] = { "<cmd>LspInfo<cr>", "Info" },
         ["<leader>lj"] = { "<cmd>lua vim.diagnostic.goto_next()<cr>", "Next Diagnostic" },

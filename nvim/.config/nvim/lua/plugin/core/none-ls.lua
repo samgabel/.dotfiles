@@ -9,6 +9,22 @@ local M = {
 function M.config()
     local null_ls = require "null-ls"
 
+    require("which-key").register({
+        prefix = "<leader>",
+        l = {
+            n = {
+                name = "null-ls",
+                e = { function() require("null-ls").enable({}) end, "Enable" },
+                d = { "<CMD>NullLsStop<CR>", "Disable" },
+                i = { "<CMD>NullLsInfo<CR>", "Info" }
+            },
+        },
+    })
+
+    -- Border color settings
+    local float_border_hl = vim.api.nvim_get_hl(0, { name = "FloatBorder" })
+    vim.api.nvim_set_hl(0, "NullLsInfoBorder", { fg = float_border_hl.fg })
+
     local formatting = null_ls.builtins.formatting
     local diagnostics = null_ls.builtins.diagnostics
 
@@ -42,7 +58,10 @@ function M.config()
 
             -- null_ls.builtins.completion.spell,
         },
+
+        border = "rounded"
     }
 end
+
 
 return M

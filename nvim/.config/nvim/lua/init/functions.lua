@@ -84,3 +84,24 @@ vim.api.nvim_create_user_command('DeleteListedBuffers', function()
         print("Successfully deleted " .. count .. " hanging buffers")
     end
 end, {})
+
+-------------------------------------- NULL-LS -------------------------------------
+
+-- Custom command to stop the null-ls LSP client
+-- Keybind <leader>lnd
+-- File: none-ls.lua
+vim.api.nvim_create_user_command("NullLsStop", function()
+    local null_ls_client
+    -- search for null-ls client in the active clients
+    for _, client in ipairs(vim.lsp.get_active_clients()) do
+        if client.name == "null-ls" then
+            null_ls_client = client
+            break
+        end
+    end
+    if null_ls_client then
+        -- we want to stop the LSP null-ls client and disable its messages/functionality
+        vim.lsp.stop_client(null_ls_client.id)
+        require("null-ls").disable({})
+    end
+end, {})
