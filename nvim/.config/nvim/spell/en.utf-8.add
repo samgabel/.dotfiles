@@ -27,3 +27,7 @@ filepath
 api
 charset
 utf
+statefulness
+RESTful
+hostname
+kubernetes
