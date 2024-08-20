@@ -35,10 +35,12 @@ function M.config()
     local linters = {
         -- "shellcheck",  <-- issue continually stacking `shellcheck` processes when entering .sh file
         -- "ansible-lint",  <-- currently a piece of doodoo
+        "golangci-lint",
     }
     -- FORMATTER list --
     local formatters = {
         "black",        -- python
+        "gomodifytags", -- go
         "stylua",       -- lua
         "prettier",     -- combo
     }
