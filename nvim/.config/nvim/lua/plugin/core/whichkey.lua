@@ -14,8 +14,9 @@ function M.config()
         b = { "<cmd>NoiceDismiss<CR>", "Dismiss" },
         c = { "<cmd>DeleteListedBuffers<CR>", "Delete Buffers" },
         q = { "<cmd>confirm q<CR>", "Quit" },
-        w = { ":lua vim.wo.wrap = not vim.wo.wrap<CR>", "Wrap" },
-        x = { "<cmd>!chmod +x %<CR><cmd>lua vim.notify 'File Permissions: +x'<CR>", "Chmod +x" },
+        w = { "<cmd>Wrap<CR>", "Wrap" },
+        -- x = { "<cmd>!chmod +x %<CR><cmd>lua vim.notify 'File Permissions: +x'<CR>", "Chmod +x" },
+        x = { "<cmd>Chmod<CR>", "Chmod +x" },
         -- v = { "<cmd>vsplit | Alpha<CR>", "Split" },
         -- b = { name = "Buffers" }, --get rid of imbedded
         -- expandable --

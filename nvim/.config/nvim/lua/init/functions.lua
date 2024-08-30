@@ -6,6 +6,44 @@ vim.api.nvim_create_autocmd({ "VimLeave" }, {
     end,
 })
 
+--------------------------------------- WRAP --------------------------------------
+vim.api.nvim_create_user_command("Wrap", function()
+    local notify = require("notify")
+    vim.wo.wrap = not vim.wo.wrap
+    local state = vim.wo.wrap and "on" or "off"
+    notify("Wrapping toggled " .. state, "info", {
+        title = "wrap"
+    })
+end, {})
+
+--------------------------------------- CHMOD -------------------------------------
+vim.api.nvim_create_user_command("Chmod", function()
+    local notify = require("notify")
+    -- Get the current file name
+    local path = vim.fn.expand("%:p")  -- Get the full path of the current file
+    local file_name = vim.fn.expand("%:t")
+
+    -- Check the current file permissions
+    local file_perm = vim.fn.system("stat -f %Mp%Lp " .. path)
+
+    -- Check if the last digit is odd (executable) or even (not executable)
+    local is_executable = tonumber(file_perm) % 2 == 1
+
+    if is_executable then
+        -- If executable, remove executable permission
+        os.execute("chmod -x " .. path)
+        notify("Removed executable permission from " .. file_name, "info", {
+            title = "chmod"
+        })
+    else
+        -- If not executable, add executable permission
+        os.execute("chmod +x " .. path)
+        notify("Added executable permission to " .. file_name, "info", {
+            title = "Chmod"
+        })
+    end
+end, {})
+
 --------------------------------------- PATH --------------------------------------
 
 -- Function to paste absolute path inline
@@ -64,6 +102,7 @@ end
 -- TODO: change all functions to this format
 -- vim.api.nvim_create_user_command() format instead of global function see "https://github.com/nanotee/nvim-lua-guide?tab=readme-ov-file#defining-user-commands"
 vim.api.nvim_create_user_command('DeleteListedBuffers', function()
+    local notify = require("notify")
     local current_buf = vim.api.nvim_get_current_buf()
     local buffers = vim.fn.getbufinfo({buflisted = 1})
     local success = true
@@ -72,7 +111,11 @@ vim.api.nvim_create_user_command('DeleteListedBuffers', function()
         if buf.bufnr ~= current_buf then
             local modified = vim.api.nvim_buf_get_option(buf.bufnr, 'modified')
             if modified then
-                print("Buffer " .. buf.bufnr .. " has unsaved changes. Not deleting.")
+                local path = vim.api.nvim_buf_get_name(buf.bufnr)
+                local filename = vim.fn.expand("#" .. path .. ":h")
+                notify(filename .. " has unsaved changes. Not deleting.", "warn", {
+                    title = "buffers"
+                })
                 success = false
             else
                 vim.api.nvim_buf_delete(buf.bufnr, {})
@@ -81,7 +124,9 @@ vim.api.nvim_create_user_command('DeleteListedBuffers', function()
         end
     end
     if success == true and count > 0 then
-        print("Successfully deleted " .. count .. " hanging buffers")
+        notify("Successfully deleted " .. count .. " hanging buffers", "info", {
+            title = "buffers"
+        })
     end
 end, {})
 

@@ -20,8 +20,9 @@ function M.config()
         ["<leader><leader>"] = { "<cmd>Telescope buffers layout_config={width=100}<cr>", "Buffers" },
         -- ["<leader>fp"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
         -- ["<leader>fc"] = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
+        ["<leader>fo"] = { "<cmd>Telescope lsp_dynamic_workspace_symbols layout_config={width=0.94}<cr>", "Outline Symbols" },
         ["<leader>fh"] = { "<cmd>Telescope help_tags layout_config={width=0.94}<cr>", "Help" },
-        ["<leader>fe"] = { "<cmd>Telescope noice initial_mode=normal layout_config={width=0.94}<cr>", "Errors" },
+        ["<leader>fe"] = { "<cmd>Telescope notify initial_mode=normal layout_config={width=0.94}<cr>", "Errors" },
         ["<leader>fl"] = { "<cmd>Telescope resume initial_mode=normal<cr>", "Last Search" },
         -- ["<leader>fr"] = { "<cmd>Telescope oldfiles<cr>", "Recent File" },
         ["<leader>fu"] = { "<cmd>Telescope undo initial_mode=normal layout_config={width=0.94} entry_format='$TIME'<cr>", "Undo Tree" },
@@ -157,6 +158,7 @@ function M.config()
     require("telescope").load_extension("ui-select")
     require("telescope").load_extension("terraform_doc")
     require("telescope").load_extension("undo")
+    require("telescope").load_extension("notify")
 
 end
 
