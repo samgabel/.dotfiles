@@ -35,6 +35,7 @@ spec "plugin.support.lsp-progress"
 spec "plugin.support.navic"
 spec "plugin.support.rainbow-delimiters"
 spec "plugin.support.schemastore"
+spec "plugin.support.treesitter-textobjects"
 spec "plugin.support.twilight"
 -- daps
 spec "plugin.support.dapsettings.dap-python"

@@ -2,6 +2,9 @@ local M = {
     "nvim-treesitter/nvim-treesitter",
     event = { "BufReadPost", "BufNewFile" },
     build = ":TSUpdate",
+    dependencies = {
+        "nvim-treesitter/nvim-treesitter-textobjects",
+    },
 }
 
 function M.config()
@@ -43,7 +46,7 @@ function M.config()
             keymaps = {
                 init_selection = "<C-n>",
                 node_incremental = "<C-n>",
-                scope_incremental = "<C-s>",
+                scope_incremental = false,
                 node_decremental = "<C-p>",
             }
         }
