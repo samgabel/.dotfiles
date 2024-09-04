@@ -33,6 +33,9 @@ function M.config()
                 size = 8
             }
         },
+        mappings = {
+            expand = { "<CR>", "f" },
+        },
     })
 
     local neotest = require("neotest")

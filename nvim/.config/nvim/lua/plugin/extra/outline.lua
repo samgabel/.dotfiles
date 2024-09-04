@@ -31,7 +31,8 @@ function M.config()
             goto_and_close = "<CR>",
             fold_toggle = "f",
             fold_all = "z",
-            unfold_all = "Z"
+            unfold_all = "Z",
+            hover_symbol = "<S-k>"
         }
     })
 
