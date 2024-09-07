@@ -60,8 +60,10 @@ spec "plugin.extra.trouble"
 spec "plugin.extra.zen-mode"
 
 -- MacOS --
-spec "plugin.extra.obsidian"
-spec "plugin.extra.leetcode"
+if IsDarwin() then
+    spec "plugin.extra.obsidian"
+    spec "plugin.extra.leetcode"
+end
 
 -- LAZY
 require "init.lazy"

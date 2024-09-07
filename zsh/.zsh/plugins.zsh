@@ -21,6 +21,10 @@ zinit ice as"command" from"gh-r" \
           atpull"%atclone" src"init.zsh"
 zinit light starship/starship
 
+# Add FZF for terminal
+zinit ice as"program" from"gh-r"
+zinit light junegunn/fzf
+
 # Add in zsh plugins
 zinit for \
     light-mode \

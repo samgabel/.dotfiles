@@ -1,3 +1,10 @@
+--------------------------------------- MACOS--------------------------------------
+-- used in the init.lua so that we do not source plugins only meant for my main machine
+function IsDarwin()
+    local result = vim.fn.system("uname -s")
+    return result:match("Darwin") ~= nil
+end
+
 --------------------------------------- FIXX --------------------------------------
 -- on linux seems to throw error on "VimLeave", this fixes the error --
 vim.api.nvim_create_autocmd({ "VimLeave" }, {

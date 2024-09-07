@@ -20,14 +20,10 @@ echo "deb [signed-by=/etc/apt/keyrings/mise-archive-keyring.gpg arch=amd64] http
 # INSTALL Packages -------------------------------------------------------
 
 sudo apt update
-sudo apt install -y zsh eza mise stow zsh-autosuggestions zsh-syntax-highlighting neofetch btop fzf tldr pip python3.10-venv bat zip ripgrep libssl-dev
+sudo apt install -y zsh eza mise stow zsh-autosuggestions zsh-syntax-highlighting btop tldr pip python3.10-venv bat zip ripgrep libssl-dev
 
 ## Install RUSTUP
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-
-## Install STARSHIP
-curl -sS https://starship.rs/install.sh | sudo sh -s -- -y
-rm -f install.sh
 
 ## Fix Bat Path
 sudo ln -s /usr/bin/batcat /usr/local/bin/bat
@@ -41,17 +37,11 @@ rm lazygit*
 
 # INSTALL Neovim ---------------------------------------------------------
 
-# Download and link appimage
-curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
-chmod u+x nvim.appimage
-./nvim.appimage --appimage-extract
-sudo rm -rf nvim.appimage
-./squashfs-root/AppRun --version
-sudo mv squashfs-root /squashfs-root
-sudo ln -s /squashfs-root/AppRun /usr/local/bin/nvim
+mise use --global neovim@0.9.5
 
 # Install NeoVim Providers
 python3 -m pip install pynvim
 mise use --global usage
 mise use --global node@lts
+mise use --global go
 mise exec -- npm install -g neovim
