@@ -165,3 +165,19 @@ vim.api.nvim_create_autocmd({ "CursorHold" }, {
         end
     end,
 })
+
+
+-- LANGUAGE FILETYPE OPTIONS --
+
+-- Go file options
+-- when ftplugin doesn't catch (e.g. debugger opens new file)
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter", "FileType"}, {
+    pattern = {"*.go", "*.mod", "*.sum"},  -- Adjust patterns as needed
+    callback = function()
+        if vim.bo.filetype == "go" then
+            vim.opt.expandtab = false -- convert tabs to spaces
+            vim.opt.tabstop = 4 -- tab length is 4 characters long
+            vim.opt.listchars = { tab = "⠀⠀", trail = ""} -- formats the trailing dot when typing and the literal tab character
+        end
+    end
+})
