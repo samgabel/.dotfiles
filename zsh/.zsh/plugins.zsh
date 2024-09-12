@@ -15,13 +15,19 @@ source "${ZINIT_HOME}/zinit.zsh"
 
 # PLUGINS --------------------------------------------------------------------------------
 
-# Add Starship Prompt
+# Add starship prompt
 zinit ice as"command" from"gh-r" \
           atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
           atpull"%atclone" src"init.zsh"
 zinit light starship/starship
 
-# Add FZF for terminal
+# Add direnv
+zinit ice as"program" from"gh-r" \
+          mv"direnv* -> direnv" \
+          pick"direnv"
+zinit light direnv/direnv
+
+# Add fzf
 zinit ice as"program" from"gh-r"
 zinit light junegunn/fzf
 

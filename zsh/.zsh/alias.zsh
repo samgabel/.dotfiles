@@ -32,7 +32,6 @@ alias ta="tmux a"
 
 ## PATH
 alias path='echo $path | tr " " "\n" | bat --file-name PATH'
-alias env="env | bat --file-name ENV"
 
 # MAC OS--------------------------------------------------------------------------------------------
 if [[ "$OSTYPE" == "darwin"* ]]; then

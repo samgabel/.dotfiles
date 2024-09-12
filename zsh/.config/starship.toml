@@ -8,6 +8,7 @@ format = """
 $env_var \
 $hostname\
 $directory\
+$direnv\
 
 $fill\
 $git_branch\
@@ -150,3 +151,15 @@ style = "93"
 symbol='󱁢 '
 version_format = '${raw}'
 format = '[$symbol($workspace )]($style) '
+
+[direnv]
+disabled = false
+detect_files = ['.envrc', '.env']
+style = '#FFFF00'
+symbol = ' .env'
+format = 'with [$symbol\($loaded\)]($style) '
+# allowed_msg = ''
+# not_allowed_msg = ''
+# denied_msg = ''
+loaded_msg = ''
+unloaded_msg = ''

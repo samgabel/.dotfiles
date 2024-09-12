@@ -110,6 +110,44 @@ function jsonview() {
     "$1" "$2" | jq | nvim -c 'set filetype=json'
 }
 
+## Better ENV ----------------------------------------------
+function envd() {
+    local show_values=false
+    local direnv_mode=false
+    # Parse flags
+    while [[ "$1" != "" ]]; do
+        case "$1" in
+            -s) show_values=true ;;
+            -d) direnv_mode=true ;;
+            -ds) direnv_mode=true show_values=true ;;
+            -sd) direnv_mode=true show_values=true ;;
+            *)
+                echo "env illegal option -- $1" >&2
+                echo "usage: [-d direnv] [-s strip]"
+                return 1
+                ;;
+        esac
+        shift
+    done
+    # if both -s and -d are specified
+    if [[ "$show_values" == true && "$direnv_mode" == true ]]; then
+        direnv status | grep 'Loaded RC path' | sed 's/Loaded RC path //' | xargs /bin/cat | fzf | sed 's/^[^=]*=//'
+        return
+    fi
+    # if only -s is specified
+    if [[ "$show_values" == true ]]; then
+        env | fzf | sed 's/^[^=]*=//'
+        return
+    fi
+    # if only -d is specified
+    if [[ "$direnv_mode" == true ]]; then
+        direnv status | grep 'Loaded RC path' | sed 's/Loaded RC path //' | xargs /bin/cat | fzf
+        return
+    fi
+    # default behavior (no options)
+    env | fzf
+}
+
 # MBP FUNCTIONS ==========================================================================================================================>
 
 ## Directory-Hopping COMMAND -------------------------------

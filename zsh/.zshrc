@@ -18,6 +18,7 @@ done
 export GOPATH=~/.go
 export VISUAL=nvim
 export EDITOR="$VISUAL"
+export DIRENV_LOG_FORMAT=""             # make `direnv` silent
 
 # Keybindings
 bindkey -v                              # sets the command line editing style to vi mode
@@ -47,6 +48,7 @@ precmd() {
 }
 
 # Load Integrations
+eval "$(direnv hook zsh)"       # direnv shell integration
 eval "$(fzf --zsh)"             # fzf shell integration (Ctrl-r)
 eval "$(mise activate zsh)"     # mise shell integration
 
