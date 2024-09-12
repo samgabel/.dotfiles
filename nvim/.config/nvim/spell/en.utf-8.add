@@ -31,3 +31,11 @@ statefulness
 RESTful
 hostname
 kubernetes
+NoSQL
+ElasticSearch
+MongoDB
+PostgreSQL
+SQLite
+MySQL
+realtime
+Redis
