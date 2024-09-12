@@ -215,6 +215,17 @@ function M.config()
         },
     }
 
+    -- [FILETYPE SPECIFIC] ----------------------------------------------------------------------------------
+
+    -- For vim-dadbod cmp sql query completions
+    cmp.setup.filetype({ "sql" }, {
+        sources = {
+            { name = "vim-dadbod-completion" },
+            { name = "buffer" },
+        },
+    })
+
+
     -- [DEPENDECY SOURCES] ----------------------------------------------------------------------------------
 
     -- Use buffer *source* for `/` and `?` (if you enabled `native_menu`, this won't work anymore).

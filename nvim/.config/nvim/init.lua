@@ -37,6 +37,8 @@ spec "plugin.support.rainbow-delimiters"
 spec "plugin.support.schemastore"
 spec "plugin.support.treesitter-textobjects"
 spec "plugin.support.twilight"
+-- language-specific
+spec "plugin.support.language-specific.sql.dadbod"
 -- daps
 spec "plugin.support.dapsettings.dap-python"
 spec "plugin.support.dapsettings.dap-js"

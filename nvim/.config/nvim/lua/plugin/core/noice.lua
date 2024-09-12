@@ -75,6 +75,7 @@ function M.config()
                         { find = "%d fewer lines" },            -- deletion
                         { find = "%d more lines" },             -- paste
                         { find = "%d lines (.*)ed %d time" },   -- indenting & outdenting
+                        { find = "DB: Query '(.*)'" },          -- vim-dadbod-ui "finished in ..."
                     }
                 },
                 opts = { skip = true },

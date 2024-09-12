@@ -159,6 +159,7 @@ return {
         Package = " ",
         CircuitBoard = " ",
         Time = "󰔟 ",
-        Vim = " "
+        Vim = " ",
+        Database = " "
     },
 }

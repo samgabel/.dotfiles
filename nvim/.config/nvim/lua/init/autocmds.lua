@@ -60,6 +60,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
         "neotest-output-panel",
         "neotest-output",
         "notify",
+        "dbout",
         "",
     },
     callback = function()

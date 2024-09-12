@@ -33,6 +33,7 @@ function M.config()
         button("s", icons.ui.Text .. " Find text", ":Telescope live_grep <CR>"),
         button("e", icons.ui.FolderSymlink .. " Filesystem", ":Neotree current <CR>"),
         button("g", icons.git.Octoface .. " Git", ":LazyGit<CR>"),
+        button("d", icons.misc.Database .. " DBUI", ":tabnew | DBUI <CR>"),
         button("l", icons.ui.DebugConsole .. " Leet", ":Leet<CR>"),
         button("c", icons.ui.Gear .. " Config", ":e ~/.config/nvim/init.lua <CR>"),
         button("q", icons.ui.SignOut .. " Quit", ":qa<CR>"),
