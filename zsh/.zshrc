@@ -24,6 +24,7 @@ export DIRENV_LOG_FORMAT=""             # make `direnv` silent
 bindkey -v                              # sets the command line editing style to vi mode
 bindkey '^k' history-search-backward    # command search backward using C-p
 bindkey '^j' history-search-forward     # command search forward using C-n
+bindkey -r "^D"                         # remove native zsh-completion on Ctrl-d
 
 
 # MacOS Specific

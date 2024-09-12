@@ -131,21 +131,21 @@ function envd() {
     done
     # if both -s and -d are specified
     if [[ "$show_values" == true && "$direnv_mode" == true ]]; then
-        direnv status | grep 'Loaded RC path' | sed 's/Loaded RC path //' | xargs /bin/cat | fzf | sed 's/^[^=]*=//'
+        direnv status | grep 'Loaded RC path' | sed 's/Loaded RC path //' | xargs /bin/cat | fzf -m | sed 's/^[^=]*=//'
         return
     fi
     # if only -s is specified
     if [[ "$show_values" == true ]]; then
-        env | fzf | sed 's/^[^=]*=//'
+        env | fzf -m | sed 's/^[^=]*=//'
         return
     fi
     # if only -d is specified
     if [[ "$direnv_mode" == true ]]; then
-        direnv status | grep 'Loaded RC path' | sed 's/Loaded RC path //' | xargs /bin/cat | fzf
+        direnv status | grep 'Loaded RC path' | sed 's/Loaded RC path //' | xargs /bin/cat | fzf -m
         return
     fi
     # default behavior (no options)
-    env | fzf
+    env | fzf -m
 }
 
 # MBP FUNCTIONS ==========================================================================================================================>
