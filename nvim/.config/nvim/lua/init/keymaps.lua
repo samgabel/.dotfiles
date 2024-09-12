@@ -66,4 +66,7 @@ keymap({ "n", "o", "x" }, "<s-l>", "g_", opts)
 keymap({ "n", "x" }, "j", "gj", opts)
 keymap({ "n", "x" }, "k", "gk", opts)
 
+-- Remove insert-delete key (makes way for nvim-cmp snippet jumping)
+vim.keymap.set('i', '<C-h>', '<Nop>', { noremap = true, silent = true })
+
 vim.api.nvim_set_keymap("t", "<C-;>", "<C-\\><C-n>", opts)
