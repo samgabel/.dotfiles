@@ -1,7 +1,18 @@
 #!/usr/bin/env bash
 
-fzf_tmux_script=$(echo $HOME)/.config/tmux/scripts/fzf-tmux
 
+# Source fzf-tmux script
+fzf_tmux_script=${HOME}/.config/tmux/scripts/fzf-tmux
+
+
+# If tmux is not running exit
+if [[ -z $TMUX ]]; then
+    echo "Not attached to TMUX"
+    exit 1
+fi
+
+
+# Grab list of tmux sessions
 tmuxsessions=$(tmux list-sessions -F "#{session_name}")
 
 tmux_switch_to_session() {
