@@ -21,12 +21,6 @@ zinit ice as"command" from"gh-r" \
           atpull"%atclone" src"init.zsh"
 zinit light starship/starship
 
-# Add direnv
-zinit ice as"program" from"gh-r" \
-          mv"direnv* -> direnv" \
-          pick"direnv"
-zinit light direnv/direnv
-
 # Add fzf
 zinit ice as"program" from"gh-r"
 zinit light junegunn/fzf

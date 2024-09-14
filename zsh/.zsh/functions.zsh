@@ -123,7 +123,7 @@ function envd() {
             -sd) direnv_mode=true show_values=true ;;
             *)
                 echo "env illegal option -- $1" >&2
-                echo "usage: [-d direnv] [-s strip]"
+                echo "usage: [-l local] [-s strip]"
                 return 1
                 ;;
         esac
@@ -131,7 +131,7 @@ function envd() {
     done
     # if both -s and -d are specified
     if [[ "$show_values" == true && "$direnv_mode" == true ]]; then
-        direnv status | grep 'Loaded RC path' | sed 's/Loaded RC path //' | xargs /bin/cat | fzf -m | sed 's/^[^=]*=//'
+        mise set | fzf -m | awk '{print $2}'
         return
     fi
     # if only -s is specified
@@ -141,7 +141,7 @@ function envd() {
     fi
     # if only -d is specified
     if [[ "$direnv_mode" == true ]]; then
-        direnv status | grep 'Loaded RC path' | sed 's/Loaded RC path //' | xargs /bin/cat | fzf -m
+        mise set | fzf -m | awk '{print $1"="$2}'
         return
     fi
     # default behavior (no options)
