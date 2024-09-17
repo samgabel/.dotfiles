@@ -22,6 +22,7 @@ function M.config()
         "bashls",
         "yamlls",
         "jsonls",
+        "dockerls",
         "ansiblels",
         "terraformls",
     }
