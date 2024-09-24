@@ -50,8 +50,14 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 
 fi
 
+## Kubernetes alias
+alias k="kubectl"
+
 ## Docker alias
 alias dps="docker ps --format 'table {{.Names}}\t {{.ID}}\t {{.Image}}\t {{.Status}}\t'"
 alias dcup="docker compose up -d"
 alias dcupr="docker compose up -d --force-recreate"
 alias dcl="docker compose logs -f"
+
+## Golang alias
+alias golangci-lint="~/.local/share/nvim/mason/bin/golangci-lint"
