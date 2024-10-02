@@ -11,6 +11,7 @@ local M = {
         -- language specific tests
         "marilari88/neotest-vitest",
         "nvim-neotest/neotest-python",
+        "nvim-neotest/neotest-go",
         "nvim-neotest/neotest-plenary",
         "rouge8/neotest-rust",
         "lawrence-laz/neotest-zig",
@@ -43,10 +44,13 @@ function M.config()
                 runner = "pytest",
                 python = "venv/bin/python",
             },
+            require "neotest-go" {
+                recursive_run = true,
+            },
             require "neotest-vitest",
             require "neotest-zig",
             require "neotest-vim-test" {
-                ignore_file_types = { "python", "vim", "lua", "javascript", "typescript" },
+                ignore_file_types = { "python", "go", "vim", "lua", "javascript", "typescript" },
             },
         },
     }
