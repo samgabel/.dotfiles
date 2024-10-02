@@ -83,7 +83,7 @@ style = "202"
 # Shows current git status
 [git_status]
 format = '[$all_status$ahead_behind]($style) '
-style = "202"
+style = "bright-black"
 conflicted = "🏳"
 up_to_date = " "
 untracked = " "

@@ -30,6 +30,8 @@ bindkey -r "^D"                         # remove native zsh-completion on Ctrl-d
 # MacOS Specific
 if [[ "$OSTYPE" == "darwin"* ]]; then
   export XDG_CONFIG_HOME="$HOME/.config"
+  export XDG_DATA_HOME="$HOME/.local/share"
+  export XDG_STATE_HOME="$HOME/.local/state"
   export PASSWORD_STORE_DIR=/Users/samgabel/Secrets/pass        # pass-store
 fi
 
