@@ -6,6 +6,7 @@ local M = {
         { "nvim-telescope/telescope-ui-select.nvim" },
         { "ANGkeith/telescope-terraform-doc.nvim" },
         { "debugloop/telescope-undo.nvim" },
+        { 'crispgm/telescope-heading.nvim' },
     },
 }
 
@@ -27,6 +28,7 @@ function M.config()
         -- ["<leader>fr"] = { "<cmd>Telescope oldfiles<cr>", "Recent File" },
         ["<leader>fu"] = { "<cmd>Telescope undo initial_mode=normal layout_config={width=0.94} entry_format='$TIME'<cr>", "Undo Tree" },
         ["<leader>ft"] = { "<cmd>Telescope terraform_doc<cr>", "Terraform Doc" },
+        ["<leader>fm"] = { "<cmd>Telescope heading initial_mode=insert layout_config={width=0.94}<cr>", "Markdown Heading" },
     }
 
     local icons = require("user.icons")
@@ -150,7 +152,10 @@ function M.config()
             },
             ["ui-select"] = {
                 require("telescope.themes").get_dropdown()
-            }
+            },
+            heading = {
+                treesitter = true
+            },
         },
     }
 
@@ -159,6 +164,7 @@ function M.config()
     require("telescope").load_extension("terraform_doc")
     require("telescope").load_extension("undo")
     require("telescope").load_extension("notify")
+    require("telescope").load_extension("heading")
 
 end
 
