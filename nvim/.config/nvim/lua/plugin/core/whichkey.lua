@@ -13,6 +13,7 @@ function M.config()
         a = { "<cmd>Alpha<cr>", "Dashboard" },
         b = { "<cmd>NoiceDismiss<CR>", "Dismiss" },
         c = { "<cmd>DeleteListedBuffers<CR>", "Delete Buffers" },
+        k = { "<cmd>!kubectl apply -f %<CR>", "Kubectl Apply"},
         q = { "<cmd>confirm q<CR>", "Quit" },
         w = { "<cmd>Wrap<CR>", "Wrap" },
         -- x = { "<cmd>!chmod +x %<CR><cmd>lua vim.notify 'File Permissions: +x'<CR>", "Chmod +x" },
