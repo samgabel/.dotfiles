@@ -56,7 +56,7 @@ function M.config()
                 o = { "operator" },
             },
         },
-        ["<M-k>"] = { "LSP peek code" },
+        -- ["keybinding"] = { "LSP peek code" },
     })
 
 
@@ -140,9 +140,9 @@ function M.config()
                 enable = true,
                 border = 'rounded',
                 floating_preview_opts = {},
-                peek_definition_code = {
-                    ["<M-k>"] = "@function.outer",
-                },
+                -- peek_definition_code = {
+                --     ["<keybinding>"] = "@function.outer",
+                -- },
 
             }
         },

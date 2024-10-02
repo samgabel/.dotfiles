@@ -24,6 +24,8 @@ function M.config()
         ["<leader>olb"] = { "<cmd>ObsidianBacklinks<cr>", "Back Link" },
     }
 
+    vim.api.nvim_set_hl(0, "@markup.italic", { fg = "#d9b6e3", italic = true })
+
     -- https://github.com/epwalsh/obsidian.nvim
     require("obsidian").setup {
 
@@ -38,18 +40,35 @@ function M.config()
         notes_subdir = "ZETTELKASTEN/300-Fleeting",
         new_notes_location = "notes_subdir",
 
-        -- prepends the note path instead of the note id
-        wiki_link_func = function(opts)
-            if opts.label ~= opts.path then
-                return string.format("[[%s|%s]]", opts.path, opts.label)
-            else
-                return string.format("[[%s]]", opts.path)
-            end
-        end,
-        -- completion = {
-        --   prepend_note_id = false,
-        --   prepend_note_path = true,
-        -- },
+        --> -------------------------- Hacked the src code in obsidian/util.lua -------------------------- <--
+        -- This will change spaces in headers to "%20" instead of "-"
+        -- This allows for greatest compatibility between nvim, obsidian, github, markdown renderers
+        -- TODO: obsidian.nvim custom links functionality:
+        -- obsidian.nvim nvim-cmp search by header,
+        -- specify custom whitespace anchoring ("-", or "%20"),
+        -- absolute links from vault root
+
+
+        -- --- Standardize a header anchor link.
+        -- ---
+        -- ---@param anchor string
+        -- ---
+        -- ---@return string
+        -- util.standardize_anchor = function(anchor)
+        -- -- Lowercase everything.
+        -- anchor = string.lower(anchor)
+        -- -- Replace whitespace with "%20".
+        -- anchor = string.gsub(anchor, "%s", "%%20")
+        -- -- Removes whitespaces, commas, exclamation marks, parentheses, etc
+        -- anchor = string.gsub(anchor, "[^#%w%%20_-]", "")
+        --     return anchor
+        -- end
+
+
+        -- Also this commit below is the commit that allows for searching through headers
+        -- version: 3.7.6 / tag: v3.7.6 / branch: main / commit: d70f328
+        -- "obsidian.nvim": { "branch": "main", "commit": "d70f3289399c25153b7f503b838afbf981124a37" },
+        --> ---------------------------------------------------------------------------------------------- <--
 
         -- disable automatic "Properties" section
         disable_frontmatter = true,
