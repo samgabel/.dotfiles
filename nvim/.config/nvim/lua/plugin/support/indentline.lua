@@ -1,13 +1,16 @@
 local M = {
     "lukas-reineke/indent-blankline.nvim",
-    event = "VeryLazy",
+    ft = { "yaml", "yml", "toml" }
 }
 
 function M.config()
     require("ibl").setup ({
         indent = {
-            char = "║",
+            char = "▎",
         },
+        scope = {
+            enabled = false
+        }
     })
 end
 
