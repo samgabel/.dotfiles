@@ -34,7 +34,7 @@ rm lazygit*
 
 # INSTALL Neovim ---------------------------------------------------------
 
-mise use --global neovim@0.9.5
+mise use --global --yes neovim@0.9.5
 
 # Install NeoVim Providers
 python3 -m pip install pynvim
