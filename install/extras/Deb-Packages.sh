@@ -20,10 +20,7 @@ echo "deb [signed-by=/etc/apt/keyrings/mise-archive-keyring.gpg arch=amd64] http
 # INSTALL Packages -------------------------------------------------------
 
 sudo apt update
-sudo apt install -y zsh eza mise stow zsh-autosuggestions zsh-syntax-highlighting btop tldr pip python3.10-venv bat zip ripgrep libssl-dev
-
-## Install RUSTUP
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+sudo apt install -y zsh eza mise stow zsh-autosuggestions zsh-syntax-highlighting btop tldr pip cargo python3.10-venv bat zip ripgrep libssl-dev
 
 ## Fix Bat Path
 sudo ln -s /usr/bin/batcat /usr/local/bin/bat
