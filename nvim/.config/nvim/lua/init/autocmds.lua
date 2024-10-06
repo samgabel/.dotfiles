@@ -110,27 +110,11 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     end,
 })
 
--- Command window is entered
-vim.api.nvim_create_autocmd({ "CmdWinEnter" }, {
-    callback = function()
-        vim.cmd "quit"
-    end,
-})
-
 -- Vim window is resized
 vim.api.nvim_create_autocmd({ "VimResized" }, {
     callback = function()
         -- ensures that the layout remains balanced and adjusts the window sizes accordingly
         vim.cmd "tabdo wincmd ="
-    end,
-})
-
--- Buffer window is entered (for all files)
-vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
-    pattern = { "*" },
-    callback = function()
-        -- ensures files are up to date
-        vim.cmd "checktime"
     end,
 })
 
