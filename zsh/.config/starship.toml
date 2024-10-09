@@ -21,6 +21,7 @@ $nodejs\
 $lua\
 $ruby\
 $terraform\
+${custom.mise}\
 
 $line_break \
 $battery\
@@ -152,14 +153,11 @@ symbol='󱁢 '
 version_format = '${raw}'
 format = '[$symbol($workspace )]($style) '
 
-# [direnv]
-# disabled = false
-# detect_files = ['.envrc', '.env']
-# style = '#FFFF00'
-# symbol = ' .env'
-# format = 'with [$symbol\($loaded\)]($style) '
-# # allowed_msg = ''
-# # not_allowed_msg = ''
-# # denied_msg = ''
-# loaded_msg = ''
-# unloaded_msg = ''
+[custom.mise]
+style = "bold yellow"
+symbol = ' '
+# command = 'mise set | wc -l'
+# when = ''' [ $(mise set | wc -l) -gt 1 ] '''
+command = 'grep -v "^\s*$" .env | wc -l'
+when = ''' test -f .env '''
+format = '[$symbol($output )]($style)'
