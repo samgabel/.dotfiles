@@ -96,6 +96,9 @@ function M.config()
                         { find = "Starting watcher for (.+)" },
                         { find = "Watcher running for (.+)" },
                         { find = "Stopping watch for (.+)" },
+                        -- Compiler
+                        { find = "SUCCESS - (.+)" },
+                        { find = "FAILURE - (.+)" },
                     }
                 },
                 opts = { skip = true },

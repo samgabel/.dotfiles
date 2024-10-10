@@ -1,6 +1,6 @@
 local M = {
     "jellydn/quick-code-runner.nvim",
-    ft = { "python", "javascript", "go" },
+    ft = { "python", "javascript", "go", "c" },
     dependencies = {
         "MunifTanjim/nui.nvim"
     },

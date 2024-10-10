@@ -49,6 +49,7 @@ spec "plugin.support.dapsettings.dap-go"
 -- EXTRAS --
 spec "plugin.extra.cellular-automaton"
 spec "plugin.extra.comment"
+spec "plugin.extra.compiler"
 spec "plugin.extra.flash"
 spec "plugin.extra.harpoon"
 spec "plugin.extra.markdown-preview"

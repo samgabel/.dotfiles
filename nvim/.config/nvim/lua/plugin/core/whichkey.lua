@@ -12,41 +12,43 @@ function M.config()
     local mappings = {
         a = { "<cmd>Alpha<cr>", "Dashboard" },
         b = { "<cmd>NoiceDismiss<CR>", "Dismiss" },
-        c = { "<cmd>DeleteListedBuffers<CR>", "Delete Buffers" },
         k = { "<cmd>!kubectl apply -f %<CR>", "Kubectl Apply"},
+        m = { "<cmd>Chmod<CR>", "Chmod Toggle" },
         q = { "<cmd>confirm q<CR>", "Quit" },
         w = { "<cmd>Wrap<CR>", "Wrap" },
-        -- x = { "<cmd>!chmod +x %<CR><cmd>lua vim.notify 'File Permissions: +x'<CR>", "Chmod +x" },
-        x = { "<cmd>Chmod<CR>", "Chmod +x" },
+        x = { "<cmd>DeleteListedBuffers<CR>", "Delete Buffers" },
         -- v = { "<cmd>vsplit | Alpha<CR>", "Split" },
         -- b = { name = "Buffers" }, --get rid of imbedded
         -- expandable --
-        f = { name = "Find" },
-        g = { name = "Git" },
-        h = { name = "Hop", mode = { "n", "v" } },
-        l = { name = "Lsp", mode = { "n", "v" } },
-        n = { name = "Nomodoro" },
+        c = { name = " Compile" },
+        f = { name = " Find" },
+        g = { name = "󰊢 Git" },
+        l = { name = "󰣖 Lsp", mode = { "n", "v" } },
         o = {
-            name = "Obsidian",
+            name = " Obsidian",
             l = { name = "Links" },
         },
         p = {
-            name = "Path",
+            name = "󰒺 Path",
             a = { ":lua PasteFilePathInline()<CR>", "Absolute" },
             r = { ":lua PasteRelativePathInline()<CR>", "Relative" },
         },
-        s = { name = "Side" },
-        t = { name = "Test" },
+        s = { name = " Side" },
+        t = { name = "󰙨 Test" },
         y = { name = "Fun" },
-        z = { name = "Zen" },
-        d = { name = "Debug" },
-        r = { name = "Repl", mode = { "n", "v" } },
+        z = { name = "󱂬 Zen" },
+        d = { name = " Debug" },
+        r = { name = " Repl", mode = { "n", "v" } },
 
         -- p = { name = "Plugins" },
     }
 
     local which_key = require "which-key"
     which_key.setup {
+        icons = {
+            -- gets rid of the "+" sign in front of the expandable options
+            group = ""
+        },
         plugins = {
             marks = true,
             registers = true,
