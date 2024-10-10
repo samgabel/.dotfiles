@@ -89,10 +89,10 @@ function M.config()
         "html",
         "cssls",
         "bashls",
+        "helm_ls",
         "yamlls",
         "jsonls",
         "dockerls",
-        "ansiblels",
         "terraformls",
     }
 

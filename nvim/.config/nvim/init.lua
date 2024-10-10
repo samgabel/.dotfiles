@@ -40,6 +40,7 @@ spec "plugin.support.treesitter-textobjects"
 spec "plugin.support.twilight"
 -- language-specific
 spec "plugin.support.language-specific.sql.dadbod"
+spec "plugin.support.language-specific.helm.helm"
 -- daps
 spec "plugin.support.dapsettings.dap-python"
 spec "plugin.support.dapsettings.dap-js"
