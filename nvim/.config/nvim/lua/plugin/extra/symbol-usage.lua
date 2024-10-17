@@ -90,6 +90,14 @@ function M.config()
         references = { enabled = true, include_declaration = false },
         definition = { enabled = true },
         implementation = { enabled = true },
+        -- Disable dockerfile symbols
+        disable = {
+            cond = {
+                function()
+                    return vim.fn.expand("%:p"):match(".*[dD]ockerfile.*$")
+                end,
+            },
+        },
     })
 
 end
