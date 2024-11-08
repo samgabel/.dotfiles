@@ -162,7 +162,7 @@ vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter", "FileType"}, {
         if vim.bo.filetype == "go" then
             vim.opt.expandtab = false -- convert tabs to spaces
             vim.opt.tabstop = 4 -- tab length is 4 characters long
-            vim.opt.listchars = { tab = "⠀⠀", trail = "·"} -- formats the trailing dot when typing and the literal tab character
+            vim.opt.listchars = { tab = "⠀⠀", trail = "•"} -- formats the trailing dot when typing and the literal tab character
         end
     end
 })
