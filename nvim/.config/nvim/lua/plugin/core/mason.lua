@@ -24,14 +24,14 @@ function M.config()
         "yamlls",
         "jsonls",
         "dockerls",
-        "ansiblels",
         "terraformls",
     }
     -- DAP list --
     local daps = {
         "debugpy",
         -- javascript uses the "microsoft/vscode-js-debug" in support/dapsettings/dap-js.lua
-        "delve"
+        "delve",
+        "codelldb"
     }
     -- LINTER list --
     local linters = {
@@ -45,6 +45,7 @@ function M.config()
         "gomodifytags", -- go
         "stylua",       -- lua
         "prettier",     -- combo
+        "clang-format", -- clang
     }
 
 
