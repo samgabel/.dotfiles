@@ -25,7 +25,7 @@ tmux_switch_to_session() {
 current_session=$(tmux display-message -p \#S)
 
 choice=$(sort -rfu <<< "$tmuxsessions" \
-    | $fzf_tmux_script -p -w 45 -h 10 -x 150 -y 41 --border --border-label="$(printf "\033[1;37;4mSwitch Session:\033[0m $current_session")" --color=label:\#99FF9F \
+    | $fzf_tmux_script -p -w 45 -h 10 -x 165 -y 54 --border --border-label="$(printf "\033[1;37;4mSwitch Session:\033[0m $current_session")" --color=label:\#99FF9F \
     | tr -d '\n')
 
 

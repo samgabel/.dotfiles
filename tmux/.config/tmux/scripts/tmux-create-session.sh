@@ -22,7 +22,7 @@ fi
 # Send search results to fzf-tmux so that we can pick a directory path
 selected=$(find -L "${search_dirs[@]}" -mindepth 1 -maxdepth 1 -type d ! -name '.git' ! -name '.*' ! -name 'TEST' \
     | sed "s|^$HOME|~|" \
-    | $fzf_tmux_script -p -w 70 -h 15 -x 150 -y 41 --border --border-label="$(printf "\033[1;37;4mCreate Session\033[0m")")
+    | $fzf_tmux_script -p -w 70 -h 15 -x 140 -y 54 --border --border-label="$(printf "\033[1;37;4mCreate Session\033[0m")")
 # convert back into absolute path for `tmux new-session -c` command
 selected=${selected//"~"/$HOME}
 
