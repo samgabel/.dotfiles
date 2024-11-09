@@ -1601,7 +1601,7 @@
 		</dict>
 	</dict>
 	<key>Default Arrangement Name</key>
-	<string>BASIC</string>
+	<string>Default</string>
 	<key>Default Bookmark Guid</key>
 	<string>FB46F338-346A-4012-B0C5-7A1A498E081B</string>
 	<key>DimBackgroundWindows</key>
@@ -1939,7 +1939,7 @@
 			<key>Close Sessions On End</key>
 			<true/>
 			<key>Columns</key>
-			<integer>162</integer>
+			<integer>206</integer>
 			<key>Command</key>
 			<string></string>
 			<key>Cursor Color</key>
@@ -2499,7 +2499,7 @@
 			<key>Right Option Key Sends</key>
 			<integer>0</integer>
 			<key>Rows</key>
-			<integer>42</integer>
+			<integer>55</integer>
 			<key>Screen</key>
 			<integer>-1</integer>
 			<key>Scrollback Lines</key>
@@ -5702,17 +5702,17 @@
 				<real>90</real>
 			</dict>
 		</array>
-		<key>old</key>
+		<key>Default</key>
 		<array>
 			<dict>
 				<key>Desired Columns</key>
-				<integer>154</integer>
+				<integer>176</integer>
 				<key>Desired Rows</key>
-				<integer>35</integer>
+				<integer>45</integer>
 				<key>Has Toolbelt</key>
 				<false/>
 				<key>Height</key>
-				<real>864</real>
+				<real>1089</real>
 				<key>Hide After Opening</key>
 				<false/>
 				<key>Hiding Toolbelt Should Resize Window</key>
@@ -5740,7 +5740,7 @@
 						<key>Root</key>
 						<dict>
 							<key>Splitter ID</key>
-							<string>35CAAF14-FDFF-40FF-B9D7-15D9D497DE58</string>
+							<string>EA716BBD-74FE-42E1-910D-833B8E6463FD</string>
 							<key>Subviews</key>
 							<array>
 								<dict>
@@ -6008,10 +6008,12 @@
 											</dict>
 											<key>Blend</key>
 											<real>0.50247985839843745</real>
+											<key>Blink Allowed</key>
+											<false/>
 											<key>Blinking Cursor</key>
-											<true/>
+											<false/>
 											<key>Blur</key>
-											<true/>
+											<false/>
 											<key>Blur Radius</key>
 											<real>0.10000000000000001</real>
 											<key>Bold Color</key>
@@ -6036,7 +6038,7 @@
 											<key>Close Sessions On End</key>
 											<true/>
 											<key>Columns</key>
-											<integer>154</integer>
+											<integer>206</integer>
 											<key>Command</key>
 											<string></string>
 											<key>Cursor Color</key>
@@ -6580,13 +6582,15 @@
 											<key>Non-ASCII Ligatures</key>
 											<false/>
 											<key>Normal Font</key>
-											<string>LigaSFMonoNerdFont-Bold 14</string>
+											<string>SauceCodeProNF-SemiBold 15</string>
 											<key>Only The Default BG Color Uses Transparency</key>
 											<false/>
 											<key>Open Toolbelt</key>
 											<false/>
 											<key>Option Key Sends</key>
 											<integer>2</integer>
+											<key>Place Prompt at First Column</key>
+											<false/>
 											<key>Prevent Opening in a Tab</key>
 											<false/>
 											<key>Prompt Before Closing 2</key>
@@ -6594,7 +6598,7 @@
 											<key>Right Option Key Sends</key>
 											<integer>0</integer>
 											<key>Rows</key>
-											<integer>35</integer>
+											<integer>55</integer>
 											<key>Screen</key>
 											<integer>-1</integer>
 											<key>Scrollback Lines</key>
@@ -6632,17 +6636,23 @@
 											<key>Silence Bell</key>
 											<true/>
 											<key>Smart Cursor Color</key>
-											<false/>
+											<true/>
 											<key>Sync Title</key>
 											<false/>
 											<key>Tags</key>
 											<array/>
 											<key>Terminal Type</key>
 											<string>xterm-256color</string>
+											<key>Thin Strokes</key>
+											<integer>0</integer>
 											<key>Title Components</key>
 											<integer>4</integer>
 											<key>Transparency</key>
-											<real>0.019999999999999997</real>
+											<real>0.0</real>
+											<key>Unicode Normalization</key>
+											<integer>0</integer>
+											<key>Unicode Version</key>
+											<integer>9</integer>
 											<key>Unlimited Scrollback</key>
 											<false/>
 											<key>Use Bold Font</key>
@@ -6650,7 +6660,7 @@
 											<key>Use Bright Bold</key>
 											<true/>
 											<key>Use Cursor Guide</key>
-											<true/>
+											<false/>
 											<key>Use Custom Window Title</key>
 											<true/>
 											<key>Use Italic Font</key>
@@ -6660,7 +6670,7 @@
 											<key>Use Underline Color</key>
 											<false/>
 											<key>Vertical Spacing</key>
-											<real>1.1599999999999999</real>
+											<real>1</real>
 											<key>Visual Bell</key>
 											<true/>
 											<key>Window Type</key>
@@ -6669,7 +6679,7 @@
 											<string>/Users/samgabel</string>
 										</dict>
 										<key>Columns</key>
-										<integer>157</integer>
+										<integer>206</integer>
 										<key>Commands</key>
 										<array/>
 										<key>Directories</key>
@@ -6696,15 +6706,13 @@
 										</dict>
 										<key>Program</key>
 										<dict>
-											<key>Command</key>
-											<string>login -fqp "samgabel"</string>
 											<key>Type</key>
-											<string>Command</string>
+											<string>Shell Launcher</string>
 										</dict>
 										<key>Rows</key>
-										<integer>41</integer>
+										<integer>55</integer>
 										<key>Session GUID</key>
-										<string>83F897C0-780E-4ACF-8BC1-EA17483A0010</string>
+										<string>CA6BCFB9-0F1A-4BD3-A0CC-FEF85D87EF3A</string>
 										<key>Short Lived Single Use</key>
 										<false/>
 										<key>Should Expect Current Dir Updates</key>
@@ -6726,9 +6734,9 @@
 									<key>frame</key>
 									<dict>
 										<key>height</key>
-										<real>826</real>
+										<real>1051</real>
 										<key>width</key>
-										<real>1423</real>
+										<real>1864</real>
 										<key>x</key>
 										<real>0.0</real>
 										<key>y</key>
@@ -6741,9 +6749,9 @@
 							<key>frame</key>
 							<dict>
 								<key>height</key>
-								<real>826</real>
+								<real>1051</real>
 								<key>width</key>
-								<real>1423</real>
+								<real>1864</real>
 								<key>x</key>
 								<real>0.0</real>
 								<key>y</key>
@@ -6753,11 +6761,11 @@
 							<false/>
 						</dict>
 						<key>Tab GUID</key>
-						<string>124D56C3-6B20-4A6A-8EC3-D9F61A6AEE47</string>
+						<string>EA2F6DBE-5A32-4995-A365-385A5375465D</string>
 					</dict>
 				</array>
 				<key>TerminalGuid</key>
-				<string>pty-104F5428-DE50-4620-98F9-121BFDE7F1ED</string>
+				<string>pty-7D2C1880-0481-42C8-8F5B-068090037FFC</string>
 				<key>Title Override</key>
 				<string> </string>
 				<key>Toolbelt</key>
@@ -6788,13 +6796,13 @@
 				<key>Use Transparency</key>
 				<true/>
 				<key>Width</key>
-				<real>1423</real>
+				<real>1864</real>
 				<key>Window Type</key>
 				<integer>13</integer>
 				<key>X Origin</key>
-				<real>128</real>
+				<real>93</real>
 				<key>Y Origin</key>
-				<real>78</real>
+				<real>100</real>
 			</dict>
 		</array>
 	</dict>

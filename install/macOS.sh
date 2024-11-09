@@ -28,6 +28,7 @@ echo "INSTALLING HOMEBREW!!"
 if ! command -v brew >/dev/null; then
   echo "Homebrew is not installed. Installing Homebrew..."
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+  export PATH=/opt/homebrew/bin:$PATH
 else
   echo "Homebrew already installed!"
 fi
@@ -65,6 +66,8 @@ mise exec -- npm install -g neovim
 # Finishing Touches---------------
 echo "1) Make sure iTerm2 is installed & ..."
 echo "2) Configure General » Preferences » Path=~/.dotfiles/iterm2/"
+cd ~
+touch .hushlogin
 
 
 echo "##################################################################################################################"
