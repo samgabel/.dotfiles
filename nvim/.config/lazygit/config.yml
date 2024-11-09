@@ -40,5 +40,6 @@ promptToReturnFromSubprocess: false
 notARepository: "quit"
 
 git:
+  autoFetch: false
   commit:
     signOff: false
