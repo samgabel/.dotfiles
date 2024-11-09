@@ -51,7 +51,7 @@ precmd() {
 }
 
 # Load Integrations
-eval "$(fzf --zsh)"             # fzf shell integration (Ctrl-r)
+eval "$(fzf --zsh)"             # fzf shell integration (Ctrl-r) & (Alt-c)
 eval "$(mise activate zsh)"     # mise shell integration
 
 # For Testing-------
