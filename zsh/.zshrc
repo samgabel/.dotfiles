@@ -30,6 +30,7 @@ bindkey -r "^D"                         # remove native zsh-completion on Ctrl-d
 # MacOS Specific
 if [[ "$OSTYPE" == "darwin"* ]]; then
   export -U PATH=/opt/homebrew/bin:$PATH
+  export -U FPATH=/opt/homebrew/share/zsh/site-functions:$FPATH
   export XDG_CONFIG_HOME="$HOME/.config"
   export XDG_DATA_HOME="$HOME/.local/share"
   export XDG_STATE_HOME="$HOME/.local/state"
