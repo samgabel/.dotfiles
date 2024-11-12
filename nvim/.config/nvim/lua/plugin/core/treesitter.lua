@@ -14,6 +14,7 @@ function M.config()
     ---@diagnostic disable-next-line: missing-fields
     require("nvim-treesitter.configs").setup {
         ensure_installed = {
+            "vimdoc",
             "markdown",
             "markdown_inline",
             "dap_repl",
