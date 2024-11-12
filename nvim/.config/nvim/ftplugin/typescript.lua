@@ -5,6 +5,5 @@ vim.opt_local.tabstop = 2 -- insert 2 spaces for a tab
 -- indent-line support
 local hooks = require("ibl.hooks")
 hooks.register(hooks.type.ACTIVE, function()
-    return vim.opt_local.filetype:get() == "javascript"
+    return vim.opt_local.filetype:get() == "typescript"
 end)
-

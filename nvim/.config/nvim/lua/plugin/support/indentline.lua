@@ -1,6 +1,6 @@
 local M = {
     "lukas-reineke/indent-blankline.nvim",
-    ft = { "yaml", "yml", "toml" }
+    lazy = true,
 }
 
 function M.config()
