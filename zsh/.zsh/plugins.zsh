@@ -91,6 +91,10 @@ function load_ins_key () {                  # insert mode keybinds
         '^J' history-search-forward
         '^R' fzf-history-widget
         '^v' describe-key-briefly
+        '\ef' forward-word
+        '\eb' backward-word
+        '\ed' kill-word
+        '\e^?' backward-kill-word
     )
     set_keys viins
 }
