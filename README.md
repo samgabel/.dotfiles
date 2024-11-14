@@ -1,6 +1,6 @@
 # Hi, there! 👋
 
-These are my personal dotfiles used for MacOS[intel]
+These are my personal dotfiles used for MacOS
 
 
 ![MacOS Setup](https://github.com/samgabel/.dotfiles/blob/main/MacOS-Config-IMG.png?raw=true)
@@ -9,16 +9,57 @@ These are my personal dotfiles used for MacOS[intel]
 ## Installation Instructions
 
 1) **Clone** this git repository to your home directory and then run
-either script in ~/.dotfiles/install
+either script in `~/.dotfiles/install`
 
 2) Make sure **iTerm2** was successfully installed and open it;
-open preferences and under General -> Preferences and change the path to ~/.dotfiles/iterm2
+open preferences and under General -> Preferences and change the path to `~/.dotfiles/iterm2`
 
-## Troubeshooting
 
-- Make sure that you see if that the configurations have been correctly symlinked by "stow"
-- Make sure that iTerm2 is installed (the install script should do this with brew)
-- See that a compatible NerdFont is being used if icons show up as question marks
+
+
+## MacOS System Settings
+
+
+#### Display Settings
+- **Displays > More Space**
+
+
+#### Desktop & Dock
+- **Minimize windows using**: Scale Effect
+- **Automatically hide and show the Dock**: {x}
+- **Mission Control**:
+  - Automatically rearrange Spaces based on most recent use: { }
+
+
+#### Accessibility
+- **Display**:
+  - **Reduce Motion**: {x}
+  - **Color Filters**:
+    - Filter type: "Color Tint"
+    - Color: "Orange"
+- **Captions**:
+  - **Outline Text**: { }
+
+
+#### Keyboard Settings
+- **Key Repeat Rate**: Max
+- **Delay Until Repeat**: Max - 1
+- **Text Input**: Edit...
+  - **Correct Spelling**: { }
+  - **Capitalize Words**: { }
+  - **Use Smart Quotes and Dashes**: { }
+  - **Change single and double quotes to standard**: "" and ''
+- **Keyboard Shortcuts**:
+  - **Modifier Keys**: (Caps Lock -> ESC)
+  - **Mission Control**:
+    - Move left
+    - Move right
+    - Switch to 1
+    - Switch to 2
+    - Switch to 3
+
+
+
 
 ## Self Notes
 
