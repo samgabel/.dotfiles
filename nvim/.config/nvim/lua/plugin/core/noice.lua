@@ -90,6 +90,7 @@ function M.config()
                         { find = "Cut (.+) to clipboard" },
                         { find = "Copied (.+) to clipboard" },
                         { find = "Renamed (.+) successfully" },
+                        { find = "No items, skipping git ignored/status lookups"},
                         -- LSPConfig
                         { find = "No information available" },
                         -- Neotest
