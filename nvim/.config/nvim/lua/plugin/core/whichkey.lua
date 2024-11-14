@@ -12,7 +12,6 @@ function M.config()
     local mappings = {
         a = { "<cmd>Alpha<cr>", "Dashboard" },
         b = { "<cmd>NoiceDismiss<CR>", "Dismiss" },
-        k = { "<cmd>!kubectl apply -f %<CR>", "Kubectl Apply"},
         m = { "<cmd>Chmod<CR>", "Chmod Toggle" },
         q = { "<cmd>confirm q<CR>", "Quit" },
         w = { "<cmd>Wrap<CR>", "Wrap" },
@@ -23,6 +22,11 @@ function M.config()
         c = { name = " Compile" },
         f = { name = " Find" },
         g = { name = "󰊢 Git" },
+        k = {
+            name = "󱃾 Kubectl",
+            a = { "<cmd>!kubectl apply -f %<CR>", "Apply" },
+            d = { "<cmd>!kubectl delete -f %<CR>", "Delete" },
+        },
         l = { name = "󰣖 Lsp", mode = { "n", "v" } },
         o = {
             name = " Obsidian",
