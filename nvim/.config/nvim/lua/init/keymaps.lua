@@ -49,8 +49,9 @@ keymap("n", "J", "mzJ`z", opts)
 keymap("n", "<M-j>", "<CMD>lua require('trouble').next({skip_groups = true, jump = true})<CR>zz", opts)
 keymap("n", "<M-k>", "<CMD>lua require('trouble').previous({skip_groups = true, jump = true})<CR>zz", opts)
 
--- Delete previous word in insert (like C-w)
+-- macOS style delete previous word in insert mode
 keymap("i", "<M-BS>", "<C-w>", opts)
+-- also <CMD-BS> is set to delete entire line in insert mode
 
 -- NOTE: NO IDEA WHAT THESE DO >
 
