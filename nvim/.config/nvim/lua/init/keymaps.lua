@@ -49,6 +49,9 @@ keymap("n", "J", "mzJ`z", opts)
 keymap("n", "<M-j>", "<CMD>lua require('trouble').next({skip_groups = true, jump = true})<CR>zz", opts)
 keymap("n", "<M-k>", "<CMD>lua require('trouble').previous({skip_groups = true, jump = true})<CR>zz", opts)
 
+-- Delete previous word in insert (like C-w)
+keymap("i", "<M-BS>", "<C-w>", opts)
+
 -- NOTE: NO IDEA WHAT THESE DO >
 
 vim.cmd [[:amenu 10.100 mousemenu.Goto\ Definition <cmd>lua vim.lsp.buf.definition()<CR>]]
