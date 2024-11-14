@@ -12,7 +12,7 @@ These are my personal dotfiles used for MacOS
 either script in `~/.dotfiles/install`
 
 2) Make sure **iTerm2** was successfully installed and open it;
-open preferences and under General -> Preferences and change the path to `~/.dotfiles/iterm2`
+open preferences and under General -> Preferences and change the path to `~/.dotfiles/configs/iterm2`
 
 
 

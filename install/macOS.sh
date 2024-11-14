@@ -52,10 +52,10 @@ echo "##########################################################################
 echo "CONFIGURING!!"
 
 # Stow----------------------------
-cd ~/.dotfiles
-stow nvim
-stow zsh
-stow tmux && ~/.config/tmux/plugins/tpm/bin/install_plugins
+cd ~/.dotfiles/configs
+stow nvim --target=../../.
+stow zsh --target=../../.
+stow tmux --target=../../. && ~/.config/tmux/plugins/tpm/bin/install_plugins
 
 # Mise----------------------------
 mise use --global usage
