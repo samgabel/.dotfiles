@@ -84,6 +84,7 @@ function M.config()
         "lua_ls",
         "pyright",
         "tsserver",
+        "rust_analyzer",
         "gopls",
         "clangd",
         "html",
