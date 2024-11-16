@@ -53,6 +53,7 @@ echo "CONFIGURING!!"
 
 # Stow----------------------------
 cd ~/.dotfiles/configs
+stow macos --target ../../.
 stow nvim --target=../../.
 stow zsh --target=../../.
 stow tmux --target=../../. && ~/.config/tmux/plugins/tpm/bin/install_plugins

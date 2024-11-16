@@ -33,7 +33,6 @@ open preferences and under General -> Preferences and change the path to `~/.dot
 
 #### Accessibility
 - **Display**:
-  - **Reduce Motion**: {x}
   - **Color Filters**:
     - Filter type: "Color Tint"
     - Color: "Orange"
