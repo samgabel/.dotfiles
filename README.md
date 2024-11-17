@@ -20,6 +20,11 @@ open preferences and under General -> Preferences and change the path to `~/.dot
 ## MacOS System Settings
 
 
+#### Permissions
+- **Privacy & Security > App Management**
+    - iTerm {x}
+
+
 #### Display Settings
 - **Displays > More Space**
 
