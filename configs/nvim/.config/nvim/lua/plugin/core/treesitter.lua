@@ -32,6 +32,7 @@ function M.config()
             "gosum",
             "gowork",
             "ssh_config",
+            "prisma",
             -- PROGRAMMING
             "bash",
             "lua",

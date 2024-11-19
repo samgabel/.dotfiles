@@ -95,6 +95,7 @@ function M.config()
         "jsonls",
         "dockerls",
         "terraformls",
+        "prismals",
     }
 
     -- (CUSTOMIZE) ICONS & VIRTUAL TEXT & DIAGNOSTIC FLOAT ----------------------------------------------

@@ -26,6 +26,7 @@ function M.config()
         "jsonls",
         "dockerls",
         "terraformls",
+        "prismals",
     }
     -- DAP list --
     local daps = {
