@@ -31,7 +31,7 @@ alias t="tmux new-session -s '󱂶⠀HOME' \; new-session -ds '󰞹 TEST' -c ~/T
 alias ta="tmux a"
 
 ## PATH
-alias path='echo $path | tr " " "\n" | bat --file-name PATH'
+alias path='echo $path | tr " " "\n" | fzf | tr -d "\n" | pbcopy'
 
 # MAC OS--------------------------------------------------------------------------------------------
 if [[ "$OSTYPE" == "darwin"* ]]; then
