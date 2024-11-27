@@ -2,7 +2,7 @@
 
 # Navigate to the top-level directory
 
-LAZY_DIR=/Users/samgabel/.local/share/nvim/lazy
+LAZY_DIR=/Users/${USER}/.local/share/nvim/lazy
 cd $LAZY_DIR
 
 # Loop through all subdirectories
