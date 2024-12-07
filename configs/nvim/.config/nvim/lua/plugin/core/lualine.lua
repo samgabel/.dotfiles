@@ -42,6 +42,7 @@ function M.config()
             lualine_a = {},
             lualine_b = {
                 { require("noice").api.status.mode.get, cond = require("noice").api.status.mode.has, color = { fg = "#ff9e64" }, },
+                { "tabs", cond = function() return #vim.fn.gettabinfo() > 1 end, }
             },
             lualine_c = {
                 "branch",
