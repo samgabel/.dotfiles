@@ -8,7 +8,8 @@ function M.config()
     require("which-key").register({
         prefix = "<leader>",
         g = {
-            g = { function() require("snacks").lazygit.open() end, "Open" },
+            g = { function() require("snacks").lazygit.open() end, "Lazygit" },
+            f = { function() require("snacks").lazygit.log_file() end, "File Log"}
         },
     })
 

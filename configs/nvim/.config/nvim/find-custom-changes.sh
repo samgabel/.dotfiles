@@ -12,7 +12,7 @@ for dir in */; do
         cd "$dir"
 
         # Check for modifications outside of doc/ directory and that aren't package-lock changes
-        if git status --porcelain | grep -v '^.. doc/' | grep -v '^.. package-lock.json' | grep -q '^'; then
+        if git status --porcelain | grep -v '^.. doc/' | grep -v 'package-lock.json' | grep -v 'yarn.lock' | grep -q '^'; then
             echo "Modified: $LAZY_DIR/$dir"
         fi
 
