@@ -123,7 +123,7 @@ function envd() {
             -sd) direnv_mode=true show_values=true ;;
             *)
                 echo "env illegal option -- $1" >&2
-                echo "usage: [-l local] [-s strip]"
+                echo "usage: [-d local] [-s strip]"
                 return 1
                 ;;
         esac
@@ -228,4 +228,22 @@ function crowdsec-add() {
 ## Crowdsec Delete Decision
 function crowdsec-delete() {
   docker exec crowdsec cscli decisions delete --ip "$@"
+}
+
+
+# KUBERNETES FUNCTIONS =======================================================================================================================>
+
+## Change namespace in kubeconfig context
+function kswitch() {
+    local context_name="$(k config view | yq '.contexts.[0].name')"
+    local result="$(kubectl get ns $@ 2>&1 >/dev/null)"
+    if echo "$result" | grep -q "NotFound"; then
+        echo "Not a valid namespace: $@"
+        return 1
+    fi
+    if echo "$result" | grep -q "forbidden"; then
+        echo "Access is forbidden to namespace: $@"
+        return 1
+    fi
+    kubectl config set-context $context_name --namespace $@
 }
