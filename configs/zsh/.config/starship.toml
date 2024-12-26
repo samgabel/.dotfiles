@@ -13,6 +13,7 @@ $git_status\
 
 $fill\
 $kubernetes\
+$gcloud\
 $package\
 $c\
 $python\
@@ -110,6 +111,11 @@ empty_symbol = "󰂎 "
 [kubernetes]
 disabled = false
 format = '[󱃾 $context\($namespace\)](bold #add8e6) '
+
+# Shows google cloud account and domain
+[gcloud]
+format = '[󱇶 $account(\($project\))](bold #add8a6) '
+detect_env_vars = ["CLOUDSDK_ACTIVE_CONFIG_NAME"]
 
 # Languages
 [package]
