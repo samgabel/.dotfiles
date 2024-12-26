@@ -3,10 +3,10 @@ local M = {
     event = "VeryLazy",
     dependencies = {
         { "nvim-telescope/telescope-fzf-native.nvim", build = "make", lazy = true },
-        { "nvim-telescope/telescope-ui-select.nvim" },
-        { "ANGkeith/telescope-terraform-doc.nvim" },
-        { "debugloop/telescope-undo.nvim" },
-        { 'crispgm/telescope-heading.nvim' },
+        { "nvim-telescope/telescope-ui-select.nvim", lazy = true },
+        { "ANGkeith/telescope-terraform-doc.nvim", lazy = true },
+        { "debugloop/telescope-undo.nvim", lazy = true },
+        { "crispgm/telescope-heading.nvim", lazy = true },
     },
 }
 
