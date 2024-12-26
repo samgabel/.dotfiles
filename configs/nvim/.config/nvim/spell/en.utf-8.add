@@ -81,3 +81,6 @@ autoscaling
 autoscaler
 supabase
 proxmox
+helmfile
+k3s
+traefik
