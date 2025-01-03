@@ -5,35 +5,35 @@ MFILE="/System/Library/CoreServices/SystemVersion.plist"
 
 # LINUX ------------
 if [[ -f $LFILE ]]; then
-  _distro=$(awk '/^NAME=/' /etc/os-release | awk -F'=' '{ print tolower($2) }')
+    _distro=$(awk '/^NAME=/' /etc/os-release | awk -F'=' '{ print tolower($2) }')
 
-   #sorting out debian if it is true debian or raspbian debian
-  if [[ $_distro == *debian* ]]; then
-    VERSION_CODENAME=$(awk -F'=' '/VERSION_CODENAME/ {print $2}' /etc/os-release)
-    if [[ $VERSION_CODENAME == bullseye ]]; then
-      _distro="raspbian"
-    else
-      _distro="debian"
+    #sorting out debian if it is true debian or raspbian debian
+    if [[ $_distro == *debian* ]]; then
+        VERSION_CODENAME=$(awk -F'=' '/VERSION_CODENAME/ {print $2}' /etc/os-release)
+        if [[ $VERSION_CODENAME == bullseye ]]; then
+            _distro="raspbian"
+        else
+            _distro="debian"
+        fi
     fi
-  fi
 
-  # on linux use systemd to determine if we are in a virtual environment or not
-  _device=$(systemd-detect-virt)
-  case $_device in
-    *none*)        DEVICE="";;
-    *)             DEVICE="";;
-  esac
+    # on linux use systemd to determine if we are in a virtual environment or not
+    _device=$(systemd-detect-virt)
+    case $_device in
+        *none*)        DEVICE="";;
+        *)             DEVICE="";;
+    esac
 
-#MacOS --------------
+
+# MacOS --------------
 elif [[ -f $MFILE ]]; then
-  _distro="macos"
+    _distro="macos"
 
   # on mac os use the systemprofiler to determine the current model
   _device=$(system_profiler SPHardwareDataType | awk '/Model Name/ {print $3,$4,$5,$6,$7}')
-
   case $_device in
-    *MacBook*)     DEVICE="󰌢";;
-    *)             DEVICE="";;
+      *MacBook*)     DEVICE="󰌢";;
+      *)             DEVICE="";;
   esac
 fi
 
