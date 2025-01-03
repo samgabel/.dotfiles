@@ -33,7 +33,7 @@ gui:
       - '#f9e2af'
   authorColors:
     'Sam Gabel': '#fab387'
-    '*': '#b4befe'
+    # '*': '#b4befe'
   showFileTree: false
 
 promptToReturnFromSubprocess: false
