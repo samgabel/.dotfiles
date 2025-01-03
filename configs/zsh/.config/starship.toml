@@ -110,7 +110,7 @@ empty_symbol = "󰂎 "
 # Shows kubernetes context and namespace
 [kubernetes]
 disabled = false
-format = '[󱃾 $context\($namespace\)](bold #add8e6) '
+format = '[󱃾 $cluster\($namespace\)](bold #add8e6) '
 
 # Shows google cloud account and domain
 [gcloud]

@@ -52,6 +52,7 @@ fi
 
 ## Kubernetes alias
 alias k="kubectl"
+alias ks="kswitch"
 
 ## Docker alias
 alias dps="docker ps --format 'table {{.Names}}\t {{.ID}}\t {{.Image}}\t {{.Status}}\t'"
