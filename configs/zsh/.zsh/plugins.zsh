@@ -42,7 +42,7 @@ zinit light jeffreytse/zsh-vi-mode
 # CONFIGURATION --------------------------------------------------------------------------
 
 # History
-HISTSIZE=5000
+HISTSIZE=10000
 HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
