@@ -16,8 +16,8 @@ done
 
 # Exports
 export GOPATH=~/.go
-export VISUAL=nvim
-export EDITOR="$VISUAL"
+export EDITOR="$HOME/.zsh/editor-float.zsh"
+export VISUAL="$EDITOR"
 export MISE_ENV_FILE=.env               # have mise handle exporting variables like direnv
 
 # Keybindings
