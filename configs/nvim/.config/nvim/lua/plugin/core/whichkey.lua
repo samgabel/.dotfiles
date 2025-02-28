@@ -21,7 +21,10 @@ function M.config()
         -- expandable --
         c = { name = " Compile" },
         f = { name = " Find" },
-        g = { name = "󰊢 Git" },
+        g = {
+            name = "󰊢 Git",
+            x = { "<cmd>!ssh -O exit git@github.com<CR>", "Flush GitHub ControlMaster" },
+        },
         k = {
             name = "󱃾 Kubectl",
             a = { "<cmd>!kubectl apply -f %<CR>", "Apply" },
