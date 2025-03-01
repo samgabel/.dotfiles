@@ -197,6 +197,27 @@ function reveal() {
     [ -f ${output} ] && rm -f "${1}"
 }
 
+## ControlMasters COMMMANDS
+function flushctlmasters() {
+    local control_path="$HOME/.ssh/controlmasters"
+    if [ ! -d "$control_path" ]; then
+        echo "ControlMaster directory not found: $control_path"
+        return
+    fi
+    if [ $# -gt 0 ]; then
+        ssh -O exit "$@" 2>/dev/null
+        echo "Exiting ControlMaster for $@"
+        return
+    fi
+    for socket in "$control_path"/*; do
+        if [ -S "$socket" ]; then
+            local host=$(basename "$socket" | cut -d ":" -f 1)
+            ssh -O exit "$host" 2>/dev/null
+            echo "Exiting ControlMaster for $host"
+        fi
+    done
+}
+
 ## CF-Terraforming COMMANDS ---------------------------------
 function cf-infra-generate() {
     cloudflare_zone_id=$(bws get secret b77cd89f-d97a-4368-b1aa-b006000c314b | jq '.value' | tr -d \'\"\')
@@ -235,7 +256,7 @@ function crowdsec-delete() {
 
 ## Change namespace in kubeconfig context
 function kswitch() {
-    local context_name="$(k config view | yq '.contexts.[0].name')"
+    local context_name="$(kubectl config current-context)"
     local result="$(kubectl get ns $@ 2>&1 >/dev/null)"
     if echo "$result" | grep -q "NotFound"; then
         echo "Not a valid namespace: $@"
