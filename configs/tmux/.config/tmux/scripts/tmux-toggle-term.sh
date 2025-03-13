@@ -2,7 +2,7 @@
 
 if [ $(tmux list-panes | wc -l) -eq 1 ]; then
     # If there is only one pane, create a horizontal split and focus on the bottom pane
-    tmux send-keys Escape \; send-keys C-s \; split-window -v -l 20
+    tmux send-keys Escape \; send-keys C-s \; split-window -v -l 50%
 else
     # If there are multiple panes, check the zoom state of the top pane
     if [ $(tmux display-message -p "#{window_zoomed_flag}") -eq 1 ]; then
