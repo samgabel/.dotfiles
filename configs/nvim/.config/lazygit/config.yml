@@ -33,6 +33,7 @@ gui:
       - '#f9e2af'
   authorColors:
     'Sam Gabel': '#fab387'
+    'Shuriken Infra': '#fffff0'
     # '*': '#b4befe'
   showFileTree: false
 
@@ -43,3 +44,6 @@ git:
   autoFetch: false
   commit:
     signOff: false
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never
