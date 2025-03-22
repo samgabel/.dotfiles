@@ -60,9 +60,9 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*:git-checkout:*' sort false        ### disable sort when completing `git checkout`
 zstyle ':fzf-tab:complete:nvim:*' fzf-min-height '50'   ### set preview-box size
 zstyle ':fzf-tab:complete:*:*' fzf-pad '50'
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -a -1 --color=always --icons --group-directories-first $realpath'
-zstyle ':fzf-tab:complete:bat:*' fzf-preview 'eza -a -1 --color=always --icons --group-directories-first $realpath'
-zstyle ':fzf-tab:complete:nvim:*' fzf-preview 'eza -a -1 --color=always --icons --group-directories-first $realpath'
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -a --tree --level 1 --color=always --icons --group-directories-first $realpath'
+zstyle ':fzf-tab:complete:bat:*' fzf-preview 'eza -a --tree --level 1 --color=always --icons --group-directories-first $realpath'
+zstyle ':fzf-tab:complete:nvim:*' fzf-preview 'eza -a --tree --level 1 --color=always --icons --group-directories-first $realpath'
 
 # Zsh-Vi-Mode configuration
 # https://github.com/jeffreytse/zsh-vi-mode/issues/209
