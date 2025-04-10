@@ -15,6 +15,7 @@ for file in "${files_to_source[@]}"; do
 done
 
 # Exports
+export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 export GOPATH=~/.go
 export EDITOR="$HOME/.zsh/editor-float.zsh"
 export VISUAL="$EDITOR"
