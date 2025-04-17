@@ -3,7 +3,7 @@
 
 # Search_dir differs between darwin and linux
 if [[ $OSTYPE == 'darwin'* ]]; then
-    search_dirs=(~/Work/ShurikenTrade ~/Work/Devel ~/Projects ~/Projects/Devel ~/Projects/Boot.Dev ~/Projects/Kubernetes ~/Projects/GCP ~/Documents ~/.config)
+    search_dirs=(~/Work/ShurikenTrade ~/Work/Devel ~/Projects ~/Projects/Devel ~/Projects/Boot.Dev ~/Projects/OpenSource ~/Projects/Kubernetes ~/Projects/GCP ~/Documents ~/.config)
 else
     search_dirs=(~/)
 fi
