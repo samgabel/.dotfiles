@@ -36,6 +36,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   export XDG_DATA_HOME="$HOME/.local/share"
   export XDG_STATE_HOME="$HOME/.local/state"
   export PASSWORD_STORE_DIR=/Users/samgabel/Secrets/pass        # pass-store
+  export EZA_CONFIG_DIR="$HOME/.config/eza"
 fi
 
 
@@ -60,3 +61,6 @@ eval "$(mise activate zsh)"     # mise shell integration
 # For Testing-------
 # zprof
 #-------------------
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/samgabel/.lmstudio/bin"
