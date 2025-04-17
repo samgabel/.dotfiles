@@ -26,7 +26,8 @@ function M.config()
             end
 
             local sign = " " -- nf-fa-gear \uf013
-            local lsp_clients = vim.lsp.get_active_clients()
+            local bufnr = vim.api.nvim_get_current_buf()
+            local lsp_clients = vim.lsp.get_active_clients({ bufnr = bufnr })
             local messages_map = {}
             for _, climsg in ipairs(client_messages) do
                 messages_map[climsg.name] = climsg.body
