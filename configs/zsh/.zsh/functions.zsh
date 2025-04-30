@@ -1,5 +1,56 @@
 # GLOBAL FUNCTIONS =======================================================================================================================>
 
+## Tmux Multi-Server ---------------------------------------
+function tmux-new-server() {
+    local socket=$1
+    if [[ -z "$socket" ]]; then
+        echo "Usage: tnew <socket_name>"
+        return 1
+    fi
+    tmux -L "$socket" new-session -s '󱂶⠀HOME' -c "$HOME" \; new-session -ds '󰞹 TEST' -c "$HOME/TEST"
+}
+
+function tmux-attach-server() {
+    local socket=$1
+    if [[ -z "$socket" ]]; then
+        echo "Usage: ta <socket_name>"
+        return 1
+    fi
+    tmux -L "$socket" attach
+}
+
+function tmux-kill-server() {
+    local socket=$1
+    if [[ -z "$socket" ]]; then
+        echo "Usage: tmux-kill-server <socket_name>"
+        echo "Available tmux servers:"
+        ls /tmp/tmux-$(id -u)/ 2>/dev/null
+        return 1
+    fi
+    local sock_file="/tmp/tmux-$(id -u)/$socket"
+    if [[ ! -S "$sock_file" ]]; then
+        echo "❌ No active tmux socket file found for '$socket'."
+        return 1
+    fi
+    echo -n "⚠️  Are you sure you want to kill tmux server '$socket'? (y/N) "
+    read -r confirm
+    if [[ "$confirm" != [yY] ]]; then
+        echo "Cancelled."
+        return 0
+    fi
+    # Try to kill the tmux server
+    tmux -L "$socket" kill-server 2>/dev/null
+    # Give the server a moment to clean itself up
+    sleep 0.2
+    # If the process is gone but the socket remains, clean it up manually
+    if [[ -S "$sock_file" ]] && ! pgrep -f "tmux.*-L $socket" > /dev/null; then
+        echo "🧹 Removing stale socket file: $sock_file"
+        rm -f "$sock_file"
+    fi
+    echo "✅ Tmux server '$socket' terminated."
+}
+
+
 ## Test Directory ------------------------------------------
 function mktest() {
     if [ -d "$HOME/TEST" ]; then

@@ -27,8 +27,10 @@ alias lld="eza --icons -lD"
 alias md="glow"
 
 ## Tmux default session name
-alias t="tmux new-session -s '󱂶⠀HOME' \; new-session -ds '󰞹 TEST' -c ~/TEST"
-alias ta="tmux a"
+alias tnew="tmux-new-server"
+alias ta="tmux-attach-server"
+alias tls="ls -1 /tmp/tmux-$(id -u)/"
+alias tkill="tmux-kill-server"
 
 ## PATH
 alias path='echo $path | tr " " "\n" | fzf | tr -d "\n" | pbcopy'
