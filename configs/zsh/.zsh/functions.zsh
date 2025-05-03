@@ -3,8 +3,13 @@
 ## Tmux Multi-Server ---------------------------------------
 function tmux-new-server() {
     local socket=$1
+    local sock_file="/tmp/tmux-$(id -u)/$socket"
     if [[ -z "$socket" ]]; then
         echo "Usage: tnew <socket_name>"
+        return 1
+    fi
+    if [[ -S "$sock_file" ]]; then
+        echo "❌ Tmux server socket '$socket' found try attaching instead"
         return 1
     fi
     tmux -L "$socket" new-session -s '󱂶⠀HOME' -c "$HOME" \; new-session -ds '󰞹 TEST' -c "$HOME/TEST"
@@ -12,8 +17,13 @@ function tmux-new-server() {
 
 function tmux-attach-server() {
     local socket=$1
+    local sock_file="/tmp/tmux-$(id -u)/$socket"
     if [[ -z "$socket" ]]; then
         echo "Usage: ta <socket_name>"
+        return 1
+    fi
+    if [[ ! -S "$sock_file" ]]; then
+        echo "❌ No tmux server socket '$socket' found."
         return 1
     fi
     tmux -L "$socket" attach
@@ -48,6 +58,18 @@ function tmux-kill-server() {
         rm -f "$sock_file"
     fi
     echo "✅ Tmux server '$socket' terminated."
+}
+
+function tmux-clean-stale-sockets() {
+    local sock_dir="/tmp/tmux-$(id -u)"
+    for sock in "$sock_dir"/*; do
+        [[ -S "$sock" ]] || continue
+        local name=$(basename "$sock")
+        tmux -L "$name" has-session 2>/dev/null || {
+            echo "Removing stale socket: $name"
+            rm -f "$sock"
+        }
+    done
 }
 
 

@@ -31,6 +31,7 @@ alias tnew="tmux-new-server"
 alias ta="tmux-attach-server"
 alias tls="ls -1 /tmp/tmux-$(id -u)/"
 alias tkill="tmux-kill-server"
+alias tclean="tmux-clean-stale-sockets"
 
 ## PATH
 alias path='echo $path | tr " " "\n" | fzf | tr -d "\n" | pbcopy'
