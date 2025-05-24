@@ -1,12 +1,3 @@
-# COMMANDS ------------------------------------------
-customCommands:
-  # graph ---------------------
-  - key: "-"
-    context: global
-    description: Show branch graph
-    command: git lg # custom git alias
-    subprocess: true
-
 # GUI -----------------------------------------------
 gui:
   nerdFontsVersion: "3"
@@ -33,17 +24,23 @@ gui:
       - '#f9e2af'
   authorColors:
     'Sam Gabel': '#fab387'
-    'Shuriken Infra': '#fffff0'
-    # '*': '#b4befe'
   showFileTree: false
 
 promptToReturnFromSubprocess: false
 notARepository: "quit"
 
+# GIT ----------------------------------------------
 git:
+  # https://github.com/jesseduffield/lazygit/discussions/4348#discussioncomment-12362665
+  mainBranches:
+    - main
+    - dev
+    - development
+  # disable auto fetching
   autoFetch: false
   commit:
     signOff: false
+  # use delta for git diff
   paging:
     colorArg: always
     pager: delta --dark --paging=never
