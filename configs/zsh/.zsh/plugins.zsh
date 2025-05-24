@@ -5,8 +5,8 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
 # Download Zinit Plugin-Manger, if it's not there yet
 if [ ! -d "$ZINIT_HOME" ]; then
-    mkdir -p "$(dirname $ZINIT_HOME)"
-    git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+	mkdir -p "$(dirname $ZINIT_HOME)"
+	git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
 
 # Source/Load zinit
@@ -17,8 +17,8 @@ source "${ZINIT_HOME}/zinit.zsh"
 
 # Add starship prompt
 zinit ice as"command" from"gh-r" \
-          atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
-          atpull"%atclone" src"init.zsh"
+	atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
+	atpull"%atclone" src"init.zsh"
 zinit light starship/starship
 
 # Add fzf
@@ -27,11 +27,11 @@ zinit light junegunn/fzf
 
 # Add in zsh plugins
 zinit for \
-    light-mode \
-    atload"zicompinit; zicdreplay" \
-    blockf \
-    lucid \
-    wait \
+	light-mode \
+	atload"zicompinit; zicdreplay" \
+	blockf \
+	lucid \
+	wait \
 zsh-users/zsh-completions # this needs to be last completion-related plugin
 zinit ice wait lucid; zinit light Aloxaf/fzf-tab
 zinit ice wait lucid; zinit light zsh-users/zsh-autosuggestions
@@ -70,45 +70,45 @@ ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BEAM
 ZVM_VI_HIGHLIGHT_BACKGROUND=#45475a
 ZVM_VI_HIGHLIGHT_FOREGROUND=#cdd6f4
 local function set_keys() {                 # helper function
-    local mode=$1
-    for key value (${(kv)keys}); do
-        zvm_bindkey $mode $key $value
-    done
+	local mode=$1
+	for key value (${(kv)keys}); do
+		zvm_bindkey $mode $key $value
+	done
 }
 local function unset_key() {                # helper function
-    local mode=$1; shift 1
-    local keys=("$@")
-    for key ($keys); do
-        bindkey -r -M $mode $key
-    done
+	local mode=$1; shift 1
+	local keys=("$@")
+	for key ($keys); do
+		bindkey -r -M $mode $key
+	done
 }
 function load_ins_key () {                  # insert mode keybinds
-    unset_key viins \
-        '^R' '^N' '^P'
-    local -A keys
-    keys=(
-        '^K' history-search-backward
-        '^J' history-search-forward
-        '^R' fzf-history-widget
-        '^v' describe-key-briefly
-        '^[f' forward-word
-        '^[b' backward-word
-        '^[d' kill-word
-        '^[^?' backward-kill-word
-    )
-    set_keys viins
+	unset_key viins \
+		'^R' '^N' '^P'
+	local -A keys
+	keys=(
+		'^K' history-search-backward
+		'^J' history-search-forward
+		'^R' fzf-history-widget
+		'^v' describe-key-briefly
+		'^[f' forward-word
+		'^[b' backward-word
+		'^[d' kill-word
+		'^[^?' backward-kill-word
+	)
+	set_keys viins
 }
 zvm_after_init_commands+=(load_ins_key)
 function zvm_after_lazy_keybindings() {     # normal mode keybinds
-    unset_key vicmd \
-        '^R' '^N' '^P'
-    local -A keys
-    keys=(
-        H vi-beginning-of-line
-        L vi-end-of-line
-        '^K' history-search-backward
-        '^J' history-search-forward
-        '^R' fzf-history-widget
-    )
-    set_keys vicmd
+	unset_key vicmd \
+		'^R' '^N' '^P'
+	local -A keys
+	keys=(
+		H vi-beginning-of-line
+		L vi-end-of-line
+		'^K' history-search-backward
+		'^J' history-search-forward
+		'^R' fzf-history-widget
+	)
+	set_keys vicmd
 }

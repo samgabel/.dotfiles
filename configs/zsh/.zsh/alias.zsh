@@ -38,19 +38,16 @@ alias path='echo $path | tr " " "\n" | fzf | tr -d "\n" | pbcopy'
 
 # MAC OS--------------------------------------------------------------------------------------------
 if [[ "$OSTYPE" == "darwin"* ]]; then
-
-    ## Flush system dns
-    alias flushhostdns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
-
-    ## Recursively delete `.DS_Store` files
-    alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
-
-    ## Plist Buddy
-    alias plistbuddy="/usr/libexec/PlistBuddy"
-
-    ## Hexyl (hex viewer)
-    alias hex="hexyl --terminal-width 150"
-
+	## Flush system dns
+	alias flushhostdns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
+	## Recursively delete `.DS_Store` files
+	alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+	## Plist Buddy
+	alias plistbuddy="/usr/libexec/PlistBuddy"
+	## Hexyl (hex viewer)
+	alias hex="hexyl --terminal-width 150"
+	## Binaries
+	alias ldd="otool -L"
 fi
 
 ## Kubernetes alias
